@@ -1,0 +1,3 @@
+[submodule "WikiHow-Analysis-Tool"]
+	path = WikiHow-Analysis-Tool
+	url = https://github.com/Janfiderheld/WikiHow-Robot-Instruction-Extraction.git
