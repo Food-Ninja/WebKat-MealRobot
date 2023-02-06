@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.semanticweb.org/jan-philipp/ontologies/2022/7/apple-cutting#"
-     xml:base="http://www.semanticweb.org/jan-philipp/ontologies/2022/7/apple-cutting"
+<rdf:RDF xmlns="http://www.ease-crc.org/ont/food_cutting#"
+     xml:base="http://www.ease-crc.org/ont/food_cutting"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:food_cutting="http://www.ease-crc.org/ont/food_cutting#"
-     xmlns:apple-cutting="http://www.semanticweb.org/jan-philipp/ontologies/2022/7/apple-cutting#"
-     xmlns:fruit_cutting="http://www.ease-crc.org/ont/fruit_cutting#">
+     xmlns:food_cutting="http://www.ease-crc.org/ont/food_cutting#">
     <owl:Ontology rdf:about="http://www.ease-crc.org/ont/food_cutting"/>
     
 
