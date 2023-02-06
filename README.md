@@ -19,6 +19,15 @@ In the same manner, you can find out what oval food can be sliced:
 
 <img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><br>
 
-A robot would query for all subclasses of a given class to then query if the given food can be used.
+A robot running KnowRob would similarly query for all subclasses of a given class to then query if the given food can be used as in the following Prolog query:
+```bash
+use_module(library(semweb/rdf_db)).
+rdf_load('food_cutting.owl').
+rdf_register_prefix(cut, 'http://www.ease-crc.org/ont/food_cutting#').
 
-The updated action designator for cutting can be found in this repo. This is just the specific designator part, where parameters can be infered. To see the full potential of the generlized action designators please visit the CRAM website. 
+subclass_of(obj, cut:'Food'), subclass_of(obj, cut:'Slicing').
+```
+
+All information in the stated ontology is accessible by the robot through queries at runtime. The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. Since the inference engine is already in Prolog, necessary information can be acquired through queries. This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
+
+The updated action designator for cutting (which includes the actions slicing and halving as proposed in the paper) can be found in this repo. This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the CRAM website. 
