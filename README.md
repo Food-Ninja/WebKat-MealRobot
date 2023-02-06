@@ -20,3 +20,5 @@ In the same manner, you can find out what oval food can be sliced:
 <img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><br>
 
 A robot would query for all subclasses of a given class to then query if the given food can be used.
+
+The updated action designator for cutting can be found in this repo. This is just the specific designator part, where parameters can be infered. To see the full potential of the generlized action designators please visit the CRAM website. 
