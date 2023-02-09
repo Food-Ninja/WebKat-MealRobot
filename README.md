@@ -1,9 +1,11 @@
 # Food Cutting Robots
 
 This projects deals with the problem of teaching robots how to execute unknown tasks as motivated in the following picture:
+
 <img src="img/Motivation.jpg" width="600" alt="Cutting Food Motivation"/><br>
 
-We therefore created a task hierarchy from WikiHow instructions to get a broad range of tasks that are actually used in recipe instructions, for example. The scripts for this can be found in the files and the description of how we did this is detailed in our paper.
+We therefore created a task hierarchy from WikiHow instructions to get a broad range of tasks that are actually used in recipe instructions, for example. 
+The project we used for analysing the WikiHow instructions is linked and instructions on how to use it are found in the repository. Additional details are provided in the paper. 
 
 The task hierarchy is linked to other ontologies like SOMA and FoodOn, the created ontology can be found in this repo as well.
 
