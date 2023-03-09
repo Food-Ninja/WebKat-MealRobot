@@ -58,6 +58,10 @@ The updated action designator for cutting (which includes the actions slicing an
 This Knowledge Graph is made available under the <a href="http://opendatacommons.org/licenses/by/1.0/">Open Data Commons Attribution License</a>.
 
 
-This knowledge graph has been created by the <a href="https://ai.uni-bremen.de/">Institute for Artificial Intelligence</a> at the University of Bremen as well as. Please contact <a href="https://ai.uni-bremen.de/team/michaela_k%C3%BCmpel">Michaela Kümpel</a> for further info or collaboration: michaela(dot)kuempel(at)uni-bremen(dot)de
+This knowledge graph has been created by the <a href="https://ai.uni-bremen.de/">Institute for Artificial Intelligence</a> at the University of Bremen as well as the <a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/semantic-computing/">Semantic Computing Group</a> at the Cluster of Excellence Cognitive Interaction Technology at Bielefeld University. Please contact <a href="https://ai.uni-bremen.de/team/michaela_k%C3%BCmpel">Michaela Kümpel</a> (michaela(dot)kuempel(at)uni-bremen(dot)de) or Jan-Philipp Töberg (jtoeberg(at)techfak(dot)uni-bielefeld(dot)de) for further information or collaboration.
 
-<img src="img/ai_logo.png" width="200"/><img align=right src="img/university_new.png" width="200"/>
+<p align="center" width="100%">
+      <img width="30%" src="img/ai_logo.png"/>
+      <img width="30%" src="img/university_new.png"/>
+      <img width="30%" src="img/logo_citec_EN.png"/>
+</p>
