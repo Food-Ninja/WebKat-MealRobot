@@ -13,6 +13,8 @@ You can try out how a robot would query the ontology using Protégé and a stand
 
 <img src="img/StartReasoner.png" width="300" alt="Starting the reasoner"/><br>
 
+The knowledge graph is publicly available here and on <a href="https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql">triply</a> for inspection and querying, many thanks to the <a href="https://krr.cs.vu.nl/">knowledge representation and reasoning group</a> at the Vrije Universiteit Amsterdam.
+
 Once you started the reasoner, you can find out what round food can be sliced, for example:
 
 <img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
