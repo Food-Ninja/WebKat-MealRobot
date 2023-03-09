@@ -25,7 +25,25 @@ In the same manner, you can find out what oval food can be sliced:
 
 We use the knowledge graph for robotic applications. Our robots use the <a href="https://github.com/cram2/cram">CRAM cognitive architecture</a> and the <a href="https://github.com/knowrob/knowrob">KnowRob knowledge processing system</a>.
 
-A robot running KnowRob would similarly query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action  and additionally query if the given food can be used for the given action as in the following Prolog query:
+A robot running KnowRob would similarly query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action such as in the following SPARQL query that is also available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a>:
+```bash
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX SOMA: <http://www.ease-crc.org/ont/SOMA.owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+Select DISTINCT  ?obj2 ?obj ?act  WHERE {
+      # find all subclasses of a given action (here:slicing)
+  ?act rdfs:subClassOf SOMA:Slicing.
+  	  # if available, find all subclasses of the subclass
+  OPTIONAL{
+    ?obj rdfs:subClassOf ?act.
+      # if available, find all subclasses of the subclass
+  OPTIONAL{
+    ?obj2 rdfs:subClassOf ?obj.}}
+  } 
+```
+to then query if the given food can be used for the given action as in the following query, which also is available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a>:
 ```bash
 use_module(library(semweb/rdf_db)).
 rdf_load('food_cutting.owl').
