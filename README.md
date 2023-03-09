@@ -9,25 +9,16 @@ The project we used for analysing the WikiHow instructions is linked and instruc
 
 The task hierarchy is linked to other ontologies like SOMA and FoodOn, the created ontology can be found in this repo as well.
 
-You can try out how a robot would query the ontology using Protégé and a standard reasoner like HermiT like in the following picture:
-
-<img src="img/StartReasoner.png" width="300" alt="Starting the reasoner"/><br>
-
-The knowledge graph is publicly available here and on <a href="https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql">triply</a> for inspection and querying, many thanks to the <a href="https://krr.cs.vu.nl/">knowledge representation and reasoning group</a> at the Vrije Universiteit Amsterdam.
-
-Once you started the reasoner, you can find out what round food can be sliced, for example:
-
-<img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
-
-In the same manner, you can find out what oval food can be sliced:
-
-<img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><br>
-
 We use the knowledge graph for robotic applications. Our robots use the <a href="https://github.com/cram2/cram">CRAM cognitive architecture</a> and the <a href="https://github.com/knowrob/knowrob">KnowRob knowledge processing system</a>.
 
-A robot running KnowRob would similarly query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action such as in the following SPARQL query that is also available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a>:
+A robot running KnowRob would similarly query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action such as in the following SPARQL query called with Prolog that is also available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a>:
 ```bash
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
+use_module(library(semweb/rdf_db)).             #load rdf module to load the ontology
+rdf_load('food_cutting.owl').                   #load ontology
+use_module(library(semweb/sparql_client)).      #load SPARQL module
+sparql_query(                                   #call SPARQL query
+
+'PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX SOMA: <http://www.ease-crc.org/ont/SOMA.owl#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -41,16 +32,24 @@ Select DISTINCT  ?obj2 ?obj ?act  WHERE {
       # if available, find all subclasses of the subclass
   OPTIONAL{
     ?obj2 rdfs:subClassOf ?obj.}}
-  } 
+  }', Row,
+  [endpoint('https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql')]).
 ```
-to then query if the given food can be used for the given action as in the following query, which also is available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a>:
-```bash
-use_module(library(semweb/rdf_db)).
-rdf_load('food_cutting.owl').
-rdf_register_prefix(cut, 'http://www.ease-crc.org/ont/food_cutting#').
+to then query if the given food can be used for the given action. For this, the robot needs to use a reasoner.
 
-subclass_of(obj, cut:'Food'), subclass_of(obj, cut:'Slicing').
-```
+You can try out how a robot would query the ontology using Protégé and a standard reasoner like HermiT like in the following picture:
+
+<img src="img/StartReasoner.png" width="300" alt="Starting the reasoner"/><br>
+
+The knowledge graph is publicly available here and on <a href="https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql">triply</a> for inspection and querying, many thanks to the <a href="https://krr.cs.vu.nl/">knowledge representation and reasoning group</a> at the Vrije Universiteit Amsterdam.
+
+Once you started the reasoner, you can find out what food can be sliced, for example. If you add additional parameters that are available in the ontology like the initialShape of an object, you can narrow down the results to all round food that can be sliced, for example:
+
+<img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
+
+In the same manner, you can find out what oval food can be sliced:
+
+<img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><br>
 
 All information in the stated ontology is accessible by the robot through queries at runtime. The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. Since the inference engine is already in Prolog, necessary information can be acquired through queries. This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
 
