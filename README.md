@@ -23,7 +23,9 @@ In the same manner, you can find out what oval food can be sliced:
 
 <img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><br>
 
-A robot running KnowRob would similarly query for all subclasses of a given class to then query if the given food can be used as in the following Prolog query:
+We use the knowledge graph for robotic applications. Our robots use the <a href="https://github.com/cram2/cram">CRAM cognitive architecture</a> and the <a href="https://github.com/knowrob/knowrob">KnowRob knowledge processing system</a>.
+
+A robot running KnowRob would similarly query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action  and additionally query if the given food can be used for the given action as in the following Prolog query:
 ```bash
 use_module(library(semweb/rdf_db)).
 rdf_load('food_cutting.owl').
