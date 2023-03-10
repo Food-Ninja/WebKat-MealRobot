@@ -340,7 +340,7 @@
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
@@ -1277,7 +1277,14 @@
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Oval"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
+                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -1610,7 +1617,14 @@
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Round"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
+                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
+                                </owl:unionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2175,12 +2189,12 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Green_Apple">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301710"/>
-        <food_cutting:hasColor rdf:resource="http://www.ease-crc.org/ont/food_cutting#Green"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem"/>
+        <hasColor rdf:resource="http://www.ease-crc.org/ont/food_cutting#Green"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem"/>
     </owl:NamedIndividual>
     
 
@@ -2293,10 +2307,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Orange_01">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03309832"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds"/>
     </owl:NamedIndividual>
     
 
@@ -2305,10 +2319,10 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Orange_02">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03309832"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds"/>
     </owl:NamedIndividual>
     
 
@@ -2333,8 +2347,8 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#QuarteringRedAppleWithParing">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quartering"/>
-        <food_cutting:target rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red_Apple"/>
-        <food_cutting:usedTool rdf:resource="http://www.ease-crc.org/ont/food_cutting#ParingKnife_01"/>
+        <target rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red_Apple"/>
+        <usedTool rdf:resource="http://www.ease-crc.org/ont/food_cutting#ParingKnife_01"/>
     </owl:NamedIndividual>
     
 
@@ -2351,12 +2365,12 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Red_Apple">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301710"/>
-        <food_cutting:hasColor rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin"/>
-        <food_cutting:hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem"/>
+        <hasColor rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin"/>
+        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem"/>
     </owl:NamedIndividual>
     
 
