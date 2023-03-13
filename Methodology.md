@@ -2,7 +2,7 @@
 
 To achieve our goal of creating an manipulation-focused ontology for flexible Everyday Tasks, we propose the following methodology:
 
-<img src="img/Methodology.jpg" width="600" alt="Methodology Visualization"/><br>
+<img src="img/Methodology.jpg" width="800" alt="Methodology Visualization"/><br>
 
 ## 1. Define necessary knowledge sources for the given task
 
@@ -55,8 +55,8 @@ This means that the robot does not have to actually learn and perform unknown ta
 Below you can find the example task hierarchy for the task of "Cutting an apple":
 
 <p align="center" width="100%">
-      <img width="60%" src="img/AppleHierarchy.eps" alt="Task Hierarchy for 'Cutting an apple'"/>
-      <img width="40%" src="img/HierarchyLegend.eps" alt="Legend for the Task Hierarchy"/>
+      <img width="60%" src="img/AppleHierarchy.png" alt="Task Hierarchy for 'Cutting an apple'"/>
+      <img width="40%" src="img/HierarchyLegend.png" alt="Legend for the Task Hierarchy"/>
 </p>
 
 ## 3. Define task-specific object knowledge

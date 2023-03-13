@@ -4,7 +4,8 @@ This projects deals with the problem of teaching robots how to execute unknown t
 
 <img src="img/Motivation.jpg" width="600" alt="Cutting Food Motivation"/><br>
 
-We therefore created a task hierarchy from WikiHow instructions to get a broad range of tasks that are actually used in recipe instructions, for example. 
+To create the ontology employed by the robots for covering knowledge about food objects and the manipulation action *Cutting*, we propose a [manipulation-focused knowledge engineering methodology](Methodology.md).
+As a part of this methodology, we created a task hierarchy from WikiHow instructions to get a broad range of tasks that are actually used in recipe instructions, for example. 
 The project we used for analysing the WikiHow instructions is linked and instructions on how to use it are found in the repository. Additional details are provided in the paper. 
 
 The task hierarchy is linked to other ontologies like SOMA and FoodOn, the created ontology can be found in this repo as well.
