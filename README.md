@@ -45,11 +45,11 @@ The knowledge graph is publicly available here and on <a href="https://api.krr.t
 
 Once you started the reasoner, you can find out what food can be sliced, for example. If you add additional parameters that are available in the ontology like the initialShape of an object, you can narrow down the results to all round food that can be sliced, for example:
 
-<img src="img/DLFoodSlice.jpg" width="200" alt="DL query, slicing"/><img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
+<img src="img/DLFoodSlice.png" width="200" alt="DL query, slicing"/><img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
 
 In the same manner, you can find out what oval food can be sliced, what food needs its core to be removed or what food needs to be peeled:
 
-<img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><img src="img/DLFoodCore.jpg" width="200" alt="DL query, corecutting"/><img src="img/DLFoodPeel.jpg" width="200" alt="DL query, peeling"/><br>
+<img src="img/SlicingOvalDL.png" width="600" alt="DL query oval, slicing"/><img src="img/DLFoodCore.png" width="200" alt="DL query, corecutting"/><img src="img/DLFoodPeel.png" width="200" alt="DL query, peeling"/><br>
 
 All information in the stated ontology is accessible by the robot through queries at runtime. The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. Since the inference engine is already in Prolog, necessary information can be acquired through queries. This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
 
