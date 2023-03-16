@@ -2,17 +2,16 @@
 
 This projects deals with the problem of teaching robots how to execute unknown tasks as motivated in the following picture:
 
-<img src="img/Motivation.jpg" width="600" alt="Cutting Food Motivation"/><br>
+<img src="img/Motivation.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
 
 To create the ontology employed by the robots for covering knowledge about food objects and the manipulation action *Cutting*, we propose a [manipulation-focused knowledge engineering methodology](Methodology.md).
-As a part of this methodology, we created a task hierarchy from WikiHow instructions to get a broad range of tasks that are actually used in recipe instructions, for example. 
-The project we used for analysing the WikiHow instructions is linked and instructions on how to use it are found in the repository. Additional details are provided in the paper. 
+As part of this methodology, we created a task hierarchy from WikiHow instructions to get a broad range of *cut* hyponyms that are actually used in recipe instructions, like *dice*, *halve* or *slice*. For the analysis of the WikiHow articles, we developed the [WikiHow-Analysis-Tool](https://github.com/Janfiderheld/WikiHow-Robot-Instruction-Extraction).
 
-The task hierarchy is linked to other ontologies like SOMA and FoodOn, the created ontology can be found in this repo as well.
+Additionally, we defined, formalized and extracted **task-specific object knowledge**, which includes object properties like shape, size and anatomical parts that influence the task execution. This knowledge is combined with the task hierarchies and linked to other ontologies like [SOMA](https://github.com/ease-crc/soma) and [FoodOn](https://foodon.org/) to create the [Food-Cutting-Ontology](food_cutting.owl).
 
-We use the knowledge graph for robotic applications. Our robots use the <a href="https://github.com/cram2/cram">CRAM cognitive architecture</a> and the <a href="https://github.com/knowrob/knowrob">KnowRob knowledge processing system</a>.
+For the execution on a robot, we use the <a href="https://github.com/cram2/cram">CRAM cognitive architecture</a> and the knowledge graph for robotic applications in the <a href="https://github.com/knowrob/knowrob">KnowRob knowledge processing system</a>.
+A robot running KnowRob would query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action such as in the following SPARQL query called with Prolog that is also available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a> to then query if the given food can be used for the given action. For this, the robot needs to use a reasoner.
 
-A robot running KnowRob would similarly query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action such as in the following SPARQL query called with Prolog that is also available on <a href="https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1">triply</a>:
 ```bash
 use_module(library(semweb/rdf_db)).             #load rdf module to load the ontology
 rdf_load('food_cutting.owl').                   #load ontology
@@ -36,15 +35,14 @@ Select DISTINCT  ?obj2 ?obj ?act  WHERE {
   }', Row,
   [endpoint('https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql')]).
 ```
-to then query if the given food can be used for the given action. For this, the robot needs to use a reasoner.
 
-You can try out how a robot would query the ontology using Protégé and a standard reasoner like HermiT like in the following picture:
+## Querying the Ontology 
+
+You can try out how a robot would query the ontology using [Protégé](https://protege.stanford.edu/) and a standard reasoner like HermiT like in the following picture:
 
 <img src="img/StartReasoner.png" width="300" alt="Starting the reasoner"/><br>
 
-The knowledge graph is publicly available here and on <a href="https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql">triply</a> for inspection and querying, many thanks to the <a href="https://krr.cs.vu.nl/">knowledge representation and reasoning group</a> at the Vrije Universiteit Amsterdam.
-
-Once you started the reasoner, you can find out what food can be sliced, for example. If you add additional parameters that are available in the ontology like the initialShape of an object, you can narrow down the results to all round food that can be sliced, for example:
+Once you started the reasoner, you can find out what food can be sliced, for example. We provide a small number of exemplary [DL queries](ExampleQueries.md). If you add additional parameters that are available in the ontology like the initial shape of an object, you can narrow down the results to all round food that can be sliced, for example:
 
 <img src="img/DLFoodSlice.png" width="200" alt="DL query, slicing"/><img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
 
@@ -54,10 +52,11 @@ In the same manner, you can find out what oval food can be sliced, what food nee
 
 All information in the stated ontology is accessible by the robot through queries at runtime. The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. Since the inference engine is already in Prolog, necessary information can be acquired through queries. This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
 
-The updated action designator for cutting (which includes the actions slicing and halving as proposed in the paper) can be found in this repo. This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the <a href="https://cram-system.org/">CRAM website</a>. 
+The updated action designator for cutting (which includes the actions slicing and halving) can be found [in this repo](cutting_action_designator.lisp). This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the <a href="https://cram-system.org/">CRAM website</a>. 
 
-This Knowledge Graph is made available under the <a href="http://opendatacommons.org/licenses/by/1.0/">Open Data Commons Attribution License</a>.
+## Disclaimer
 
+This knowledge graph is made available under the <a href="http://opendatacommons.org/licenses/by/1.0/">Open Data Commons Attribution License</a>. It is publicly available here and on <a href="https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql">triply</a> for inspection and querying, many thanks to the <a href="https://krr.cs.vu.nl/">knowledge representation and reasoning group</a> at the Vrije Universiteit Amsterdam.
 
 This knowledge graph has been created by the <a href="https://ai.uni-bremen.de/">Institute for Artificial Intelligence</a> at the University of Bremen as well as the <a href="https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/semantic-computing/">Semantic Computing Group</a> at the Cluster of Excellence Cognitive Interaction Technology at Bielefeld University. Please contact <a href="https://ai.uni-bremen.de/team/michaela_k%C3%BCmpel">Michaela Kümpel</a> (michaela(dot)kuempel(at)uni-bremen(dot)de) or Jan-Philipp Töberg (jtoeberg(at)techfak(dot)uni-bielefeld(dot)de) for further information or collaboration.
 
