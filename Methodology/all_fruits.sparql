@@ -1,0 +1,22 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX food: <http://purl.obolibrary.org/obo/>
+
+SELECT ?fruit_label (SAMPLE(?fruit_id) AS ?rndm_fruit_id) (SAMPLE(?def) AS ?rndm_def)
+
+WHERE {
+    ?fruit_id rdfs:label ?label.
+    ?fruit_id rdfs:subClassOf* food:PO_0009001.
+    ?fruit_id food:IAO_0000115 ?def.
+
+    # format label to lowercase string
+    BIND (LCASE(STR(?label)) AS ?str_label).
+    # extract name of the fruit without the additional information in brackets
+    # Example: banana (whole) -> banana
+    BIND (STRBEFORE(?str_label, "(") AS ?fruit_label).
+    # the whole keyword marks a concrete fruit instead of a category
+    FILTER CONTAINS(?str_label, "whole").
+}
+
+GROUP BY ?fruit_label
+
+ORDER BY ?fruit_label

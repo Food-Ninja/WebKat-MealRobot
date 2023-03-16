@@ -4,7 +4,7 @@ This projects deals with the problem of teaching robots how to execute unknown t
 
 <img src="img/Motivation.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
 
-To create the ontology employed by the robots for covering knowledge about food objects and the manipulation action *Cutting*, we propose a [manipulation-focused knowledge engineering methodology](Methodology.md).
+To create the ontology employed by the robots for covering knowledge about food objects and the manipulation action *Cutting*, we propose a [manipulation-focused knowledge engineering methodology](Methodology/README.md).
 As part of this methodology, we created a task hierarchy from WikiHow instructions to get a broad range of *cut* hyponyms that are actually used in recipe instructions, like *dice*, *halve* or *slice*. For the analysis of the WikiHow articles, we developed the [WikiHow-Analysis-Tool](https://github.com/Janfiderheld/WikiHow-Robot-Instruction-Extraction).
 
 Additionally, we defined, formalized and extracted **task-specific object knowledge**, which includes object properties like shape, size and anatomical parts that influence the task execution. This knowledge is combined with the task hierarchies and linked to other ontologies like [SOMA](https://github.com/ease-crc/soma) and [FoodOn](https://foodon.org/) to create the [Food-Cutting-Ontology](food_cutting.owl).
