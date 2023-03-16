@@ -5,7 +5,9 @@ SELECT ?fruit_label (SAMPLE(?fruit_id) AS ?rndm_fruit_id) (SAMPLE(?def) AS ?rndm
 
 WHERE {
     ?fruit_id rdfs:label ?label.
+    # food:PO_0009001 = fruit
     ?fruit_id rdfs:subClassOf* food:PO_0009001.
+    # food:IAO_0000115 = textual definition
     ?fruit_id food:IAO_0000115 ?def.
 
     # format label to lowercase string
