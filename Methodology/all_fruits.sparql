@@ -8,7 +8,7 @@ WHERE {
     # food:PO_0009001 = fruit
     ?fruit_id rdfs:subClassOf* food:PO_0009001.
     # food:IAO_0000115 = textual definition
-    ?fruit_id food:IAO_0000115 ?def.
+    OPTIONAL { ?fruit_id food:IAO_0000115 ?def. }
 
     # format label to lowercase string
     BIND (LCASE(STR(?label)) AS ?str_label).
@@ -17,6 +17,8 @@ WHERE {
     BIND (STRBEFORE(?str_label, "(") AS ?fruit_label).
     # the whole keyword marks a concrete fruit instead of a category
     FILTER CONTAINS(?str_label, "whole").
+    # exclude all grains by excluding the parent concept called "caryopsis fruit"
+    FILTER NOT EXISTS { ?fruit_id rdfs:subClassOf* food:PO_0030104. }
 }
 
 GROUP BY ?fruit_label
