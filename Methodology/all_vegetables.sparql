@@ -1,0 +1,24 @@
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX food: <http://purl.obolibrary.org/obo/>
+
+SELECT ?veg_label (SAMPLE(?veg_id) AS ?rndm_veg_id) (SAMPLE(?def) AS ?rndm_def)
+
+WHERE {
+    ?veg_id rdfs:label ?label.
+    # food:FOODON_03302008 = vegetable (raw)
+    ?veg_id rdfs:subClassOf* food:FOODON_03302008.
+    # food:IAO_0000115 = textual definition
+    OPTIONAL { ?veg_id food:IAO_0000115 ?def. }
+
+    # format label to lowercase string
+    BIND (LCASE(STR(?label)) AS ?str_label).
+    # extract name of the vegetable without the additional information in brackets
+    # Example: asparagus (raw) -> asparagus
+    BIND (STRBEFORE(?str_label, "(") AS ?veg_label).
+    # exclude all fruits, since "fruit (raw)" is a subclass of "vegetable (raw)"
+    FILTER NOT EXISTS { ?veg_id rdfs:subClassOf* food:FOODON_03302007. }
+}
+
+GROUP BY ?veg_label
+
+ORDER BY ?veg_label
