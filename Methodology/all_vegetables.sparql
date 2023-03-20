@@ -6,7 +6,7 @@ SELECT ?veg_label (SAMPLE(?veg_id) AS ?rndm_veg_id) (SAMPLE(?def) AS ?rndm_def)
 WHERE {
     ?veg_id rdfs:label ?label.
     # food:FOODON_03302008 = vegetable (raw)
-    ?veg_id rdfs:subClassOf* food:FOODON_03302008.
+    ?veg_id rdfs:subClassOf+ food:FOODON_03302008.
     # food:IAO_0000115 = textual definition
     OPTIONAL { ?veg_id food:IAO_0000115 ?def. }
 
