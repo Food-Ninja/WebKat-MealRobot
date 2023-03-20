@@ -6,7 +6,7 @@ SELECT ?fruit_label (SAMPLE(?fruit_id) AS ?rndm_fruit_id) (SAMPLE(?def) AS ?rndm
 WHERE {
     ?fruit_id rdfs:label ?label.
     # food:PO_0009001 = fruit
-    ?fruit_id rdfs:subClassOf* food:PO_0009001.
+    ?fruit_id rdfs:subClassOf+ food:PO_0009001.
     # food:IAO_0000115 = textual definition
     OPTIONAL { ?fruit_id food:IAO_0000115 ?def. }
 
@@ -16,9 +16,11 @@ WHERE {
     # Example: banana (whole) -> banana
     BIND (STRBEFORE(?str_label, "(") AS ?fruit_label).
     # the whole keyword marks a concrete fruit instead of a category
-    FILTER CONTAINS(?str_label, "whole").
+    FILTER CONTAINS(?str_label, "whosle").
     # exclude all grains by excluding the parent concept called "caryopsis fruit"
     FILTER NOT EXISTS { ?fruit_id rdfs:subClassOf* food:PO_0030104. }
+    # exclude the 'fruit (whole, raw)' subclass
+    FILTER (?fruit_id != food:FOODON_03304644).
 }
 
 GROUP BY ?fruit_label
