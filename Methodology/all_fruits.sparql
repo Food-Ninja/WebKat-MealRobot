@@ -16,7 +16,7 @@ WHERE {
     # Example: banana (whole) -> banana
     BIND (STRBEFORE(?str_label, "(") AS ?fruit_label).
     # the whole keyword marks a concrete fruit instead of a category
-    FILTER CONTAINS(?str_label, "whosle").
+    FILTER CONTAINS(?str_label, "whole").
     # exclude all grains by excluding the parent concept called "caryopsis fruit"
     FILTER NOT EXISTS { ?fruit_id rdfs:subClassOf* food:PO_0030104. }
     # exclude the 'fruit (whole, raw)' subclass
