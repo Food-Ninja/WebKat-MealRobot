@@ -36,6 +36,14 @@ Select DISTINCT  ?obj2 ?obj ?act  WHERE {
   [endpoint('https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql')]).
 ```
 
+Similarly, this can be done in Prolog using the following statement:
+
+```bash
+use_module(library(semweb/rdf_db)).             #load rdf module to load the ontology
+rdf_load('food_cutting.owl').                   #load ontology
+use_module(library(semweb/sparql_client)).      #load SPARQL module
+rdf(?act, rdfs:subClassOf, SOMA:Slicing), optional(rdf(?task, rdfs:subClassOf, ?act)), optional(rdf(?motion, rdfs:subClassOf, ?task)).
+```
 ## Querying the Ontology 
 
 You can try out how a robot would query the ontology using [Protégé](https://protege.stanford.edu/) and a standard reasoner like HermiT like in the following picture:
