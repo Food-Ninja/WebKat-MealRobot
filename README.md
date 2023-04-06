@@ -54,6 +54,47 @@ All information in the stated ontology is accessible by the robot through querie
 
 The updated action designator for cutting (which includes the actions slicing and halving) can be found [in this repo](cutting_action_designator.lisp). This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the <a href="https://cram-system.org/">CRAM website</a>. 
 
+For example, a robot would query for the arm to use for action execution to then infer the action parameter as in the following:
+
+```bash
+ ;; infere information which robot arm to use eitehr internally or query ontology
+    (-> (spec:property ?action-designator (:arm ?arm))
+        (true)
+        (man-int:robot-free-hand ?_ ?arm))
+        
+ ;; infere information which robot trajectory to use eitehr internally or query ontology
+    (-> (equal ?arm :left)
+        (and (lisp-fun man-int:get-action-trajectory :slicing ?arm ?grasp T ?objects
+                       ?left-slicing-pose)
+             (lisp-fun man-int:get-traj-poses-by-label ?left-slicing-pose :slice-up
+                       ?left-slice-up-poses)
+             (lisp-fun man-int:get-traj-poses-by-label ?left-slicing-pose :slice-down
+                       ?left-slice-down-poses))
+        (and (equal ?left-slice-up-poses NIL)
+             (equal ?left-slice-down-poses NIL)))
+ ```
+ 
+ Similarly, the robot would infer if it has to perform a slicing motion (as above) or a halving motion as in the following
+ 
+ ```bash
+ ;; infere information where to cut eitehr internally or query ontology
+    (-> (spec:property ?action-designator (:object-half-pose ?object-half-pose))
+        (true)
+        (format "Please infer where to cut the object, or use the query system to infer it here"))
+   
+ ;; infere information which robot trajectory to use eitehr internally or query ontology
+    (-> (equal ?arm :left)
+        (and (lisp-fun man-int:get-action-trajectory :halving ?arm ?grasp T ?objects
+                       ?left-halving-pose)
+             (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halvin-up
+                       ?left-slice-up-poses)
+             (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halving-down
+                       ?left-slice-down-poses))
+        (and (equal ?left-slice-up-poses NIL)
+             (equal ?left-slice-down-poses NIL)))
+  ```
+        
+
 ## Disclaimer
 
 This knowledge graph is made available under the <a href="http://opendatacommons.org/licenses/by/1.0/">Open Data Commons Attribution License</a>. It is publicly available here and on <a href="https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql">triply</a> for inspection and querying, many thanks to the <a href="https://krr.cs.vu.nl/">knowledge representation and reasoning group</a> at the Vrije Universiteit Amsterdam.
