@@ -3,10 +3,14 @@
 ## Fruits & Vegetables
 
 We extract a list of *all* fruits and vegetables available in the FoodOn [1] using two SPARQL queries.
-The resulting food items, together with their IRI and (if available) a short description can be found in the two '..._raw.csv' files. All in all, this resulted in 257 different fruits and 31 different vegetables.
-However, not all of these fruits are equally relevant for a robot performing in a typical household. Some objects like the [beechnut](https://food.r-biopharm.com/r-biomedia/beechnut/) are technically considered fruit but are either inedible or not relevant for the cooking domain.
+The resulting food items, together with their IRI and (if available) a short description can be found in the two '..._raw.csv' files. 
+All in all, this resulted in 257 different fruits and 31 different vegetables.
+However, not all of these fruits are equally relevant for a robot performing in a typical household.
+Some objects like the [beechnut](https://food.r-biopharm.com/r-biomedia/beechnut/) are technically considered fruit but are either inedible or not relevant for the cooking domain.
 To get an idea about the relevance of these food items, we analysed their occurrence in recipes (using the Recipe1M+ dataset [2]) and instructions (using the [WikiHow-Analysis-Tool](https://github.com/Janfiderheld/WikiHow-Robot-Instruction-Extraction)), which is summarised in the 'occurrence_data.csv'.
-Lastly, we use this information to filter the list of fruits and vegetables before (possibly) adding them to our ontology.
+This file contains the absolute occurrences and the relative occurrnes in relation to the complete amount of recipes / recipe steps / WikiHow articles / WikiHow methods / WikiHow steps. 
+Currently, we only include fruits and vegetables that occurr in at least 1% of possible locations. 
+After filtering, the remaining 15 fruits and 1 vegetable can be added to the ontology.
 
 ## References
 
