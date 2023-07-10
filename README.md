@@ -65,12 +65,12 @@ The updated action designator for cutting (which includes the actions slicing an
 For example, a robot would query for the arm to use for action execution to then infer the action parameter as in the following:
 
 ```bash
- ;; infere information which robot arm to use eitehr internally or query ontology
+ ;; infer information which robot arm to use either internally or query ontology
     (-> (spec:property ?action-designator (:arm ?arm))
         (true)
         (man-int:robot-free-hand ?_ ?arm))
         
- ;; infere information which robot trajectory to use eitehr internally or query ontology
+ ;; infer information which robot trajectory to use either internally or query ontology
     (-> (equal ?arm :left)
         (and (lisp-fun man-int:get-action-trajectory :slicing ?arm ?grasp T ?objects
                        ?left-slicing-pose)
@@ -85,16 +85,16 @@ For example, a robot would query for the arm to use for action execution to then
  Similarly, the robot would infer if it has to perform a slicing motion (as above) or a halving motion as in the following
  
  ```bash
- ;; infere information where to cut eitehr internally or query ontology
+ ;; infer information where to cut either internally or query ontology
     (-> (spec:property ?action-designator (:object-half-pose ?object-half-pose))
         (true)
         (format "Please infer where to cut the object, or use the query system to infer it here"))
    
- ;; infere information which robot trajectory to use eitehr internally or query ontology
+ ;; infer information which robot trajectory to use either internally or query ontology
     (-> (equal ?arm :left)
         (and (lisp-fun man-int:get-action-trajectory :halving ?arm ?grasp T ?objects
                        ?left-halving-pose)
-             (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halvin-up
+             (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halving-up
                        ?left-slice-up-poses)
              (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halving-down
                        ?left-slice-down-poses))
