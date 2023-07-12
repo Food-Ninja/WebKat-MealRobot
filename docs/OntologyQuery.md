@@ -8,7 +8,7 @@ You can try out how a robot would query the ontology using [Protégé](https://p
 
 <img src="img/StartReasoner.png" width="300" alt="Starting the reasoner"/><br>
 
-Once you started the reasoner, you can find out what food can be sliced, for example. We provide a small number of exemplary [DL queries](ExampleQueries.md). If you add additional parameters that are available in the ontology like the initial shape of an object, you can narrow down the results to all round food that can be sliced, for example:
+Once you started the reasoner, you can find out what food can be sliced, for example. We provide a small number of exemplary [DL queries](https://github.com/Food-Ninja/FoodCutting/blob/main/ExampleQueries.md). If you add additional parameters that are available in the ontology like the initial shape of an object, you can narrow down the results to all round food that can be sliced, for example:
 
 <img src="img/DLFoodSlice.png" width="200" alt="DL query, slicing"/><img src="img/SlicingDL.png" width="600" alt="DL query round, slicing"/><br>
 
@@ -18,7 +18,7 @@ In the same manner, you can find out what oval food can be sliced, what food nee
 
 All information in the stated ontology is accessible by the robot through queries at runtime. The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. Since the inference engine is already in Prolog, necessary information can be acquired through queries. This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
 
-The updated action designator for cutting (which includes the actions slicing and halving) can be found [in this repo](cutting_action_designator.lisp). This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the <a href="https://cram-system.org/">CRAM website</a>. 
+The updated action designator for cutting (which includes the actions slicing and halving) can be found [in our repository](https://github.com/Food-Ninja/FoodCutting/blob/main/cutting_action_designator.lisp). This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the [CRAM website](https://cram-system.org/). 
 
 For example, a robot would query for the arm to use for action execution to then infer the action parameter as in the following:
 
