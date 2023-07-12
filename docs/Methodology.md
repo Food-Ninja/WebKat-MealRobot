@@ -87,6 +87,8 @@ This allows the robot to query the created ontology to gather the sequence of at
 
 [Back to the Overview](./)
 
+## References
+
 [^1]: M. Tenorth and M. Beetz, ‘KNOWROB - Knowledge Processing for Autonomous Personal Robots’, in 2009 IEEE/RSJ International Conference on Intelligent Robots and Systems, St. Louis, MO, USA, Oct. 2009, pp. 4261–4266. doi: [10.1109/IROS.2009.5354602](https://doi.org/10.1109/IROS.2009.5354602).
 [^2]: D. Beßler et al., ‘Foundations of the Socio-physical Model of Activities (SOMA) for Autonomous Robotic Agents’, in Formal Ontology in Information Systems, vol. 344, IOS Press, 2022, pp. 159–174. Accessed: Jul. 25, 2022. doi: [10.3233/FAIA210379](https://doi.org/10.3233/FAIA210379).
 [^3]: M. Diab, A. Akbari, M. Ud Din, and J. Rosell, ‘PMK—A Knowledge Processing Framework for Autonomous Robotics Perception and Manipulation’, Sensors, vol. 19, no. 5, p. 1166, Mar. 2019, doi: [10.3390/s19051166](https://doi.org/10.3390/s19051166).
