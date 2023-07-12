@@ -18,30 +18,9 @@
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
-      {% if site.github.is_project_page %}
-        <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-      {% endif %}
-	  
-	<div id="banner">
-			<div class="Main">
-				<ul>
-				  <li><a href="." class="button">Main</a></li>
-				</ul>
-			  </div>
-			  <div class="Ontologies">
-				<ul>
-				  <li><a href="./Ontologies.html" class="button">Ontologies</a></li>
-				</ul>
-			  </div>
-			  <div class="Applications">
-				<ul>
-				  <li><a href="./Applications.html" class="button">Applications</a></li>
-				</ul>
-			  </div>  
-			  <div class="github">
-				<ul>
-				  <li>
-		  </div><!-- end banner -->
+	  <a href="." class="btn">Main</a>
+	  <a href="./Test.html" class="btn">Test</a>
+	  <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
     </header>
 
     <main id="content" class="main-content" role="main">
