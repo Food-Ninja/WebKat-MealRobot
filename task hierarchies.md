@@ -1,7 +1,7 @@
 # Representing Cutting Hierarchies as Hierarchical Task Networks (HTNs)
 
 We represent the created task hierarchies for the three example foods (apple, orange & cucumber) through Hierarchical Task Networks (HTNs).
-For each food we differentiate between a direct representation of the previously created task hierarchy (see [here](../img/AppleHierarchy.png) as an example for the apple) and a version that is optimised for HTN planning.
+For each food we differentiate between a direct representation of the previously created task hierarchy (see [here](docs/img/AppleHierarchy.png) as an example for the apple) and a version that is optimised for HTN planning.
 The syntax we use[^1] is not tailored towards a specific HTN planner but is kept more general for a better understanding.
 
 ## Apple Cutting

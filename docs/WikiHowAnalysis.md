@@ -8,6 +8,7 @@ To gather additional knowledge about manipulation actions and their associated v
 The goal is to better the understanding of manipulation verbs and their parameterization for different objects, goals and environments.
 The tool uses basic NLP techniques like Part-of-Speech Tagging and Coreference Resolution from the Stanford CoreNLP Toolkit[^2] to extract verb frames.
 
+The tool can be found in [this repository](https://github.com/Food-Ninja/WikiHow-Instruction-Extraction).
 
 ## Action Verb Frames
 
@@ -32,7 +33,7 @@ Afterwards we count the number of occurrences in the different parts of a WikiHo
 The exemplary result for the *Cutting* verb group can be seen below:
 
 <p align="center">
-  <img src="img/CuttingWikiHowResults.png" width="300" alt="Occurrences of Cutting and its hyponyms in the WikiHow corpus"/><br>
+  <img src="img/CuttingWikiHowResults.png" width="600" alt="Occurrences of Cutting and its hyponyms in the WikiHow corpus"/><br>
 </p>
 
 With this knowledge, the relevance of different hyponyms for the application domain can be assessed and a better focus can be set in the following steps of our [methodology](./Methodology.html).
