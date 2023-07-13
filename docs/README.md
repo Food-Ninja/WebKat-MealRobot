@@ -1,8 +1,10 @@
 # Food Cutting Robots
 
-This projects deals with the problem of teaching robots how to execute unknown tasks as motivated in the following picture:
+This project deals with the problem of teaching robots how to execute unknown tasks as motivated in the following picture:
 
-<img src="img/Motivation.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
+<p align="center">
+  <img src="img/Motivation.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
+</p>
 
 To create the ontology employed by the robots for covering knowledge about food objects and the manipulation action *Cutting*, we propose a [manipulation-focused knowledge engineering methodology](./Methodology.html).
 As part of this methodology, we created a task hierarchy from WikiHow instructions to get a broad range of *cut* hyponyms that are actually used in recipe instructions, like *dice*, *halve* or *slice*. For the analysis of the WikiHow articles, we developed the [WikiHow-Analysis-Tool](./WikiHowAnalysis.html).

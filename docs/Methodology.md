@@ -6,7 +6,9 @@ layout: default
 
 To achieve our goal of creating an manipulation-focused ontology for flexible Everyday Tasks, we propose the following methodology:
 
-<img src="img/Methodology.jpg" width="800" alt="Methodology Visualization"/><br>
+<p align="center">
+  <img src="img/Methodology.jpg" width="800" alt="Methodology Visualization"/><br>
+</p>
 
 ## 1. Define necessary knowledge sources for the given task
 
