@@ -54,7 +54,7 @@ The knowledge graph is made available under the [Open Data Commons Attribution L
 This work has been created by the [Institute for Artificial Intelligence](https://ai.uni-bremen.de/) at the University of Bremen as well as the [Semantic Computing Group](https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/semantic-computing/) at the Cluster of Excellence Cognitive Interaction Technology at Bielefeld University. Please contact [Michaela Kümpel](https://ai.uni-bremen.de/team/michaela_k%C3%BCmpel) (michaela(dot)kuempel(at)uni-bremen(dot)de) or [Jan-Philipp Töberg](https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/semantic-computing/team/jan-philipp-toeberg/) (jtoeberg(at)techfak(dot)uni-bielefeld(dot)de) for further information or collaboration.
 
 <p align="center" width="90%">
-      <img width="30%" src="docs/img/ai_logo.png"/>
-      <img width="30%" src="docs/img/university_new.png"/>
-      <img width="30%" src="docs/img/logo_citec_EN.png"/>
+      <img width="30%" src="img/ai_logo.png"/>
+      <img width="30%" src="img/university_new.png"/>
+      <img width="30%" src="img/logo_citec_EN.png"/>
 </p>
