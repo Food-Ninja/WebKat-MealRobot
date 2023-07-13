@@ -11,7 +11,7 @@ The tool uses basic NLP techniques like Part-of-Speech Tagging and Coreference R
 The WikiHow articles analysed by our tool are structured in the following way:
 
 <p align="center">
-  <img src="https://github.com/Food-Ninja/WikiHow-Instruction-Extraction/blob/main/WikiHow%20Article%20Structure.png" width="600" alt="Summarising the structure of a WikiHow article"/><br>
+  <img src="https://github.com/Food-Ninja/WikiHow-Instruction-Extraction/blob/main/WikiHow Article Structure.png" width="600" alt="Summarising the structure of a WikiHow article"/><br>
 </p>
 
 ## Action Verb Frames
