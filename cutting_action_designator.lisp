@@ -7,7 +7,7 @@
     (spec:property ?current-object-desig (:type ?object-type))
     (spec:property ?current-object-desig (:name ?object-name))
     
-    ;; infere information which robot arm to use eitehr internally or query ontology
+    ;; infer information which robot arm to use either internally or query ontology
     (-> (spec:property ?action-designator (:arm ?arm))
         (true)
         (man-int:robot-free-hand ?_ ?arm))
@@ -20,7 +20,7 @@
         (equal ?rotationally-symmetric t)
         (equal ?rotationally-symmetric nil))
     
-    ;; infere information which grasp to use eitehr internally or query ontology
+    ;; infer information which grasp to use either internally or query ontology
     (-> (spec:property ?action-designator (:grasp ?grasp))
         (true)
         (and (lisp-fun man-int:get-action-grasps ?object-type ?arm ?object-transform ?grasps)
@@ -32,7 +32,7 @@
     ;; calculate trajectory
     (equal ?objects (?current-object-desig))
     
-    ;; infere information which robot trajectory to use eitehr internally or query ontology
+    ;; infer information which robot trajectory to use either internally or query ontology
     (-> (equal ?arm :left)
         (and (lisp-fun man-int:get-action-trajectory :slicing ?arm ?grasp T ?objects
                        ?left-slicing-pose)
@@ -52,7 +52,7 @@
                        ?right-slice-down-poses))
         (and(equal ?right-slice-up-poses NIL)
             (equal ?right-slice-down-poses NIL)))
-    ;; infere information which collision-mode to use eitehr internally or query ontology
+    ;; infer information which collision-mode to use either internally or query ontology
     (-> (desig:desig-prop ?action-designator (:collision-mode ?collision-mode))
         (true)
         (equal ?collision-mode nil))
@@ -81,7 +81,7 @@
     (spec:property ?current-object-desig (:type ?object-type))
     (spec:property ?current-object-desig (:name ?object-name))
     
-    ;; infere information which robot arm to use eitehr internally or query ontology
+    ;; infer information which robot arm to use either internally or query ontology
     (-> (spec:property ?action-designator (:arm ?arm))
         (true)
         (man-int:robot-free-hand ?_ ?arm))
@@ -94,13 +94,13 @@
         (equal ?rotationally-symmetric t)
         (equal ?rotationally-symmetric nil))
     
-    ;; infere information which grasp to use eitehr internally or query ontology
+    ;; infer information which grasp to use either internally or query ontology
     (-> (spec:property ?action-designator (:grasp ?grasp))
         (true)
         (and (lisp-fun man-int:get-action-grasps ?object-type ?arm ?object-transform ?grasps)
              (member ?grasp ?grasps)))
     
-    ;; infere information where to cut eitehr internally or query ontology
+    ;; infer information where to cut either internally or query ontology
     (-> (spec:property ?action-designator (:object-half-pose ?object-half-pose))
         (true)
         (format "Please infer where to cut the object, or use the query system to infer it here"))
@@ -111,27 +111,27 @@
     ;; calculate trajectory
     (equal ?objects (?current-object-desig))
     
-    ;; infere information which robot trajectory to use eitehr internally or query ontology
+    ;; infer information which robot trajectory to use either internally or query ontology
     (-> (equal ?arm :left)
         (and (lisp-fun man-int:get-action-trajectory :halving ?arm ?grasp T ?objects
                        ?left-halving-pose)
-             (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halvin-up
-                       ?left-slice-up-poses)
+             (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halving-up
+                       ?left-halving-up-poses)
              (lisp-fun man-int:get-traj-poses-by-label ?left-halving-pose :halving-down
-                       ?left-slice-down-poses))
-        (and (equal ?left-slice-up-poses NIL)
-             (equal ?left-slice-down-poses NIL)))
+                       ?left-halving-down-poses))
+        (and (equal ?left-halcing-up-poses NIL)
+             (equal ?left-halving-down-poses NIL)))
     
     (-> (equal ?arm :right)
         (and (lisp-fun man-int:get-action-trajectory :halving ?arm ?grasp T ?objects
                        ?right-halving-pose)
              (lisp-fun man-int:get-traj-poses-by-label ?right-halving-pose :halving-up
-                       ?right-slice-up-poses)
-             (lisp-fun man-int:get-traj-poses-by-label ?right-halving-pose :slice-down
-                       ?right-slice-down-poses))
-        (and(equal ?right-slice-up-poses NIL)
-            (equal ?right-slice-down-poses NIL)))
-    ;; infere information which collision-mode to use eitehr internally or query ontology
+                       ?right-halving-up-poses)
+             (lisp-fun man-int:get-traj-poses-by-label ?right-halving-pose :halving-down
+                       ?right-halving-down-poses))
+        (and(equal ?right-halving-up-poses NIL)
+            (equal ?right-halving-down-poses NIL)))
+    ;; infer information which collision-mode to use either internally or query ontology
     (-> (desig:desig-prop ?action-designator (:collision-mode ?collision-mode))
         (true)
         (equal ?collision-mode nil))
@@ -144,10 +144,10 @@
                                (:gripper-opening ?gripper-opening)
                                (:effort ?effort)
                                (:grasp ?grasp)
-                               (:left-slice-up-poses ?left-slice-up-poses)
-                               (:right-slice-up-poses ?right-slice-up-poses)
-                               (:left-slice-down-poses ?left-slice-down-poses)
-                               (:right-slice-down-poses ?right-slice-down-poses)
+                               (:left-halving-up-poses ?left-slice-up-poses)
+                               (:right-halving-up-poses ?right-slice-up-poses)
+                               (:left-halving-down-poses ?left-slice-down-poses)
+                               (:right-halving-down-poses ?right-slice-down-poses)
                                (:collision-mode ?collision-mode))
                       ?resolved-action-designator))
 
