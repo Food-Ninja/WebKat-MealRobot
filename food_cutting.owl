@@ -6,8 +6,62 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:food_cutting="http://www.ease-crc.org/ont/food_cutting#">
-    <owl:Ontology rdf:about="http://www.ease-crc.org/ont/food_cutting"/>
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:SpecificationMetadata="https://www.omg.org/techprocess/ab/SpecificationMetadata/">
+    <owl:Ontology rdf:about="http://www.ease-crc.org/ont/food_cutting">
+        <owl:versionIRI rdf:resource="http://www.ease-crc.org/ont/food_cutting/1.0"/>
+        <terms:contributor>Michaela Kümpel, Jan-Philipp Töberg</terms:contributor>
+        <terms:license>https://opendatacommons.org/licenses/by/1-0/</terms:license>
+        <rdfs:comment>This is a food cutting ontology example to teach robots new task variations of cutting food.</rdfs:comment>
+        <SpecificationMetadata:copyright>Copyright (c) 2021 Michaela Kümpel, Jan-Philipp Töberg
+
+This work is licensed under Open Data Commons Attribution License (ODC-BY 1.0 license).
+
+You are free:
+
+    To share: To copy, distribute and use the database.
+    To create: To produce works from the database.
+    To adapt: To modify, transform and build upon the database.
+
+As long as you:
+
+    Attribute: Attribute the work to the original authors. You must attribute any public use of the database, or works produced from the database. For any use or redistribution of the database, or works produced from it, you must make clear to others the license of the database and keep intact any notices on the original database.</SpecificationMetadata:copyright>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#verb -->
+
+    <owl:AnnotationProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#verb"/>
+    
+
+
+    <!-- https://www.omg.org/techprocess/ab/SpecificationMetadata/copyright -->
+
+    <owl:AnnotationProperty rdf:about="https://www.omg.org/techprocess/ab/SpecificationMetadata/copyright"/>
     
 
 
@@ -42,6 +96,12 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/food_cutting#affordsPosition -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+    
+
+
     <!-- http://www.ease-crc.org/ont/food_cutting#hasColor -->
 
     <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasColor">
@@ -62,30 +122,20 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#hasFirstTask -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasFirstTask">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#hasInitialShape -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasInitialShape">
-        <rdfs:subPropertyOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasShape"/>
-        <rdfs:range rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#hasInitialState -->
 
     <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasInitialState">
         <rdfs:subPropertyOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasState"/>
         <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
         <rdfs:range rdf:resource="http://www.ease-crc.org/ont/food_cutting#FruitState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#hasInputObject -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasInputObject">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
     
 
@@ -110,10 +160,10 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#hasResultShape -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#hasResultObject -->
 
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasResultShape">
-        <rdfs:subPropertyOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasShape"/>
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasResultObject">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:range rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
     </owl:ObjectProperty>
     
@@ -126,21 +176,6 @@
         <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
         <rdfs:range rdf:resource="http://www.ease-crc.org/ont/food_cutting#FruitState"/>
     </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#hasSecondTask -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasSecondTask">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#hasShape -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#hasShape"/>
     
 
 
@@ -167,38 +202,20 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/food_cutting#requiresPriorTask -->
+
+    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#requiresPriorTask">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.ease-crc.org/ont/food_cutting#target -->
 
     <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#target">
-        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#toolForCutting -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#toolForCutting">
-        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
-        <rdfs:range rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#toolForRemoval -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#toolForRemoval">
-        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
-        <rdfs:range rdf:resource="http://www.ease-crc.org/ont/food_cutting#Tool"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#usedTool -->
-
-    <owl:ObjectProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#usedTool">
-        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
-        <rdfs:range rdf:resource="http://www.ease-crc.org/ont/food_cutting#Tool"/>
     </owl:ObjectProperty>
     
 
@@ -223,7 +240,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#amount -->
 
     <owl:DatatypeProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#amount">
-        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
     
@@ -232,7 +249,6 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#angle -->
 
     <owl:DatatypeProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#angle">
-        <rdfs:domain rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Orienting"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
     
@@ -244,6 +260,14 @@
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment>describes the biological genus</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#repetitions -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ease-crc.org/ont/food_cutting#repetitions">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
     </owl:DatatypeProperty>
     
 
@@ -263,24 +287,6 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003415">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#vegetable"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CucumberFlesh"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CucumberSkin"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CucumberStem"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
@@ -312,42 +318,17 @@
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#StemRemovability"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#StemRemoving"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
-                                <owl:allValuesFrom>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
-                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-                                    </owl:Restriction>
-                                </owl:allValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
                                 <owl:allValuesFrom>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
-                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
                                     </owl:Restriction>
                                 </owl:allValuesFrom>
                             </owl:Restriction>
@@ -374,20 +355,8 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasColor"/>
                 <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Green"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasSize"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Medium"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -401,11 +370,847 @@
     
 
 
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003443 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003443">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Stem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An aggregate fruit of strawberry plant  (Fragaria x ananassa).</rdfs:comment>
+        <rdfs:label>strawberry</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003449 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003449">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Nutcracker"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A drupe fruit of a coconut palm tree (Cocos nucifera).</rdfs:comment>
+        <rdfs:label>coconut</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003459 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003459">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreCutting"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A fruit multiple from a pineapple tree (Ananas comosus).</rdfs:comment>
+        <rdfs:label>pineapple</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003486 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003486">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#vegetable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreScraping"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Spoon"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An orange-yellow pepo fruit of a pumpkin plant.</rdfs:comment>
+        <rdfs:label>pumpkin</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003520 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003520">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#vegetable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Stem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A berry fruit of a pepper plant (Capsicum)</rdfs:comment>
+        <rdfs:label>pepper</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003523 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003523">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Nutcracker"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A drupe fruit of an almond plant (Prunus dulcis).</rdfs:comment>
+        <rdfs:label>almond</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003539 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003539">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#vegetable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreScraping"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Spoon"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A pepo fruit varietal of a squash plant (Cucurbita).</rdfs:comment>
+        <rdfs:label>squash</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00003661 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00003661">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301337"/>
+        <rdfs:comment>A hesperidium fruit of a lime plant.</rdfs:comment>
+        <rdfs:label>lime</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_00004183 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_00004183">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Hand"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A berry fruit from a banana tree (genus Musa).</rdfs:comment>
+        <rdfs:label>banana</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_03301240 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03301240">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreCutting"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Core"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>An edible drupe fruit of a cherry plant.</rdfs:comment>
+        <rdfs:label>cherry</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://purl.obolibrary.org/obo/FOODON_03301337 -->
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03301337">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Hand"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:label xml:lang="en">citrus fruit (whole, raw)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_03301403 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03301403">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#vegetable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>None</rdfs:comment>
+        <rdfs:label>bean</rdfs:label>
     </owl:Class>
     
 
@@ -414,6 +1219,8 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03301441">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301337"/>
+        <rdfs:comment>A hesperidium fruit of a lemon plant (Citrus limon)</rdfs:comment>
+        <rdfs:label>lemon</rdfs:label>
         <rdfs:label xml:lang="en">lemon (whole, raw)</rdfs:label>
     </owl:Class>
     
@@ -423,46 +1230,6 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03301710">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleCore"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleFlesh"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleSeeds"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleSkin"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleStem"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasColor"/>
-                        <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Green"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasColor"/>
-                        <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red"/>
-                    </owl:Restriction>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
@@ -547,7 +1314,7 @@
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
@@ -581,22 +1348,12 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Round"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasSize"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Medium"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#genus"/>
                 <owl:hasValue>Malus</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>A whole raw apple is an apple harvested from an apple tree. It may include a stem. It has not been subject to cooking or preservation processes other than cold storage or waxing.</rdfs:comment>
+        <rdfs:label>apple</rdfs:label>
         <rdfs:label xml:lang="en">apple (whole, raw)</rdfs:label>
     </owl:Class>
     
@@ -624,28 +1381,6 @@
 
     <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03309832">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301337"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangeFlesh"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangePeel"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangePulp"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangeSeeds"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
@@ -680,14 +1415,14 @@
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
                                 <owl:allValuesFrom>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
-                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
                                     </owl:Restriction>
                                 </owl:allValuesFrom>
                             </owl:Restriction>
@@ -714,23 +1449,140 @@
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Round"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasSize"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Medium"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#genus"/>
                 <owl:hasValue>Citrus</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:comment>The orange is the fruit of the citrus species Citrus × sinensis in the family Rutaceae.</rdfs:comment>
+        <rdfs:label>orange</rdfs:label>
         <rdfs:label xml:lang="en">orange (whole, raw)</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_03309927 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03309927">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#vegetable"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Stem"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A berry fruit of a tomato plant, grown under controlled greenhouse conditions.</rdfs:comment>
+        <rdfs:label>tomato</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/FOODON_03317509 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/FOODON_03317509">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/PO_0009001"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreCutting"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
+                                <owl:allValuesFrom>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
+                                    </owl:Restriction>
+                                </owl:allValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Core"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>A drupe fruit of an olive tree (Olea europaea).</rdfs:comment>
+        <rdfs:label>olive</rdfs:label>
     </owl:Class>
     
 
@@ -744,11 +1596,35 @@
     
 
 
+    <!-- http://qudt.org/schema/qudt#CountingUnit -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt#CountingUnit">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt#ResourceUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qudt.org/schema/qudt#ResourceUnit -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt#ResourceUnit">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt/Quantity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://qudt.org/schema/qudt/Quantity -->
+
+    <owl:Class rdf:about="http://qudt.org/schema/qudt/Quantity">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#ObjectProperty"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/SOMA-HOME.owl#KitchenKnife -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA-HOME.owl#KitchenKnife">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreRemovalTool"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
         <rdfs:comment xml:lang="de">Küchenmesser</rdfs:comment>
     </owl:Class>
     
@@ -767,14 +1643,14 @@
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
-                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+                                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTrigger"/>
                                 <owl:allValuesFrom>
                                     <owl:Restriction>
                                         <owl:onProperty rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#classifies"/>
-                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+                                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
                                     </owl:Restriction>
                                 </owl:allValuesFrom>
                             </owl:Restriction>
@@ -783,30 +1659,13 @@
                 </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
     </owl:Class>
     
 
 
-    <!-- http://www.ease-crc.org/ont/SOMA.owl#Cutting -->
+    <!-- http://www.ease-crc.org/ont/SOMA.owl#CuttingAction -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Cutting">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
     </owl:Class>
     
@@ -823,24 +1682,47 @@
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Dicing -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Dicing">
-        <owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Stripe"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Cube"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Stripe"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Cutting"/>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Cubes"/>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#slicing_position"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#requiresPriorTask"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Julienne"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#repetitions"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <verb xml:lang="en">dice</verb>
+        <rdfs:comment xml:lang="en">Cut an object into Cubes</rdfs:comment>
     </owl:Class>
     
 
@@ -854,235 +1736,75 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/SOMA.owl#Orienting -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Orienting">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/SOMA.owl#SingleSlicing -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#SingleSlicing">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:allValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:allValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrientingBeforeSlicing"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Piece"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Piece"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Piece"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#SecondTask"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">cut the fruit into one piece of unspecified size and one slice of the wished size/width</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://www.ease-crc.org/ont/SOMA.owl#Slicing -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Slicing">
-        <owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+        <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Food"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:allValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:allValuesFrom>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
-        </owl:equivalentClass>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#slicing_position"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#repetitions"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <verb xml:lang="en">slice</verb>
+        <rdfs:comment xml:lang="en">cut the object into multiple slices</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#AppleCutter -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleCutter">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#Carving -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Carving">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Cutting"/>
+        <verb xml:lang="en">carve</verb>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#Chopping -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Chopping">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Dicing"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#SecondTask"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:comment xml:lang="en">cut the fruit into multiple slices</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#AppleCore -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleCore">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Core"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasLocation"/>
-                <owl:allValuesFrom rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301710"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#AppleFlesh -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleFlesh">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FleshOrPulp"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#AppleSeeds -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleSeeds">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasLocation"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleCore"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#AppleSkin -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleSkin">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SkinOrPeel"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeler"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#AppleStem -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleStem">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Stem"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+        <verb xml:lang="en">chop</verb>
     </owl:Class>
     
 
@@ -1090,15 +1812,6 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Color -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Color">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Green"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Orange"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Red"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#ObjectProperty"/>
     </owl:Class>
     
@@ -1108,6 +1821,38 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Core">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#PartInside"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreCutting"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreScraping"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="de">Kerngehäuse (z.B. Apfel, Birne)</rdfs:comment>
     </owl:Class>
     
@@ -1116,50 +1861,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#CoreCutting -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreCutting">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreRemovability"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Core"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-                                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#CoreQuartering -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreQuartering">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreCutting"/>
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreRemoving"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
     </owl:Class>
     
 
@@ -1196,60 +1898,62 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#CucumberFlesh -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#Cube -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#CucumberFlesh">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FleshOrPulp"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Cube">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
     </owl:Class>
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#CucumberSkin -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#Cubing -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#CucumberSkin">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SkinOrPeel"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeler"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Cubing">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Dicing"/>
+        <verb xml:lang="en">cube</verb>
     </owl:Class>
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#CucumberStem -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#Cutting -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#CucumberStem">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Stem"/>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Cutting">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Food"/>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#slicing_position"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#repetitions"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
     </owl:Class>
@@ -1264,49 +1968,9 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#DividingIntoEighths -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#DividingIntoEighths">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:allValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:allValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Dicing"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#Edibility -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Edibility">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#ObjectProperty"/>
     </owl:Class>
     
@@ -1323,15 +1987,15 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Eighth -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Eighth">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt#CountingUnit"/>
     </owl:Class>
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#FirstTask -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#Fillet -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#FirstTask">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#TaskSequence"/>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Fillet">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
     </owl:Class>
     
 
@@ -1361,22 +2025,6 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#FruitShape -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#FruitShape">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#FruitState -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#FruitState">
@@ -1388,108 +2036,36 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Halving -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Halving">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreQuartering"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrientingBeforeHalving"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#PeelingBeforeHalving"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quartering"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Eighth"/>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Food"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
                         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Sixteenth"/>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Semioval"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#halving_position"/>
+            </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Eighth"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#repetitions"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
+            </owl:Restriction>
         </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Round"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Semicircle"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Semicircle"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Semioval"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
-                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#SecondTask"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
+        <verb xml:lang="en">halve</verb>
+        <rdfs:comment xml:lang="en">Cut the object into halves</rdfs:comment>
     </owl:Class>
     
 
@@ -1502,10 +2078,83 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/food_cutting#Julienne -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Julienne">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Stripe"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#slicing_position"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#requiresPriorTask"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#repetitions"/>
+                <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <verb xml:lang="en">julienne</verb>
+        <rdfs:comment xml:lang="en">Cut an object into Stripes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#Knife -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Knife">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#Mincing -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Mincing">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Dicing"/>
+        <verb xml:lang="en">mince</verb>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/food_cutting#MustBeAvoided -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Inedible"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#Nutcracker -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Nutcracker">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#PeelingTool"/>
     </owl:Class>
     
 
@@ -1518,140 +2167,6 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrangeFlesh -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrangeFlesh">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FleshOrPulp"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForCutting"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrangePeel -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrangePeel">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SkinOrPeel"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#toolForRemoval"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Hand"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrangePulp -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrangePulp">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FleshOrPulp"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrangeSeeds -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrangeSeeds">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasLocation"/>
-                <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangeFlesh"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                <owl:hasValue rdf:resource="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrientingBeforeHalving -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrientingBeforeHalving">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Orienting"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreQuartering"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#DividingIntoEighths"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quartering"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SecondTask"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrientingBeforeSlicing -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrientingBeforeSlicing">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/situation_awareness#Cuttability"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
-                        <owl:allValuesFrom>
-                            <owl:Class>
-                                <owl:unionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval"/>
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Round"/>
-                                </owl:unionOf>
-                            </owl:Class>
-                        </owl:allValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Dicing"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Orienting"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SecondTask"/>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#OrientingRight -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#OrientingRight">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrientingBeforeHalving"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrientingBeforeSlicing"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#angle"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">90</owl:hasValue>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-    </owl:Class>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#Oval -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval">
@@ -1660,10 +2175,19 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/food_cutting#Paring -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Paring">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Cutting"/>
+        <verb xml:lang="en">pare</verb>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/food_cutting#ParingKnife -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#ParingKnife">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
         <rdfs:comment xml:lang="de">Gemüsemesser</rdfs:comment>
     </owl:Class>
     
@@ -1689,6 +2213,22 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SkinOrPeel"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peeling"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
     </owl:Class>
     
 
@@ -1736,22 +2276,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Peeling -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Peeling">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#PeelingBeforeHalving"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialState"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Deseeded"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultingState"/>
-                        <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#PeeledAndDeseeded"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -1770,47 +2295,6 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#PeelingBeforeHalving -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#PeelingBeforeHalving">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Peelability"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-                                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quartering"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#PeelingTool -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#PeelingTool">
@@ -1822,8 +2306,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Piece -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Piece">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
-        <owl:disjointWith rdf:resource="http://www.ease-crc.org/ont/food_cutting#Slice"/>
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt#CountingUnit"/>
     </owl:Class>
     
 
@@ -1840,7 +2323,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Quarter -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Quarter">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt#CountingUnit"/>
     </owl:Class>
     
 
@@ -1849,16 +2332,15 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#QuarterCoreRemoving">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#CoreCutting"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#SecondTask"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInitialShape"/>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
                         <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
                     </owl:Restriction>
                     <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultShape"/>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
                         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
                         <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
                     </owl:Restriction>
@@ -1872,16 +2354,42 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Quartering -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Quartering">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#DividingIntoEighths"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingAction"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
+                        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#amount"/>
-                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</owl:hasValue>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#affordsPosition"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#halving_position"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#requiresPriorTask"/>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Halving"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#repetitions"/>
+                <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <verb xml:lang="en">quarter</verb>
+        <rdfs:comment xml:lang="en">Cut an object into Quarter</rdfs:comment>
     </owl:Class>
     
 
@@ -1894,22 +2402,6 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#ResultShape -->
-
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#ResultShape">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Cubes"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Sticks"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
-    </owl:Class>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#Round -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Round">
@@ -1918,10 +2410,11 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#SecondTask -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#Sawing -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#SecondTask">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#TaskSequence"/>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Sawing">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Cutting"/>
+        <verb xml:lang="en">saw</verb>
     </owl:Class>
     
 
@@ -1979,7 +2472,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Sixteenth -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Sixteenth">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt#CountingUnit"/>
     </owl:Class>
     
 
@@ -1987,15 +2480,6 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#Size -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Size">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Large"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Medium"/>
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Small"/>
-                </owl:oneOf>
-            </owl:Class>
-        </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#ObjectProperty"/>
     </owl:Class>
     
@@ -2018,6 +2502,24 @@
     
 
 
+    <!-- http://www.ease-crc.org/ont/food_cutting#Slivering -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Slivering">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
+        <verb xml:lang="en">sliver</verb>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#Snipping -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Snipping">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
+        <verb xml:lang="en">snip</verb>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/food_cutting#Spoon -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Spoon">
@@ -2031,6 +2533,22 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Stem">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#PartOutside"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#StemRemovability"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#affordsTask"/>
+                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#StemRemoving"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="de">Stiel / Stängel (z.B. Apfel, Kirsche)</rdfs:comment>
     </owl:Class>
     
@@ -2047,48 +2565,15 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#StemRemoving -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#StemRemoving">
-        <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Food"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#hasDisposition"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#StemRemovability"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                        <owl:someValuesFrom>
-                            <owl:Class>
-                                <owl:intersectionOf rdf:parseType="Collection">
-                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Stem"/>
-                                    <owl:Restriction>
-                                        <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                                        <owl:someValuesFrom>
-                                            <owl:Class>
-                                                <owl:unionOf rdf:parseType="Collection">
-                                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided"/>
-                                                    <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
-                                                </owl:unionOf>
-                                            </owl:Class>
-                                        </owl:someValuesFrom>
-                                    </owl:Restriction>
-                                </owl:intersectionOf>
-                            </owl:Class>
-                        </owl:someValuesFrom>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FirstTask"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
     </owl:Class>
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#TaskSequence -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#Stripe -->
 
-    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#TaskSequence">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Stripe">
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Shape"/>
     </owl:Class>
     
 
@@ -2097,6 +2582,22 @@
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Tool">
         <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#halving_position -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#halving_position">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#slicing_position -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#slicing_position">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion"/>
     </owl:Class>
     
 
@@ -2112,7 +2613,7 @@
     <!-- http://www.ease-crc.org/ont/situation_awareness#BreadKnife -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/situation_awareness#BreadKnife">
-        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/SOMA.owl#CuttingTool"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
         <rdfs:comment xml:lang="de">Brotmesser</rdfs:comment>
     </owl:Class>
     
@@ -2126,6 +2627,22 @@
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
 
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity">
@@ -2134,10 +2651,50 @@
     
 
 
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#EventType -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#EventType">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject -->
 
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Abstract"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialObject">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SpaceRegion">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Region"/>
     </owl:Class>
     
 
@@ -2145,7 +2702,7 @@
     <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task -->
 
     <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#EventType"/>
     </owl:Class>
     
 
@@ -2161,18 +2718,10 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#Cubes -->
+    <!-- http://www.ease-crc.org/ont/food_cutting#AppleCutter_1 -->
 
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Cubes">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#ResultShape"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Edible -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Edible">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edibility"/>
+    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#AppleCutter_1">
+        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleCutter"/>
     </owl:NamedIndividual>
     
 
@@ -2190,83 +2739,6 @@
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Green_Apple">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301710"/>
         <hasColor rdf:resource="http://www.ease-crc.org/ont/food_cutting#Green"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleCore"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleFlesh"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleSeeds"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleSkin"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#AppleStem"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangeFlesh"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangePeel"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangePulp"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#OrangeSeeds"/>
     </owl:NamedIndividual>
     
 
@@ -2287,14 +2759,6 @@
     
 
 
-    <!-- http://www.ease-crc.org/ont/food_cutting#MustBeAvoided -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#MustBeAvoided">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edibility"/>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://www.ease-crc.org/ont/food_cutting#Orange -->
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Orange">
@@ -2307,10 +2771,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Orange_01">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03309832"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds"/>
     </owl:NamedIndividual>
     
 
@@ -2319,18 +2779,6 @@
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Orange_02">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03309832"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeFlesh"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePeel"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangePulp"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_OrangeSeeds"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Oval -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Oval">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#FruitShape"/>
     </owl:NamedIndividual>
     
 
@@ -2346,9 +2794,7 @@
     <!-- http://www.ease-crc.org/ont/food_cutting#QuarteringRedAppleWithParing -->
 
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#QuarteringRedAppleWithParing">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quartering"/>
         <target rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red_Apple"/>
-        <usedTool rdf:resource="http://www.ease-crc.org/ont/food_cutting#ParingKnife_01"/>
     </owl:NamedIndividual>
     
 
@@ -2366,35 +2812,6 @@
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Red_Apple">
         <rdf:type rdf:resource="http://purl.obolibrary.org/obo/FOODON_03301710"/>
         <hasColor rdf:resource="http://www.ease-crc.org/ont/food_cutting#Red"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleCore"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleFlesh"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSeeds"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleSkin"/>
-        <hasPart rdf:resource="http://www.ease-crc.org/ont/food_cutting#Ind_AppleStem"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Round -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Round">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#FruitShape"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Semicircle -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Semicircle">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#ResultShape"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edibility"/>
     </owl:NamedIndividual>
     
 
@@ -2404,33 +2821,6 @@
     <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Small">
         <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#Size"/>
     </owl:NamedIndividual>
-    
-
-
-    <!-- http://www.ease-crc.org/ont/food_cutting#Sticks -->
-
-    <owl:NamedIndividual rdf:about="http://www.ease-crc.org/ont/food_cutting#Sticks">
-        <rdf:type rdf:resource="http://www.ease-crc.org/ont/food_cutting#ResultShape"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Deseeded"/>
-            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peeled"/>
-            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Raw"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 
