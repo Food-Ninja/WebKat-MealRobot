@@ -2,54 +2,75 @@
 layout: default
 ---
 
-
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-  </head>
+	<head>
+		<style>
+			select {
+				margin: 25px;
+				width: 120px;
+				padding: 5px 5px 5px 5px;
+				font-size: 16px;
+				border: 1px solid #CCC;
+				height: 30px;
+            }
+            
+            button {
+            	margin: 5px;
+				width: 80px;
+				font-size: 16px;
+				border: 1px solid #CCC;
+				height: 30px;
+          	}	
+		</style>
+	</head>
   
-  <body>
-      <label for="verb-select">Choose a cutting action:</label>
-	  <select name="verbs" id="verb-select">
-		<option value="cut">Cutting</option>
-		<option value="carve">Carving</option>
-		<option value="pare">Paring</option>
-		<option value="saw">Sawing</option>
-		<option value="dice">Dicing</option>
-		<option value="chop">Chopping</option>
-		<option value="cube">Cubing</option>
-		<option value="mince">Mincing</option>
-		<option value="halve">Halving</option>
-		<option value="julienne">Julienning</option>
-		<option value="quarter">Quartering</option>
-		<option value="slice">Slicing</option>
-		<option value="sliver">Slivering</option>
-		<option value="snip">Snipping</option>
-	  </select>
-	  <br>
-	  
-	  <label for="food-select">Choose a food object:</label>
-	  <select name="foods" id="food-select">
-		<option value="bread">Bread</option>
-		<option value="bean">Bean</option>
-		<option value="banana">Banana</option>
-		<option value="cucumber">Cucumber</option>
-		<option value="pumpkin">Pumpkin</option>
-		<option value="squash">Squash</option>
-		<option value="pepper">Pepper</option>
-		<option value="pineapple">Pineapple</option>
-		<option value="apple">Apple</option>
-		<option value="tomato">Tomato</option>
-		<option value="citron">Citron</option>
-		<option value="kumquat">Kumquat</option>
-		<option value="lemon">Lemon</option>
-		<option value="lime">Lime</option>
-		<option value="orange">Orange</option>
-		<option value="almond">Almond</option>
-		<option value="coconut">Coconut</option>
-		<option value="cherry">Cherry</option>
-		<option value="olive">Olive</option>
-		<option value="strawberry">Strawberry</option>
-	  </select>
-  </body>
+	<body>
+		<h1>Interface for Querying the Ontology:</h1>
+		<p>Please combine a cutting verb with a food object from the lists below. Based on the data in our ontology, the proposed sequence of motions will be returned for your chosen combination.</p>
+  
+		<label for="food-select">I want the robot to execute the task: </label>
+		<select name="verbs" id="verb-select">		
+			<option value="carving">Carving</option>
+			<option value="chopping">Chopping</option>
+			<option value="cubing">Cubing</option>
+			<option value="cutting">Cutting</option>
+			<option value="dicing">Dicing</option>			
+			<option value="halving">Halving</option>			
+			<option value="julienning">Julienning</option>
+			<option value="mincing">Mincing</option>			
+			<option value="paring">Paring</option>			
+			<option value="quartering">Quartering</option>
+			<option value="sawing">Sawing</option>			
+			<option value="slicing">Slicing</option>
+			<option value="slivering">Slivering</option>
+			<option value="snipping">Snipping</option>
+		</select>
+		
+		<label for="food-select">a(n) </label>
+		<select name="foods" id="food-select">
+			<option value="almond">Almond</option>
+			<option value="apple">Apple</option>
+			<option value="banana">Banana</option>
+			<option value="bean">Bean</option>
+			<option value="bread">Bread</option>			
+			<option value="cherry">Cherry</option>	
+			<option value="citron">Citron</option>
+			<option value="coconut">Coconut</option>				
+			<option value="cucumber">Cucumber</option>				
+			<option value="kumquat">Kumquat</option>
+			<option value="lemon">Lemon</option>
+			<option value="lime">Lime</option>				
+			<option value="olive">Olive</option>
+			<option value="orange">Orange</option>
+			<option value="pepper">Pepper</option>
+			<option value="pineapple">Pineapple</option>
+			<option value="pumpkin">Pumpkin</option>
+			<option value="squash">Squash</option>				
+			<option value="strawberry">Strawberry</option>
+			<option value="tomato">Tomato</option>
+		</select>
+		
+		<button type="button">Query</button> 
+	</body>
 </html>
