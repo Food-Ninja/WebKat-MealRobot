@@ -26,6 +26,62 @@ layout: default
 	</head>
   
 	<body>
+		<script>
+			function queryAndShow() {
+				var container = document.getElementById("results");
+				var header = document.getElementById("header");
+				var step_list = document.getElementById("step-list");                
+				var verbs = document.getElementById("verb-select");
+				var foods = document.getElementById("food-select");
+
+				// changing the container visibility
+				container.style.display = "block";
+
+				// changing the header
+				header.textContent = "Motions for " + verbs.value + " a / an " + foods.value + ":"
+                
+                // TODO: query the ontology
+                var peel = true
+                var remove_stem = false
+                var remove_core = true
+                var tool = 'knife'
+                var reps = 2
+                var obj = foods.value
+                var pos = 'left'
+                
+                // create motion list from ontology query
+                motions = ''
+                curr_step = 1
+                if (peel) {
+                	motions += curr_step++ + ". Peeling<br>"
+                }
+                if (remove_stem) {
+                	motions += curr_step++ + ". Removing the stem<br>"
+                }
+                if (remove_core) {
+                	motions += curr_step++ + ". Removing the core<br>"
+                }
+                motions += curr_step + ". Picking up the " + tool + " by:<br>"
+                motions += curr_step + "a. Approaching the " + tool + "<br>"
+                motions += curr_step + "b. Grasping the " + tool + "<br>"
+                motions += curr_step++ + "c. Lifting the " + tool + "<br>"
+                
+                for (let i = 0; i < reps; i++) {
+                	motions += curr_step + ". Cutting the " + obj + " at the " + pos + " position for the " + (i+1) + ". time:<br>"
+                  	motions += curr_step + "a. Approaching the " + obj + " at the " + pos + " position<br>"
+                  	motions += curr_step + "b. Lowering the " + tool + " through the " + obj + "<br>"
+                  	motions += curr_step++ + "c. Lifting the " + tool + "<br>"
+                }
+                
+                motions += curr_step + ". Placing the " + tool + " down by:<br>"
+                motions += curr_step + "a. Approaching the target location<br>"
+                motions += curr_step + "b. Releasing the " + tool + "<br>"
+                motions += curr_step++ + "c. Lifting the empty gripper<br>"
+                
+                step_list.innerHTML = motions
+			}
+		</script>
+	
 		<h1>Interface for Querying the Ontology</h1>
 		<p>Please combine a cutting verb with a food object from the lists below. Based on the data in our ontology, the proposed sequence of motions will be returned for your chosen combination.</p>
   
@@ -47,7 +103,7 @@ layout: default
 			<option value="snipping">Snipping</option>
 		</select>
 		
-		<label for="food-select">a(n) </label>
+		<label for="food-select">a / an </label>
 		<select name="foods" id="food-select">
 			<option value="almond">Almond</option>
 			<option value="apple">Apple</option>
@@ -71,6 +127,11 @@ layout: default
 			<option value="tomato">Tomato</option>
 		</select>
 		
-		<button type="button">Query</button> 
+		<button type="button" onclick="queryAndShow()">Query</button> 
+		
+		<div id="results" style='display: none'>
+			<p id="header"></p>
+			<p id="step-list"></p>
+		</div>
 	</body>
 </html>
