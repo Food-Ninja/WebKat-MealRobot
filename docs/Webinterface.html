@@ -121,14 +121,13 @@ layout: default
             async function get_cut_tool(food) {
                 const sparqlQuery = `
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
-                    PREFIX cut: <http://www.ease-crc.org/ont/food_cutting#>
                     PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
                     PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     PREFIX foodon: <http://purl.obolibrary.org/obo/>
                     PREFIX sit_aware: <http://www.ease-crc.org/ont/situation_awareness#>
                     SELECT ?res WHERE {
-                        foodon:FOODON_00003523 rdfs:subClassOf* ?peel_dis.
+                        foodon:${food} rdfs:subClassOf* ?peel_dis.
                         ?peel_dis owl:onProperty soma:hasDisposition.
                         ?peel_dis owl:someValuesFrom ?peel_dis_vals.
                         ?peel_dis_vals owl:intersectionOf ?afford_vals.
