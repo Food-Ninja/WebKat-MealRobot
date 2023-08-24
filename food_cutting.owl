@@ -1544,6 +1544,7 @@ As long as you:
                 <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <verb xml:lang="en">cut</verb>
     </owl:Class>
     
 
@@ -1589,7 +1590,14 @@ As long as you:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#requiresPriorTask"/>
-                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Julienning"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Julienning"/>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
