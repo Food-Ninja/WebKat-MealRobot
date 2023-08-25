@@ -80,9 +80,7 @@ layout: default
                 try {
                     const response = await fetch(endpointUrl, requestOptions)
                     const data = await response.json()
-                    console.log(data)
                     const firstObject = data[0];
-                    console.log(firstObject)
                     return firstObject.res
                 } catch (error) {
                     console.error('Error:', error)
@@ -193,11 +191,29 @@ layout: default
                 
             	return query_text(sparqlQuery, 'middle')
             }
+            
+            function add_to_table(number, motion, inference) {
+            	var motion_table = document.getElementById("motions");
+            	var row = motion_table.insertRow(-1);
+                var numb = row.insertCell(0);
+                var mot = row.insertCell(1);
+                var inf = row.insertCell(2);
+              	numb.innerHTML = number + ".";
+                mot.innerHTML = motion;
+                inf.innerHTML = inference;
+            }
+            
+            function clear_table() {
+            	var motion_table = document.getElementById("motions");
+            	var rowCount = motion_table.rows.length;
+                for (var i = rowCount - 1; i >= 1; i--) {
+                    motion_table.deleteRow(i);
+                }
+            }
         
 			async function query_and_show() {
 				var container = document.getElementById("results");
 				var header = document.getElementById("header");
-				var step_list = document.getElementById("step-list");
                 
 				var verbs = document.getElementById("verb-select");
 				var foods = document.getElementById("food-select");
@@ -221,37 +237,37 @@ layout: default
                 var pos = await get_cutting_position(verbs.value)
                 
                 // create motion list from ontology query
-                motions = ''
+                clear_table()
                 curr_step = 1
+                
                 // optional preconditions
                 if (remove_peel || remove_shell) {
-                	motions += curr_step++ + ". Peeling using a " + peel_tool + "<br>"
+                	add_to_table(curr_step++, "Peeling using a peeling tool", "has peel = true<br>peeling tool = " + peel_tool)
                 }
                 if (remove_stem) {
-                	motions += curr_step++ + ". Removing the stem<br>"
+                	add_to_table(curr_step++, "Removing the stem", "has stem = true")
                 }
                 if (remove_core) {
-                	motions += curr_step++ + ". Removing the core<br>"
+                	add_to_table(curr_step++, "Removing the core", "has core = true")
                 }
+                
                 // picking up the tool
-                motions += "<br>" + curr_step + ". Picking up the " + cut_tool + " by:<br>"
-                motions += curr_step + "a. Approaching the " + cut_tool + "<br>"
-                motions += curr_step + "b. Grasping the " + cut_tool + "<br>"
-                motions += curr_step++ + "c. Lifting the " + cut_tool + "<br>"
+                add_to_table(curr_step, "Picking up the cutting tool by ...", "cutting tool = " + cut_tool)
+                add_to_table(curr_step + "a", " ... approaching the cutting tool", "cutting tool = " + cut_tool)
+                add_to_table(curr_step + "b", "... grasping the cutting tool", "cutting tool = " + cut_tool)
+                add_to_table(curr_step++ + "c", "... lifting the cutting tool", "cutting tool = " + cut_tool)
                 
                 // cutting the food object the necessary amount of times
-                motions += "<br>" + curr_step + ". Cutting the " + selected_food + " at the " + pos + " " + reps + " time by:<br>"
-                motions += curr_step + "a. Approaching the " + selected_food + " at the " + pos + "<br>"
-                motions += curr_step + "b. Lowering the " + cut_tool + " through the " + selected_food + "<br>"
-                motions += curr_step++ + "c. Lifting the " + cut_tool + "<br>"
+                add_to_table(curr_step, "Cutting the food object at the position n time(s) by ...", "food object = " + selected_food + "<br>position = " + pos + "<br>n = " + reps)
+              	add_to_table(curr_step + "a", "... approaching the food object at the position", "food object = " + selected_food + "<br>position = " + pos)
+              	add_to_table(curr_step + "b", "... lowering the cutting tool through the food object", "cutting tool = " + cut_tool + "<br>food object = " + selected_food)
+              	add_to_table(curr_step++ + "c", "... lifting the cutting tool", "cutting tool = " + cut_tool)
 
 				// putting down the tool
-                motions += "<br>" + curr_step + ". Placing the " + cut_tool + " down by:<br>"
-                motions += curr_step + "a. Approaching the target location<br>"
-                motions += curr_step + "b. Releasing the " + cut_tool + "<br>"
-                motions += curr_step++ + "c. Lifting the empty gripper<br>"
-                
-                step_list.innerHTML = motions
+                add_to_table(curr_step, "Placing the cutting tool down by ...", "cutting tool = " + cut_tool)
+                add_to_table(curr_step + "a", "... approaching the target location", "")
+                add_to_table(curr_step + "b", "... releasing the cutting tool", "cutting tool = " + cut_tool)
+                add_to_table(curr_step + "c", "... lifting the empty gripper", "")
 			}
 		</script>
 	
@@ -304,7 +320,13 @@ layout: default
 		
 		<div id="results" style='display: none'>
 			<p id="header"></p>
-			<p id="step-list"></p>
+			<table id="motions">
+            <tr>
+              <th>#</th>
+              <th>Motions</th>
+              <th>Inference</th>
+            </tr>
+          </table> 
 		</div>
 	</body>
 </html>
