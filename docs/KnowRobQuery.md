@@ -1,9 +1,17 @@
 # Querying the Ontology using Prolog
 All information in the stated ontology is accessible by the robot through queries at runtime. The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. Since the inference engine is already in Prolog, necessary information can be acquired through queries. This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
 
-A KnowRob package to query the ontology is available at ...
+A KnowRob package to query the ontology is available in <a href="https://github.com/Food-Ninja/knowrob_cutting">this github repo</a>
 
-The updated action designator for cutting (which includes the actions slicing and halving) can be found [in our repository](https://github.com/Food-Ninja/FoodCutting/blob/main/cutting_action_designator.lisp). This is just the specific designator part where parameters can be infered. To see the full potential of the generlized action designators please visit the [CRAM website](https://cram-system.org/). 
+The package is documented but as a simple example of retrieving the pose needed for cutting (it only differentiates between slicing_position and halving_position, the robot can further infer the actual position according to this info), the position_to_be_used query can be called with the cutting action (here as an example "SOMA:'Cutting'") as input parameter and Pose as output parameter returns a slicing_position. 
+
+```
+?- position_to_be_used(SOMA:'Cutting',Pose).
+Pose: slicing_position
+```
+
+
+The updated action designator for cutting (which includes the actions slicing and halving) can be found [in our repository](https://github.com/Food-Ninja/FoodCutting/blob/main/cutting_action_designator.lisp). This is just the specific designator part where parameters can be inferred. To see the full potential of the generlized action designators please visit the [CRAM website](https://cram-system.org/). 
 
 For example, a robot would query for the arm to use for action execution to then infer the action parameter as in the following:
 
