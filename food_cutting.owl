@@ -541,7 +541,7 @@ As long as you:
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Peel"/>
+                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Core"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
                                 <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
@@ -655,12 +655,6 @@ As long as you:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
@@ -703,22 +697,6 @@ As long as you:
                                         <owl:allValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Knife"/>
                                     </owl:Restriction>
                                 </owl:allValuesFrom>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#ShouldBeAvoided"/>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
@@ -834,12 +812,6 @@ As long as you:
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1012,12 +984,6 @@ As long as you:
                         </owl:intersectionOf>
                     </owl:Class>
                 </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -1404,22 +1370,6 @@ As long as you:
                 <owl:someValuesFrom>
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Seeds"/>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
-                                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Edible"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasPart"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
                             <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Stem"/>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasEdibility"/>
@@ -1704,14 +1654,7 @@ As long as you:
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#requiresPriorTask"/>
-                <owl:someValuesFrom>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/SOMA.owl#Slicing"/>
-                            <rdf:Description rdf:about="http://www.ease-crc.org/ont/food_cutting#Julienning"/>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                </owl:someValuesFrom>
+                <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Julienning"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
