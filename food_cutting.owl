@@ -1950,6 +1950,14 @@ As long as you:
     
 
 
+    <!-- http://www.ease-crc.org/ont/food_cutting#Halve -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Halve">
+        <rdfs:subClassOf rdf:resource="http://qudt.org/schema/qudt#CountingUnit"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.ease-crc.org/ont/food_cutting#Halving -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Halving">
@@ -1964,7 +1972,7 @@ As long as you:
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
                         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Halve"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
@@ -2278,12 +2286,12 @@ As long as you:
                 <owl:intersectionOf rdf:parseType="Collection">
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasInputObject"/>
-                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                        <owl:someValuesFrom rdf:resource="http://www.ease-crc.org/ont/food_cutting#Halve"/>
                     </owl:Restriction>
                     <owl:Restriction>
                         <owl:onProperty rdf:resource="http://www.ease-crc.org/ont/food_cutting#hasResultObject"/>
                         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</owl:qualifiedCardinality>
-                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPart"/>
+                        <owl:onClass rdf:resource="http://www.ease-crc.org/ont/food_cutting#Quarter"/>
                     </owl:Restriction>
                 </owl:intersectionOf>
             </owl:Class>
