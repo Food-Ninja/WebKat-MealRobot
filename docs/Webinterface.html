@@ -41,6 +41,12 @@ layout: default
                       ?dis owl:someValuesFrom ?tar.
                       ?tar owl:intersectionOf ?tar_int.
                       ?tar_int rdf:first cut:${part}.
+		      ?tar_int rdf:rest ?rest.
+		      ?rest rdf:first ?first.
+		      ?first owl:onProperty cut:hasEdibility.
+		      {?first owl:someValuesFrom cut:MustBeAvoided.}
+		      UNION
+		      {?first owl:someValuesFrom cut:ShouldBeAvoided.}
                     }
                 `;
                 
