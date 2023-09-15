@@ -1,51 +1,15 @@
 # Food Cutting Robots
 
-This project deals with the problem of teaching robots how to execute unknown tasks as motivated in the following picture:
+This project deals with the problem of teaching robots how to execute unknown tasks in the household domain. The focus of this repository lies on the task of *Cutting Food*, especially fruits and vegetables.
+An extensive documentation of the approach and its different aspects can be found on [our website](https://food-ninja.github.io/FoodCutting/).
 
 <p align="center">
-  <img src="img/Motivation.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
+  <img src="docs/img/Motivation3.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
 </p>
 
-To create the ontology employed by the robots for covering knowledge about food objects and the manipulation action *Cutting*, we propose a [manipulation-focused knowledge engineering methodology](./Methodology.html).
-As part of this methodology, we created a task hierarchy from WikiHow instructions to get a broad range of *cut* hyponyms that are actually used in recipe instructions, like *dice*, *halve* or *slice*. For the analysis of the WikiHow articles, we developed the [WikiHow-Analysis-Tool](./WikiHowAnalysis.html).
-
-Additionally, we defined, formalized and extracted **task-specific object knowledge**, which includes object properties like shape, size and anatomical parts that influence the task execution. This knowledge is combined with the task hierarchies and linked to other ontologies like [SOMA](https://github.com/ease-crc/soma) and [FoodOn](https://foodon.org/) to create the [Food-Cutting-Ontology](https://github.com/Food-Ninja/FoodCutting/blob/main/food_cutting.owl).
-
-For the execution on a robot, we use the [CRAM cognitive architecture](https://github.com/cram2/cram) and the knowledge graph for robotic applications in the [KnowRob knowledge processing system](https://github.com/knowrob/knowrob).
-A robot running KnowRob would query for all subclasses of a given class to find out what movements need to be performed to successfully execute an action such as in the following SPARQL query called with Prolog that is also available on [triply](https://krr.triply.cc/mkumpel/-/queries/All-Movements-for-Action/1) to then query if the given food can be used for the given action. For this, the robot needs to use a reasoner.
-
-```bash
-use_module(library(semweb/rdf_db)).             #load rdf module to load the ontology
-rdf_load('food_cutting.owl').                   #load ontology
-use_module(library(semweb/sparql_client)).      #load SPARQL module
-sparql_query(                                   #call SPARQL query
-
-'PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX SOMA: <http://www.ease-crc.org/ont/SOMA.owl#>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-
-Select DISTINCT  ?obj2 ?obj ?act  WHERE {
-      # find all subclasses of a given action (here:slicing)
-  ?act rdfs:subClassOf SOMA:Slicing.
-  	  # if available, find all subclasses of the subclass
-  OPTIONAL{
-    ?obj rdfs:subClassOf ?act.
-      # if available, find all subclasses of the subclass
-  OPTIONAL{
-    ?obj2 rdfs:subClassOf ?obj.}}
-  }', Row,
-  [endpoint('https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FruitCuttingKG/sparql')]).
-```
-
-Similarly, this can be done in Prolog using the following statement:
-
-```bash
-use_module(library(semweb/rdf_db)).             #load rdf module to load the ontology
-rdf_load('food_cutting.owl').                   #load ontology
-use_module(library(semweb/sparql_client)).      #load SPARQL module
-rdf(?act, rdfs:subClassOf, SOMA:Slicing), optional(rdf(?task, rdfs:subClassOf, ?act)), optional(rdf(?motion, rdfs:subClassOf, ?task)).
-```        
+This repository contains the created knowledge graph, the CRAM action designator and additional resources created by following [our methodology](https://food-ninja.github.io/FoodCutting/Methodology.html).
+Additionally, the `food_extraction` folder contains all intermediate results used for extracting knowledge about fruits and vegetables from the [FoodOn](https://doi.org/10.1038/s41538-018-0032-6).
+For the simulation of the cutting task, please refer to [this repository](https://github.com/Food-Ninja/FoodNinjaSimulation) instead.
 
 ## Disclaimer
 
