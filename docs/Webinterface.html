@@ -167,6 +167,42 @@ layout: default
             	return query_text(sparqlQuery, 'Knife')
             }
             
+            async function get_target(verb) {
+                const sparqlQuery = `
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
+                    PREFIX cut: <http://www.ease-crc.org/ont/food_cutting#>
+                    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    SELECT ?res WHERE {
+                      {
+                        ${verb} rdfs:subClassOf* ?inter_node.
+                        ?inter_node owl:intersectionOf ?in_res_node.
+                        ?in_res_node rdf:first ?input_node.
+                        ?input_node owl:onProperty cut:hasInputObject.
+                        ?input_node owl:someValuesFrom ?target.
+                        FILTER NOT EXISTS {
+                            ?target owl:unionOf ?union_node.
+                        }
+                        BIND(REPLACE(STR(?target), "^.*[#/]", "") AS ?res).
+                      } 
+                      UNION
+                      {
+                        ${verb} rdfs:subClassOf* ?inter_node.
+                        ?inter_node owl:intersectionOf ?in_res_node.
+                        ?in_res_node rdf:first ?input_node.
+                        ?input_node owl:onProperty cut:hasInputObject.
+                        ?input_node owl:someValuesFrom ?targets_node.
+                        ?targets_node owl:unionOf ?union_node.
+                        ?union_node rdf:first ?target.
+                        BIND(REPLACE(STR(?target), "^.*[#/]", "") AS ?res).
+                      }
+                    } 
+                `;
+                
+            	return query_text(sparqlQuery, 'Food')
+            }
+            
             async function get_repetitions(verb) {
             	const sparqlQuery = `
                     PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -259,10 +295,12 @@ layout: default
                 var cut_tool = await get_cut_tool(foods.value)
                 var reps = await get_repetitions(verbs.value)
                 var pos = await get_cutting_position(verbs.value)
+                var shape = await get_target(verbs.value)
                 
                 // create motion list from ontology query
                 clear_table()
                 curr_step = 1
+                target = ''
                 
                 // optional preconditions
                 if (remove_peel || remove_shell) {
@@ -284,10 +322,17 @@ layout: default
                 add_to_table(curr_step + "b", "... grasping the cutting tool", "cutting tool = " + cut_tool)
                 add_to_table(curr_step++ + "c", "... lifting the cutting tool", "cutting tool = " + cut_tool)
                 
+                // deciding on the target
+                if(shape == 'Food') {
+                	target = selected_food
+                } else {
+                	target = selected_food + " " + shape
+                }
+                
                 // cutting the food object the necessary amount of times
-                add_to_table(curr_step, "Cutting the food object at the position n time(s) by ...", "food object = " + selected_food + "<br>position = " + pos + "<br>n = " + reps)
-              	add_to_table(curr_step + "a", "... approaching the food object at the position", "food object = " + selected_food + "<br>position = " + pos)
-              	add_to_table(curr_step + "b", "... lowering the cutting tool through the food object", "cutting tool = " + cut_tool + "<br>food object = " + selected_food)
+                add_to_table(curr_step, "Cutting the target object at the position n time(s) by ...", "target object = " + target + "<br>position = " + pos + "<br>n = " + reps)
+              	add_to_table(curr_step + "a", "... approaching the target object at the position", "target object = " + target + "<br>position = " + pos)
+              	add_to_table(curr_step + "b", "... lowering the cutting tool through the target object", "cutting tool = " + cut_tool + "<br>target object = " + target)
               	add_to_table(curr_step++ + "c", "... lifting the cutting tool", "cutting tool = " + cut_tool)
 
 				// putting down the tool
