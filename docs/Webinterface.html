@@ -71,6 +71,23 @@ layout: default
                 }
             }
             
+            async function get_prior_task(verb) {
+            	const sparqlQuery = `
+                    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+                    PREFIX cut: <http://www.ease-crc.org/ont/food_cutting#>
+                    PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
+                    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+                    SELECT ?res WHERE {
+                        ${verb} rdfs:subClassOf ?sub.
+                        ?sub owl:onProperty cut:requiresPriorTask .
+                        ?sub owl:someValuesFrom ?priortask.
+                        BIND(REPLACE(STR(?priortask), "^.*[#/]", "") AS ?res).
+                    }
+                `;
+                
+            	return query_text(sparqlQuery, '')
+            }
+            
             async function query_text(query, alternative) {
             	// Triply SPARQL endpoint URL
                 const endpointUrl = 'https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FoodCuttingKG/sparql'
@@ -237,6 +254,7 @@ layout: default
                 var remove_shell = await check_food_part(foods.value, 'Shell')
                 var remove_stem = await check_food_part(foods.value, 'Stem')
                 var remove_core = await check_food_part(foods.value, 'Core')
+                var prior_task = await get_prior_task(verbs.value)
                 var peel_tool = await get_peel_tool(foods.value)
                 var cut_tool = await get_cut_tool(foods.value)
                 var reps = await get_repetitions(verbs.value)
@@ -255,6 +273,9 @@ layout: default
                 }
                 if (remove_core) {
                 	add_to_table(curr_step++, "Removing the core", "has core = true")
+                }
+                if (prior_task != '') {
+                	add_to_table(curr_step++, "Execute a prior task: " + prior_task, "has prior task = true<br>prior task = " + prior_task)
                 }
                 
                 // picking up the tool
