@@ -78,7 +78,7 @@ layout: default
                     PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
                     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
                     SELECT ?res WHERE {
-                        ${verb} rdfs:subClassOf ?sub.
+                        ${verb} rdfs:subClassOf* ?sub.
                         ?sub owl:onProperty cut:requiresPriorTask .
                         ?sub owl:someValuesFrom ?priortask.
                         BIND(REPLACE(STR(?priortask), "^.*[#/]", "") AS ?res).
