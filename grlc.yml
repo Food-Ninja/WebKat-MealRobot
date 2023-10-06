@@ -1,0 +1,8 @@
+title: Food Cutting Knowledge Graph API
+description: Accessing information from the food cutting knowledge graph
+contact:
+  name: Michaela Kümpel
+  url: https://github.com/Food-Ninja/FoodCutting
+licence: https://opendatacommons.org/licenses/by/1-0/
+queries:
+  - https://github.com/Food-Ninja/FoodCutting/master/queries/
