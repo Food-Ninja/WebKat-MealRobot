@@ -131,7 +131,6 @@ layout: default
                         ?trigger_wo_nil owl:onProperty soma:affordsTrigger.
                         ?trigger_wo_nil owl:allValuesFrom ?trigger_tool.
                         ?trigger_tool owl:allValuesFrom ?tool.
-                        ?tool rdfs:subClassOf cut:PeelingTool.
                         BIND(REPLACE(STR(?tool), "^.*[#/]", "") AS ?res).
                     }
                 `;
@@ -159,7 +158,6 @@ layout: default
                         ?trigger_wo_nil owl:onProperty soma:affordsTrigger.
                         ?trigger_wo_nil owl:allValuesFrom ?trigger_tool.
                         ?trigger_tool owl:allValuesFrom ?tool.
-                        ?tool rdfs:subClassOf soma:CuttingTool.
                         BIND(REPLACE(STR(?tool), "^.*[#/]", "") AS ?res).
                     }
                 `;

@@ -23,6 +23,5 @@ SELECT ?res WHERE {
 	?trigger_wo_nil owl:onProperty soma:affordsTrigger.
 	?trigger_wo_nil owl:allValuesFrom ?trigger_tool.
 	?trigger_tool owl:allValuesFrom ?tool.
-	?tool rdfs:subClassOf soma:CuttingTool.
 	BIND(REPLACE(STR(?tool), "^.*[#/]", "") AS ?res).
 }
