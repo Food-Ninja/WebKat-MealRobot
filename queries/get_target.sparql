@@ -1,3 +1,9 @@
+#+ endpoint: https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FoodCuttingKG/sparql
+
+#+ summary: Query the target for the specific verb. This is either the food itself or a specific shape/part like Halve or Slice
+#+ tags: 
+#+ - object to cut
+
 # Query the target for the specific verb. This is either the food itself or a specific shape/part like Halve or Slice
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
