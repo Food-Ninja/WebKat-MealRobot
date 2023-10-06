@@ -12,7 +12,7 @@ PREFIX cut2: <http://www.ease-crc.org/ont/situation_awareness#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX foodon: <http://purl.obolibrary.org/obo/>
 PREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
-SELECT ?alltools WHERE {
+SELECT ?whattool WHERE {
   ?_food rdfs:subClassOf ?node.
   ?node owl:onProperty soma:hasDisposition.
   ?node owl:someValuesFrom ?collection.
@@ -25,5 +25,4 @@ SELECT ?alltools WHERE {
   ?tooluse owl:allValuesFrom ?tool.
   ?tool owl:onProperty dul:classifies.
   ?tool owl:allValuesFrom ?whattool.
-  ?alltools rdfs:subClassOf* ?whattool.
 }
