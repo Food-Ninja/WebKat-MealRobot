@@ -341,13 +341,13 @@ layout: default
 			}
 		</script>
 	
-		<center><h1>Food Cutting Interface</h1></center>
-		<h2>This is a web version of the interface a robot can use to parameterise cutting actions.</h2>
+		<center><h1>Food Cutting Interface</h1>
+		<h2>This is a web version of the interface a robot can use to parameterise cutting actions.</h2></center>
 		The robot will parameterise its cutting actions based on a given task and a given fruit.<br>
-		<b>Usage:</b>
-		<p>Please choose a <b>cutting verb</b> and a <b>food object</b> from the dropdown lists below. Based on a food cutting knowledge graph, a sequence of motions will be returned that a robot can use for action parameterisation.</p>
+		
+		<p><b>Usage:</b> Please choose a <b>cutting verb</b> and a <b>food object</b> from the dropdown lists below. Based on a food cutting knowledge graph, a sequence of motions will be returned that a robot can use for action parameterisation.</p>
   
-		<label for="food-select">I want the robot to execute the task: </label>
+		<label for="food-select">I want the robot to execute the <b>task</b>: </label>
 		<select name="verbs" id="verb-select">		
 			<option value="cut:Carving">Carving</option>
 			<option value="cut:Chopping">Chopping</option>
@@ -365,7 +365,7 @@ layout: default
 			<option value="cut:Snipping">Snipping</option>
 		</select>
 		
-		<label for="food-select">a / an </label>
+		<label for="food-select"> on <b>a / an</b> </label>
 		<select name="foods" id="food-select">
 			<option value="FOODON_00003523">Almond</option>
 			<option value="FOODON_03301710">Apple</option>
