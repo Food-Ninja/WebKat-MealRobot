@@ -2,14 +2,14 @@
 layout: default
 ---
 
-# Querying the Ontology using a REST API
+# Querying food cutting knowledge using a REST API
 
 If you want to access the contained knowledge using predefined standard queries, please use our <a href="http://grlc.io/api/Food-Ninja/FoodCutting/sparqlfiles/">grlc interface for predefined queries</a>.
 
 <a href="https://github.com/CLARIAH/grlc">grlc on github</a>.
 
 
-# Querying the Ontology using SPARQL
+# Querying food cutting knowledge using SPARQL
 
 Here you can try out how a robot would query the ontology using SPARQL, or Prolog (see next section).
 
