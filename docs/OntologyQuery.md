@@ -2,20 +2,21 @@
 layout: default
 ---
 
-# Querying food cutting knowledge using a REST API
+# Querying Food Cutting Knowledge Using a REST API
 
-If you want to access the contained knowledge using predefined standard queries, please use our <a href="http://grlc.io/api/Food-Ninja/FoodCutting/sparqlfiles/">grlc interface for predefined queries</a>.
+If you want to access the contained knowledge using predefined standard queries, please use our <a href="http://grlc.io/api/Food-Ninja/FoodCutting/sparqlfiles/">grlc interface</a>[^1] for predefined queries.
 
 <a href="https://github.com/CLARIAH/grlc">grlc on github</a>.
 
 
-# Querying food cutting knowledge using SPARQL
+# Querying Food Cutting Knowledge Using SPARQL
 
-Here you can try out how a robot would query the ontology using SPARQL, or Prolog (see next section).
+To try the querying using SPARQL yourself, please use [our webinterface](https://food-ninja.github.io/FoodCutting/Webinterface.html).
 
 The robot knows that for all cutting actions like slicing, dicing, halving or quartering it needs to perform the following body movements:
 
 pick up (tool) -> approach (object, position) -> lower (tool) -> lift (tool) -> place (tool)
+
 For each cutting parameter in parantheses, the robot can query the ontology to retrieve further information. The following query asks for the tool to use for a cutting action. You can also try out the query yourself <a href="https://krr.triply.cc/mkumpel/-/queries/What-food-can-be-cut-with-which-tool-1/1">on triply</a>
 ```bash
 PREFIX DUL: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
@@ -126,5 +127,24 @@ SELECT ?sub ?position WHERE {
 }
 ```
 
+# Querying Food Cutting Knowledge Using Prolog
+All information in the stated ontology is accessible by the robot through queries at runtime.
+The action designator also uses Prolog as the inference engine to convert symbolic action descriptions into ROS action goals or similar data structures. 
+Since the inference engine is already in Prolog, necessary information can be acquired through queries. 
+This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
+
+A KnowRob package to query the ontology is available in <a href="https://github.com/Food-Ninja/knowrob_cutting">this github repo</a>
+
+The package is documented but as a simple example of retrieving the pose needed for cutting (it only differentiates between *slicing_position* and *halving_position*, the robot can further infer the actual position according to this info), the *position_to_be_used* query can be called with the cutting action (here as an example "SOMA:'Cutting'") as input parameter and Pose as output parameter returns a *slicing_position*. 
+
+```
+?- position_to_be_used(SOMA:'Cutting',Pose).
+Pose: slicing_position
+```
+
 
 [Back to the Overview](./)
+
+## References
+
+[^1]: A. Meroño-Peñuela and R. Hoekstra, ‘grlc Makes GitHub Taste Like Linked Data APIs’, in The Semantic Web - ESWC Satellite Events, H. Sack, G. Rizzo, N. Steinmetz, D. Mladenić, S. Auer, and C. Lange, Eds., in Lecture Notes in Computer Science, vol. 9989. Heraklion, Crete, Greece: Springer International Publishing, 2016, pp. 342–353. doi: 10.1007/978-3-319-47602-5_48.

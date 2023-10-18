@@ -1,15 +1,16 @@
 # Food Cutting Robots
 
-This project deals with the problem of teaching robots how to execute unknown tasks in the household domain. The focus of this repository lies on the task of *Cutting Food*, especially fruits and vegetables.
+This project deals with the problem of teaching robots how to execute unknown tasks in the household domain using web knowledge. 
+The current focus lies on the task of *Cutting Food*, especially fruits and vegetables.
 This website provides an extensive documentation of the approach and its different aspects.
 
 <p align="center">
   <img src="img/Motivation3.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
 </p>
 
-This github repository contains the created knowledge graph, the CRAM action designator and additional resources created by following [our methodology](https://food-ninja.github.io/FoodCutting/Methodology.html).
-Additionally, the `food_extraction` folder contains all intermediate results used for extracting knowledge about fruits and vegetables from the [FoodOn](https://doi.org/10.1038/s41538-018-0032-6).
-For the simulation of the cutting task, please refer to [this repository](https://github.com/Food-Ninja/FoodNinjaSimulation) instead.
+This website covers the [architecture](https://food-ninja.github.io/FoodCutting/Architecture.html) of the system we use for our approach as well as describing the required [web knowledge](https://food-ninja.github.io/FoodCutting/Knowledge.html).
+We explain the different ways of [querying our knowledge graph](https://food-ninja.github.io/FoodCutting/OntologyQuery.html) as well as providing a [webinterface](https://food-ninja.github.io/FoodCutting/Webinterface.html) to demonstrate the possible results for all action-food combinations available in our KG.
+To assess the practical application of our approach, we performed an [experiment](https://food-ninja.github.io/FoodCutting/Experiment.html). Videos of the experiment are also available [here](https://food-ninja.github.io/FoodCutting/Videos.html).
 
 ## Disclaimer
 
