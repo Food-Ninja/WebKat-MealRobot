@@ -6,8 +6,6 @@ layout: default
 
 If you want to access the contained knowledge using predefined standard queries, please use our <a href="http://grlc.io/api/Food-Ninja/FoodCutting/sparqlfiles/">grlc interface</a>[^1] for predefined queries.
 
-<a href="https://github.com/CLARIAH/grlc">grlc on github</a>.
-
 
 # Querying Food Cutting Knowledge Using SPARQL
 
@@ -133,7 +131,7 @@ The action designator also uses Prolog as the inference engine to convert symbol
 Since the inference engine is already in Prolog, necessary information can be acquired through queries. 
 This goes beyond the newest cutting action designator and is available in the open-source framework CRAM for all designators. 
 
-A KnowRob package to query the ontology is available in <a href="https://github.com/Food-Ninja/knowrob_cutting">this github repo</a>
+A KnowRob package to query the ontology is available in <a href="https://github.com/Food-Ninja/knowrob_cutting">this github repo</a>.
 
 The package is documented but as a simple example of retrieving the pose needed for cutting (it only differentiates between *slicing_position* and *halving_position*, the robot can further infer the actual position according to this info), the *position_to_be_used* query can be called with the cutting action (here as an example "SOMA:'Cutting'") as input parameter and Pose as output parameter returns a *slicing_position*. 
 
@@ -147,4 +145,4 @@ Pose: slicing_position
 
 ## References
 
-[^1]: A. Meroño-Peñuela and R. Hoekstra, ‘grlc Makes GitHub Taste Like Linked Data APIs’, in The Semantic Web - ESWC Satellite Events, H. Sack, G. Rizzo, N. Steinmetz, D. Mladenić, S. Auer, and C. Lange, Eds., in Lecture Notes in Computer Science, vol. 9989. Heraklion, Crete, Greece: Springer International Publishing, 2016, pp. 342–353. doi: 10.1007/978-3-319-47602-5_48.
+[^1]: A. Meroño-Peñuela and R. Hoekstra, ‘grlc Makes GitHub Taste Like Linked Data APIs’, in The Semantic Web - ESWC Satellite Events, H. Sack, G. Rizzo, N. Steinmetz, D. Mladenić, S. Auer, and C. Lange, Eds., in Lecture Notes in Computer Science, vol. 9989. Heraklion, Crete, Greece: Springer International Publishing, 2016, pp. 342–353. doi: [10.1007/978-3-319-47602-5_48](https://link.springer.com/10.1007/978-3-319-47602-5_48).
