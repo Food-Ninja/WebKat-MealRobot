@@ -28,7 +28,7 @@ Additionally, we look at co-occurrences of the fruit/vegetable and the anatomica
 We differentiate two ways of extracting these co-occurrences: Either by searching for the bigrams directly (e.g. *apple core*) or by filtering sentences in two steps (e.g. look for the occurrence of *core* in all sentences also containing *apple*).
 
 Results:
-|Rank|          | F1-Score|Condition|
+|Rank| Method | F1-Score|Condition|
 |:--------------|:--------------|:-----------:|:--------------|
 |1.|Recipe1M+ 2-Step|.718|Occurrence in $\geq 1$% of steps|
 |2.|ChatGPT | .690 |-|
@@ -40,9 +40,9 @@ Results:
 |8.|CN Numberbatch | .533  |Similarity $\geq 0.30$|
 |9.|GloVe| .471  |Similarity $\geq 0.25$|
 |10.|GloVe| .444  |Similarity $\geq 0.40$|
-||NASARI| .444  |Similarity >= $\geq 0.75$|
-|11.|GloVe| .432  |Similarity >= $\geq 0.50$|
-|12.|NASARI| .394  |Similarity >= $\geq 0.50$|
+||NASARI| .444  |Similarity $\geq 0.75$|
+|11.|GloVe| .432  |Similarity $\geq 0.50$|
+|12.|NASARI| .394  |Similarity $\geq 0.50$|
 
 ### Part Edibility
 
