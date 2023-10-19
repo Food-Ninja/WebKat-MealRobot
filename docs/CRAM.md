@@ -27,7 +27,7 @@ In order to access data from the ontology, the data is imported into KnowRob[^2]
 For the specific task at hand, the intended target object is an apple, the tool to use is a knife, the left arm holds the apple in place and the right arm holds the knife.
 Finally, the goal is considered as reached when the robot successfully executes the action with the body parts returning to their initial positions and the apple being transformed into two distinct halves.
 
-[Back to the Overview](./)
+[Back](./Webinterface.html)
 
 ## References
 

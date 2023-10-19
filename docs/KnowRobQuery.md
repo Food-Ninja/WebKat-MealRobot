@@ -9,3 +9,5 @@ The package is documented but as a simple example of retrieving the pose needed 
 ?- position_to_be_used(SOMA:'Cutting',Pose).
 Pose: slicing_position
 ```
+
+[Back](./Webinterface.html)

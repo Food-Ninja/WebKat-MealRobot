@@ -11,6 +11,4 @@ Here you can view some videos of our robot accessing the knowledge graph to perf
 Your browser does not support the video tag.
 </video> 
 
--
-
-[Back to the Overview](./)
+[Back](./Webinterface.html)

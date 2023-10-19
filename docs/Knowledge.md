@@ -5,7 +5,7 @@ layout: default
 # Gathering and Linking Web Knowledge
 
 To support robotic agents in executing variations of *Cutting* on different *fruits and vegetables*, we collect two types of knowledge in our knowledge graph: **action** and **object knowledge**.
-Both kinds of knowledge need to be linked to enable task execution as explained [here](https://food-ninja.github.io/FoodCutting/Architecture.html).
+Both kinds of knowledge need to be linked to enable task execution as explained **[here](https://food-ninja.github.io/FoodCutting/Architecture.html)**.
 
 ## Action Knowledge
 
@@ -60,7 +60,7 @@ In general, a disposition describes the property of an object, thereby enabling 
 Both concepts are set in relation by stating that dispositions allow objects to participate in events, realising affordances that are more abstract descriptions of dispositions[^1].
 In our concrete knowledge graph, this is done by using the *affordsTask, affordsTrigger* and *hasDisposition* relations introduced in the SOMA ontology[^1].
 
-[Back to the Overview](./)
+[Back](./Webinterface.html)
 
 ## References
 
