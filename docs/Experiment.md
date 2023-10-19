@@ -20,4 +20,4 @@ The left picture shows the default implementation for *cutting*, where a single 
 In the middle, the task variation *slicing* is executed. Here, multiple cuts beginning at the end of the cucumber are performed to create multiple slices with similar length.
 On the right, the task variation *halving* is shown. For this task, a single cut in the middle of the cucumber is done.
 
-[Back](./Webinterface.html)
+[Back](./index.html)

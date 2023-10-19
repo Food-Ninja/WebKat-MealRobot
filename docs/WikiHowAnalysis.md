@@ -44,7 +44,7 @@ In the table, the three verbs with the most occurrences per column (apart from *
 In our ontology, we currently cover *slice*, *dice*, *halve*, *quarter* and *cube*.
 With this knowledge, the relevance of different hyponyms for the application domain can be assessed and a better focus can be set in the following steps of our [methodology](./Methodology.html).
 
-[Back](./Webinterface.html)
+[Back](./index.html)
 
 ## References
 

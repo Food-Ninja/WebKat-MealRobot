@@ -60,7 +60,7 @@ In general, a disposition describes the property of an object, thereby enabling 
 Both concepts are set in relation by stating that dispositions allow objects to participate in events, realising affordances that are more abstract descriptions of dispositions[^1].
 In our concrete knowledge graph, this is done by using the *affordsTask, affordsTrigger* and *hasDisposition* relations introduced in the SOMA ontology[^1].
 
-[Back](./Webinterface.html)
+[Back](./index.html)
 
 ## References
 

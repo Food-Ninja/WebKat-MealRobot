@@ -87,7 +87,7 @@ This is a crucial and difficult part for many cognitive architectures which can 
 Similarly, the objects and their properties need to be grounded through the robot perception system.
 This allows the robot to query the created ontology to gather the sequence of atomic manipulation tasks necessary to perform the unknown action on the perceived object in the current environment. 
 
-[Back](./Webinterface.html)
+[Back](./index.html)
 
 ## References
 

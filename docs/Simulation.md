@@ -40,7 +40,7 @@ The resulting manipulation process is visualized below:
 	<img src="img/AppleQuarteringComic.png" width="800" alt="Simulation of the “Quarter an apple” task"/><br>
 </p>
 
-[Back](./Webinterface.html)
+[Back](./index.html)
 
 ## References
 
