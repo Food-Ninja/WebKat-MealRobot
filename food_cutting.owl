@@ -1839,7 +1839,7 @@ As long as you:
     <!-- http://www.ease-crc.org/ont/food_cutting#CoreRemoving -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#CoreRemoving">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPreparation"/>
     </owl:Class>
     
 
@@ -1912,7 +1912,7 @@ As long as you:
     <!-- http://www.ease-crc.org/ont/food_cutting#Filleting -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Filleting">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPreparation"/>
     </owl:Class>
     
 
@@ -1938,6 +1938,14 @@ As long as you:
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#FoodPart">
         <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#Food"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ease-crc.org/ont/food_cutting#FoodPreparation -->
+
+    <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#FoodPreparation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
     </owl:Class>
     
 
@@ -2202,7 +2210,7 @@ As long as you:
     <!-- http://www.ease-crc.org/ont/food_cutting#Peeling -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#Peeling">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPreparation"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -2491,7 +2499,7 @@ As long as you:
     <!-- http://www.ease-crc.org/ont/food_cutting#StemRemoving -->
 
     <owl:Class rdf:about="http://www.ease-crc.org/ont/food_cutting#StemRemoving">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Task"/>
+        <rdfs:subClassOf rdf:resource="http://www.ease-crc.org/ont/food_cutting#FoodPreparation"/>
     </owl:Class>
     
 
