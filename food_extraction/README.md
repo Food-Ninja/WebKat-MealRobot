@@ -58,14 +58,17 @@ Results:
 ### Part Removal Tool
 
 We extract information about the tool suggested for removing an antomical part from the part / fruit.
-Here we also evaluate ChatGPT & GPT-4[^3] but we de not provide them a list of tools to choose from.
-However, the correct results stem from a list of 5 tools: *nutcracker, knife, hand, peeler, spoon*
+Here we also evaluate ChatGPT & GPT-4[^3] two times: 
+First we de not provide them a list of tools to choose from (= *Open*) and then we provide them with a list of the following 5 tools to choose from (= *Given):
+*nutcracker, knife, hand, peeler, spoon*
 
 Results:
 |          | Knife (F1)|Hand (F1)|Nutcracker (F1)|Spoon (F1)| Peeler (F1)| Average F1|
 |:--------------|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
-| ChatGPT |.538|.000|.667|.000|.500|.341|
-| GPT-4  |.353|.286|.667|.500|.333| .428  |
+| ChatGPT (Open) |.538|.000|.667|.000|.500|.341|
+| ChatGPT (Given) |.720|.000|.667|.500|.286|.434|
+| GPT-4 (Open)  |.353|.286|.667|.500|.333| .428  |
+| GPT-4 (Given)  |.769|.286|.667|.800|.364| .577  |
 
 ## References
 
