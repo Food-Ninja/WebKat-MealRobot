@@ -6,8 +6,8 @@ layout: default
 
 Here you can view some videos of our robot accessing the knowledge graph to perform cutting actions.
 
- <video width="1280" height="720" controls>
-	<source src="vid/Cut,chop,slice,or_dicemovie.mp4" type="video/mp4">
+ <video width="1024" height="576" controls>
+	<source src="vid/Cut,chop,slice,or_dicemovie.mp4" type="video/mp4; codecs='hev1'">
 Your browser does not support the video tag.
 </video> 
 
