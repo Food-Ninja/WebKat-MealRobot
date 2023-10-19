@@ -19,34 +19,41 @@ In the [FruitPropertyExtraction](./FruitPropertyExtraction.ipynb) notebook, we t
 
 ### Anatomical Part
 
-Here we extract information about the anatomical parts that occur in the fruit / vegetable. 
+Here we extract information about the anatomical parts that occur in the fruit / vegetable.
+However, the possible anatomical parts to choose from are provided: *core, shell, stem, peel*
+
 We test the LLMs ChatGPT and GPT-4[^3] as well as three different embeddings through calculating the cosine similarity between the fruit/vegetable and the part.
 The embeddings are: ConceptNet Numberbatch[^4], NASARI[^5] and GloVe[^6].
-We also provide the 4 possible anatomical parts to choose from: *core, shell, stem, peel*
+Additionally, we look at co-occurrences of the fruit/vegetable and the anatomical part in recipe data from the Recipe1M+[^2] dataset.
+We differentiate two ways of extracting these co-occurrences: Either by searching for the bigrams directly (e.g. *apple core*) or by filtering sentences in two steps (e.g. look for the occurrence of *core* in all sentences also containing *apple*).
 
 Results:
-|          | F1-Score|Remark|
-|:--------------|:-----------:|:--------------|
-| ChatGPT | .690 |-|
-| GPT-4  | .625  |-|
-|CN Numberbatch | .622  |Threshold >= 0.2|
-|CN Numberbatch | .533  |Threshold >= 0.3|
-|GloVe| .471  |Threshold >= 0.25|
-|GloVe| .444  |Threshold >= 0.40|
-|NASARI| .444  |Threshold >= 0.75|
-|GloVe| .432  |Threshold >= 0.50|
-|NASARI| .394  |Threshold >= 0.50|
+|Rank|          | F1-Score|Condition|
+|:--------------|:--------------|:-----------:|:--------------|
+|1.|Recipe1M+ 2-Step|.718|Occurrence in $\geq 1$% of steps|
+|2.|ChatGPT | .690 |-|
+|3.|GPT-4  | .625  |-|
+|4.|CN Numberbatch | .622  |Similarity $\geq 0.20$|
+|5.|Recipe1M+ Bigrams|.603|Occurrence in any step|
+|6.|Recipe1M+ 2-Step|.588|Occurrence in $\geq 0.5$% of steps|
+|7.|Recipe1M+ Bigrams|.541|Occurrence in $\geq 0.1$% of steps|
+|8.|CN Numberbatch | .533  |Similarity $\geq 0.30$|
+|9.|GloVe| .471  |Similarity $\geq 0.25$|
+|10.|GloVe| .444  |Similarity $\geq 0.40$|
+||NASARI| .444  |Similarity >= $\geq 0.75$|
+|11.|GloVe| .432  |Similarity >= $\geq 0.50$|
+|12.|NASARI| .394  |Similarity >= $\geq 0.50$|
 
 ### Part Edibility
 
 Here we extract information about the edibility for each anatomical part. 
 We just evaluate ChatGPT & GPT-4[^3]. Again, the LLM can choose between three pre-defined edibilities: *edible, should be avoided, must be avoided*
 
-Results (Average F1-Score across the 3 classes):
-|          | F1-Score|
-|:--------------|:-----------:|
-| ChatGPT | .253 |
-| GPT-4  | .410  |
+Results:
+|          | Edible (F1)| Should not (F1)| Must not (F1)| Average F1|
+|:--------------|:-----------:|:-----------:|:-----------:|:-----------:|
+| ChatGPT |.444|.316|.000|.253|
+| GPT-4  |.421|.500|.308|.410|
 
 ### Part Removal Tool
 
@@ -54,11 +61,11 @@ We extract information about the tool suggested for removing an antomical part f
 Here we also evaluate ChatGPT & GPT-4[^3] but we de not provide them a list of tools to choose from.
 However, the correct results stem from a list of 5 tools: *nutcracker, knife, hand, peeler, spoon*
 
-Results (Average F1-Score across the 5 classes):
-|          | F1-Score|
-|:--------------|:-----------:|
-| ChatGPT | .341 |
-| GPT-4  | .428  |
+Results:
+|          | Knife (F1)|Hand (F1)|Nutcracker (F1)|Spoon (F1)| Peeler (F1)| Average F1|
+|:--------------|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
+| ChatGPT |.538|.000|.667|.000|.500|.341|
+| GPT-4  |.353|.286|.667|.500|.333| .428  |
 
 ## References
 
