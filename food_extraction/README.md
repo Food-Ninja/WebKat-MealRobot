@@ -50,7 +50,7 @@ Here we extract information about the edibility for each anatomical part.
 We just evaluate ChatGPT & GPT-4[^3]. Again, the LLM can choose between three pre-defined edibilities: *edible, should be avoided, must be avoided*
 
 Results:
-|          | Edible (F1)| Should not (F1)| Must not (F1)| Average F1|
+|Method| Edible (F1)| Should be avoided (F1)| Must be avoided (F1)| Average F1|
 |:--------------|:-----------:|:-----------:|:-----------:|:-----------:|
 | ChatGPT |.444|.316|.000|.253|
 | GPT-4  |.421|.500|.308|.410|
@@ -59,11 +59,11 @@ Results:
 
 We extract information about the tool suggested for removing an antomical part from the part / fruit.
 Here we also evaluate ChatGPT & GPT-4[^3] two times: 
-First we de not provide them a list of tools to choose from (= *Open*) and then we provide them with a list of the following 5 tools to choose from (= *Given):
+First we de not provide them a list of tools to choose from (= *Open*) and then we provide them with a list of the following 5 tools to choose from (= *Given*):
 *nutcracker, knife, hand, peeler, spoon*
 
 Results:
-|          | Knife (F1)|Hand (F1)|Nutcracker (F1)|Spoon (F1)| Peeler (F1)| Average F1|
+|Method| Knife (F1)|Hand (F1)|Nutcracker (F1)|Spoon (F1)| Peeler (F1)| Average F1|
 |:--------------|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|:-----------:|
 | ChatGPT (Open) |.538|.000|.667|.000|.500|.341|
 | ChatGPT (Given) |.720|.000|.667|.500|.286|.434|
