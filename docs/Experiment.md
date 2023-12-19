@@ -22,48 +22,6 @@ On the right, the task variation *halving* is shown. For this task, a single cut
 
 
 
-Interactive Actions and/or Examples
----
 
-{{<action_form data="ActionButtons">}}
-
-
-
-Software Components
----
----
-title: "Researcher's workbench for Household Robotics"
-date: 2023-10-03T10:35:35-05:00
-subtitle: "Household Robotics Workbench."
-tags: ["Research"]
-dropCap: false
-displayInMenu: false
-displayInList: true
-draft: false
-resources:
-- name: ActionButtons
-  src: "buttons.json"
----
-
-This project deals with the problem of teaching robots how to execute unknown tasks in the household domain.
-
-<param class="hidde-after-preview">
-{{<action_form data="ActionButtons">}}
-
-<!--more-->
-
-
-
-Interactive Actions and/or Examples
----
-
-{{<action_form data="ActionButtons">}}
-
-
-<div>
-<a class="btn btn-primary" disabled target="_blank">Run Simulation</a>
-<a class="btn btn-primary" target="_blank" href="https://binder.intel4coro.de/v2/gh/Food-Ninja/FoodCutting.git/HEAD?urlpath=notebooks%2Fnotebooks%2FFoodCuttingQueries.ipynb">Inspect Knowledge Graph</a>
-<a class="btn btn-success" target="_blank" href="https://github.com/Food-Ninja/FoodCutting">Source Code</a>
-</div>
 
 [Back](./index.html)
