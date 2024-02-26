@@ -1,14 +1,7 @@
 
-collections: [sections]remote_theme: sighingnow/jekyll-gitbook
-
-toc:
-  enabled: true
-  h_min: 1
-  h_max: 3
-
-  
+remote_theme: pages-themes/cayman@v0.2.0
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+- jekyll-remote-theme
 
 title: [Using Web Knowledge For Flexible Meal Preparation]
 subtitle: [Creating Knowledge Graphs for Robots to Execute Task Variations]
