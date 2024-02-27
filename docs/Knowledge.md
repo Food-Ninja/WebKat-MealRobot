@@ -5,12 +5,12 @@ layout: default
 <center><h1> Knowledge Acquisition</h1></center>
 <h2>Gathering and Linking Web Knowledge</h2>
 
-To support robotic agents in executing variations of *Cutting* on different *fruits and vegetables*, we collect two types of knowledge in our knowledge graph: **action** and **object knowledge**.
-Both kinds of knowledge need to be linked to enable task execution as explained **[here](https://food-ninja.github.io/FoodCutting/Architecture.html)**.
+<font size="3">To support robotic agents in executing variations of *Cutting* on different *fruits and vegetables*, we collect two types of knowledge in our knowledge graph: **action** and **object knowledge**.
+Both kinds of knowledge need to be linked to enable task execution as explained **[here](https://food-ninja.github.io/FoodCutting/Architecture.html)**.</font>
 
 ## Action Knowledge
 
-The **action knowledge** covers all properties of a specific manipulation action that are necessary for successfully completing the action and is thus also influenced by the participating objects.
+<font size="3">The **action knowledge** covers all properties of a specific manipulation action that are necessary for successfully completing the action and is thus also influenced by the participating objects.
 In general we rely on SOMA[^1] and its upper ontology DUL[^2] to model agent participation in events as well as roles objects play during events and how events effect objects.
 
 For executing *Cutting* actions and its variants, we first collect synonyms and hyponyms for *Cutting* using WordNet[^3], VerbNet[^4] and FrameNet[^5].
@@ -20,7 +20,7 @@ Based on our observations in [WikiHow](https://www.wikihow.com/) data and [cooki
 - repetitions: How many cuts should the robot perform?
 - prior task: Does the robot need to execute a specific action group beforehand?
 
-Based on the remaining 14 words, we created the following 6 action groups:
+Based on the remaining 14 words, we created the following 6 action groups:</font>
 <p align="center">
   <img src="img/Action Groups.png" width="800" alt="Table summarizing the 6 action groups and their parameters"/><br>
 </p>
@@ -28,7 +28,7 @@ Based on the remaining 14 words, we created the following 6 action groups:
 
 ## Object Knowledge
 
-As the name suggests, **object knowledge** covers all relevant information about the objects involved in the task execution (e.g. tools, containers, targets).
+<font size=3>As the name suggests, **object knowledge** covers all relevant information about the objects involved in the task execution (e.g. tools, containers, targets).
 Of course, the relevance of each piece of information depends on the task to be executed.
 So, for the task of ”Cutting an apple", the apple’s size or anatomical structure is relevant, but whether it is biodegradable or not is irrelevant
 
@@ -45,21 +45,21 @@ In total, the knowledge graph contains:
 - 18 fruits & 1 vegetable
 - 4 anatomical parts (core, peel, stem, shell)
 - 3 edibility classes (edible, should be avoided, must be avoided)
-- 5 tools (nutcracker, knife, spoon, peeler, hand)
+- 5 tools (nutcracker, knife, spoon, peeler, hand)</font>
 
 
 ## Knowledge Linking
 
-After collecting the aforementioned action and object knowledge, this knowledge needs to be linked in our knowledge graph, so that a robot can infer the correct tool to use for a given task or the correct object to cut.
-We set both kinds of knowledge in relation through *dispositions* and *affordances*, as visualised below for an apple:
+<font size=3>After collecting the aforementioned action and object knowledge, this knowledge needs to be linked in our knowledge graph, so that a robot can infer the correct tool to use for a given task or the correct object to cut.
+We set both kinds of knowledge in relation through *dispositions* and *affordances*, as visualised below for an apple:</font>
 
 <p align="center">
   <img src="img/Apple Example Affordances.png" width="800" alt="Connecting affordances and dispositions for an apple"/><br>
 </p>
 
-In general, a disposition describes the property of an object, thereby enabling an agent to perform a certain task[^9] as in a knife can be used for cutting, whereas an affordance describes what an object or the environment offers an agent[^10] as in an apple affords to be cut.
+<font size=3>In general, a disposition describes the property of an object, thereby enabling an agent to perform a certain task[^9] as in a knife can be used for cutting, whereas an affordance describes what an object or the environment offers an agent[^10] as in an apple affords to be cut.
 Both concepts are set in relation by stating that dispositions allow objects to participate in events, realising affordances that are more abstract descriptions of dispositions[^1].
-In our concrete knowledge graph, this is done by using the *affordsTask, affordsTrigger* and *hasDisposition* relations introduced in the SOMA ontology[^1].
+In our concrete knowledge graph, this is done by using the *affordsTask, affordsTrigger* and *hasDisposition* relations introduced in the SOMA ontology[^1].</font>
 
 [Back](./index.html)
 
