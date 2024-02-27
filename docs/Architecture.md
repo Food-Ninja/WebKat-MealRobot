@@ -4,22 +4,22 @@ layout: default
 
 <center><h1> Action Execution</h1></center>
 
-To achieve our goal of enabling a robotic agent to handle unkown task variations by parameterising general action plans using web knowledge, we employ the following architecture:
+<font size=3>To achieve our goal of enabling a robotic agent to handle unkown task variations by parameterising general action plans using web knowledge, we employ the following architecture:</font>
 
 <p align="center">
   <img src="img/Motivation4.jpg" width="800" alt="Action Plans"/><br>
 </p>
 
-In general, the robot needs to have access to a general action designator of cutting that can be parameterised.
+<font size=3>In general, the robot needs to have access to a general action designator of cutting that can be parameterised.
 When the robot is given a task request, it can either query the graph database with the knowledge graph directly via its SPARQL REST API or use a knowledge framework with additional functionalities such as the KnowRob knowledge processing system[^1] and pose Prolog queries, which then are translated to SPARQL queries.
-More information on the different ways of querying the knowledge graph can be found **[here](https://food-ninja.github.io/FoodCutting/OntologyQuery.html)**.
+More information on the different ways of querying the knowledge graph can be found **[here](https://food-ninja.github.io/FoodCutting/OntologyQuery.html)**.</font>
 
 <img src="img/CuttingWithParameters.png" width="800" alt="Parameters"/>
 
-We use [PyCRAM](https://pycram.readthedocs.io/en/latest/index.html) as the robot's cognitive architecture.
+<font size=3>We use [PyCRAM](https://pycram.readthedocs.io/en/latest/index.html) as the robot's cognitive architecture.
 It is the Python3 implementation of the [CRAM](https://cram-system.org/) cognitive architecture[^2] and expresses its programs as symbolic plans (so called *designators*) outlining the robot's behaviour.
 During execution, a *designator resolver* is used to refine the generalised instructions into specific instructions the robot can follow.
-One way of resolving a designator includes querying the knowledge graph to gather concrete values for abstract parameters based on the current environment, object composition and task to execute.
+One way of resolving a designator includes querying the knowledge graph to gather concrete values for abstract parameters based on the current environment, object composition and task to execute.</font>
 
 [Back](./index.html)
 
