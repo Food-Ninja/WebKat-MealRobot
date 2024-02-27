@@ -2,12 +2,12 @@
 layout: default
 ---
 
-# Architecture
+# Action Execution
 
-To achieve our goal of enabling the robotic agent to handle unkown task variations by parameterising general action plans using web knowledge, we employ the following architecture:
+To achieve our goal of enabling a robotic agent to handle unkown task variations by parameterising general action plans using web knowledge, we employ the following architecture:
 
 <p align="center">
-  <img src="img/ArchitectureCuttingRobot.png" width="800" alt="Architecture Visualization"/><br>
+  <img src="img/Motivation4.jpg" width="800" alt="Action Plans"/><br>
 </p>
 
 In general, the robot needs to have access to a general action designator of cutting that can be parameterised.
