@@ -17,7 +17,7 @@ layout: default
     <option value="robot:PR2">PR2</option>
   </select>
   
-
+<body>
   <!-- Define the links corresponding to each option -->
   <button type="button" onclick="navigateToSelectedOption()"> Run </button>
 
@@ -45,6 +45,7 @@ layout: default
     }
   }
 </script>
+</body>
 
 # Experiment
 
