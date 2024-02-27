@@ -3,7 +3,7 @@ layout: default
 ---
 <center><h1> Perform on a Robot</h1></center>
 
-
+<hr>
   <p><font size=4>Try out how a robot would query the knowledge graph for action execution on the simulated robot in a jupyter notebook</font></p>
 <font size=3>
   <label for="environment-options">Choose an Environemnt option:</label>
@@ -46,6 +46,7 @@ layout: default
   }
 </script>
 </body>
+<hr>
 
 # Experiment
 
