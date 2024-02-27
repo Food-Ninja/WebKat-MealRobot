@@ -3,6 +3,7 @@ layout: default
 ---
 
 <center><h1> Knowledge Acquisition</h1></center>
+<hr>
 <h2>Gathering and Linking Web Knowledge</h2>
 
 <font size="3">To support robotic agents in executing variations of *Cutting* on different *fruits and vegetables*, we collect two types of knowledge in our knowledge graph: **action** and **object knowledge**.
