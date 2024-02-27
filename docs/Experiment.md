@@ -1,10 +1,9 @@
 ---
 layout: default
 ---
-# Run the Code
+<center><h1> Perform on a Robot</h1></center>
 
-  <!-- New "Try it on robot" section -->
-  <hr>
+
   <p><b>Try out how a robot would query the knowledge graph for action execution on the simulated robot in a jupyter notebook:</b></p>
 
   <label for="environment-options">Choose an Environemnt option:</label>
