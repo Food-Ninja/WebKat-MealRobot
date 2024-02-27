@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Action Execution
+<center><h1> Action Execution</h1></center>
 
 To achieve our goal of enabling a robotic agent to handle unkown task variations by parameterising general action plans using web knowledge, we employ the following architecture:
 
