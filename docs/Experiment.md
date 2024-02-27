@@ -4,7 +4,7 @@ layout: default
 <center><h1> Perform on a Robot</h1></center>
 
 
-  <p><b>Try out how a robot would query the knowledge graph for action execution on the simulated robot in a jupyter notebook:</b></p>
+  <p><font size=4>Try out how a robot would query the knowledge graph for action execution on the simulated robot in a jupyter notebook</font></p>
 
   <label for="environment-options">Choose an Environemnt option:</label>
   <select name="environment-options" id="environment-options">
@@ -17,10 +17,10 @@ layout: default
     <option value="robot:PR2">PR2</option>
   </select>
   
-<body>
   <!-- Define the links corresponding to each option -->
   <button type="button" onclick="navigateToSelectedOption()"> Run </button>
-
+<br>
+<body>
   <!-- Add this script section to your HTML -->
 <script>
   function navigateToSelectedOption() {
