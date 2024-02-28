@@ -7,7 +7,7 @@ layout: default
 <h2>Gathering and Linking Web Knowledge</h2>
 
 <font size="3">To support robotic agents in executing variations of <i>Cutting</i> on different <i>fruits and vegetables</i>, we collect two types of knowledge in our knowledge graph: <b>action</b> and <b>object knowledge</b>.
-Both kinds of knowledge need to be linked to enable task execution as explained <a href="https://food-ninja.github.io/FoodCutting/Architecture.html>here</a>.</font>
+Both kinds of knowledge need to be linked to enable task execution as explained <a href="https://food-ninja.github.io/FoodCutting/Architecture.html">here</a>.</font>
 
 ## Action Knowledge
 
