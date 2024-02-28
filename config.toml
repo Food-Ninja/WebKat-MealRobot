@@ -1,6 +1,6 @@
 baseurl = "https://intel4coro.github.io/ViB-public/"
 DefaultContentLanguage = "en"
-title = "Virtual Research Building (ViB)"
+title = "WebKat MealRobot"
 theme = "beautifulhugo"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
@@ -12,7 +12,7 @@ pygmentsCodefencesGuessSyntax = true
   unsafe = true # Allow HTML in md files
 
 [Params]
- homeTitle = "Web Knowledge for Manipulation Actions" # Set a different text for the header on the home page
+ homeTitle = "Using Web Knowledge For Flexible Meal Preperation" # Set a different text for the header on the home page
   subtitle = ""
   mainSections = ["posts"]
   logo = "img/logo.png" # Expecting square dimensions
