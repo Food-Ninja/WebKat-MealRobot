@@ -12,13 +12,13 @@ layout: default
 
 <font size=3>In general, the robot needs to have access to a general action designator of cutting that can be parameterised.
 When the robot is given a task request, it can either query the graph database with the knowledge graph directly via its SPARQL REST API or use a knowledge framework with additional functionalities such as the KnowRob knowledge processing system[^1] and pose Prolog queries, which then are translated to SPARQL queries.
-More information on the different ways of querying the knowledge graph can be found **[here](https://food-ninja.github.io/FoodCutting/OntologyQuery.html)**.</font>
+More information on the different ways of querying the knowledge graph can be found <a href="https://food-ninja.github.io/FoodCutting/OntologyQuery.html">here</a>.</font>
 
 <img src="img/CuttingWithParameters.png" width="800" alt="Parameters"/>
 
-<font size=3>We use [PyCRAM](https://pycram.readthedocs.io/en/latest/index.html) as the robot's cognitive architecture.
-It is the Python3 implementation of the [CRAM](https://cram-system.org/) cognitive architecture[^2] and expresses its programs as symbolic plans (so called *designators*) outlining the robot's behaviour.
-During execution, a *designator resolver* is used to refine the generalised instructions into specific instructions the robot can follow.
+<font size=3>We use <a href="https://pycram.readthedocs.io/en/latest/index.html">PyCRAM</a> as the robot's cognitive architecture.
+It is the Python3 implementation of the <a href="https://cram-system.org/">CRAM</a> cognitive architecture[^2] and expresses its programs as symbolic plans (so called <i>designators</i>) outlining the robot's behaviour.
+During execution, a <i>designator resolver</i> is used to refine the generalised instructions into specific instructions the robot can follow.
 One way of resolving a designator includes querying the knowledge graph to gather concrete values for abstract parameters based on the current environment, object composition and task to execute.</font>
 
 [Back](./index.html)
