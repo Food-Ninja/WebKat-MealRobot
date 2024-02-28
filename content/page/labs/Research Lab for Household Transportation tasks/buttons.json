@@ -1,0 +1,110 @@
+{
+  "options": {
+    "environments": [
+      {
+        "name": "Household",
+        "value": "household",
+        "img": "https://intel4coro.github.io/coai-vib/img/household.png",
+        "knowledge_bases": "https://data.open-ease.org/QA?neem_id=64ccc8bc24cdd341ebdb2aa3&q=findall([Duration%2C Evt]%2C ( event_interval(Evt%2C Begin%2C End)%2C number(End)%2C Duration is End - Begin )%2C Durations)%2C max_member([MaxDuration%2C LongestEvt]%2C Durations)."
+      },
+      {
+        "name": "RoboCup Arena",
+        "value": "robocup_arena"
+      },
+      {
+        "name": "Apartment",
+        "value": "apartment",
+        "img": "https://intel4coro.github.io/coai-vib/img/apartment.png",
+        "knowledge_bases": "https://data.open-ease.org/QA?neem_id=64ccbe76181caf1b5ed3c19c&q=findall([Duration%2C Evt]%2C ( event_interval(Evt%2C Begin%2C End)%2C number(End)%2C Duration is End - Begin )%2C Durations)%2C max_member([MaxDuration%2C LongestEvt]%2C Durations)."
+      }
+    ],
+    "robots": [
+      {
+        "name": "PR2",
+        "value": "pr2",
+        "img": "https://intel4coro.github.io/coai-vib/img/pr2_urdf_white1.png",
+        "knowledge_bases": "https://data.open-ease.org/QA?neem_id=6526790ced1a1bfc415a1d38&q=findall%28%5BDuration%2C%20Evt%5D%2C%0A%20%20%28%20%20event_interval%28Evt%2C%20Begin%2C%20End%29%2C%0A%20%20%20%20%20number%28End%29%2C%0A%20%20%20%20%20Duration%20is%20End%20-%20Begin%0A%20%20%29%2C%0A%20%20Durations%29%2C%0Amax_member%28%5BMaxDuration%2C%20LongestEvt%5D%2C%20Durations%29"
+      },
+      {
+        "name": "Tiago",
+        "value": "tiago",
+        "img": "https://intel4coro.github.io/coai-vib/img/tiago_urdf_white1.png",
+        "knowledge_bases": "https://data.open-ease.org/QA?neem_id=630614f0ff954448f792b2c3&q=findall([Duration%2C Evt]%2C ( event_interval(Evt%2C Begin%2C End)%2C number(End)%2C Duration is End - Begin )%2C Durations)%2C max_member([MaxDuration%2C LongestEvt]%2C Durations)."
+      },
+      {
+        "name": "Armar",
+        "value": "armar"
+      },
+      {
+        "name": "Donbot",
+        "value": "donbot",
+        "img": "https://intel4coro.github.io/coai-vib/img/donbot_urdf_white1.png"
+      }
+    ],
+    "tasks": [
+      {
+        "name": "Setting & cleaning the table",
+        "value": "setting_table"
+      },
+      {
+        "name": "Making Popcorn",
+        "value": "popcorn"
+      },
+      {
+        "name": "Opening box",
+        "value": "opening_box"
+      },
+      {
+        "name": "Cutting objects",
+        "value": "cutting"
+      },
+      {
+        "name": "Pouring",
+        "value": "pouring"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "name": "Run Code",
+      "value": "run",
+      "description": "Run code on Binderhub.",
+      "primary": true,
+      "url": "https://binder.intel4coro.de/v2/gh/IntEL4CoRo/COAI/master?urlpath=lab%2Ftree%2Fnotebooks%2F",
+      "options": [
+        "environments",
+        "robots",
+        "tasks"
+      ],
+      "available": {
+        "environments=apartment|robots=tiago|tasks=setting_table": "apartment_tiago.ipynb",
+        "environments=apartment|robots=pr2|tasks=setting_table": "apartment_pr2.ipynb",
+        "environments=household|robots=donbot|tasks=setting_table": "household_donbot_setting_table.ipynb",
+        "environments=household|robots=pr2|tasks=setting_table": "household_pr2_setting_table.ipynb",
+        "environments=household|robots=tiago|tasks=setting_table": "household_tiago_setting_table.ipynb",
+        "environments=household|robots=pr2|tasks=popcorn": "https://binder.intel4coro.de/v2/gh/IntEL4CoRo/cram_teaching/legacy?urlpath=lab%2Ftree%2Flectures%2Fdemos%2Fpopcorn.ipynb"
+      }
+    },
+    {
+      "name": "Experimental Data",
+      "value": "openease",
+      "description": "OpenEASE",
+      "url": "https://data.open-ease.org/QA?neem_id=",
+      "options": [
+        "environments",
+        "robots",
+        "tasks"
+      ],
+      "available": {
+        "environments=household|robots=pr2|tasks=setting_table": "62d5729bb3869a9a9c942f24",
+        "environments=household|robots=pr2|tasks=popcorn": "6357fad897fdbc7c4d98ccbc",
+        "environments=apartment|robots=tiago|tasks=setting_table": "633819942a459501ef4d4209"
+      }
+    },
+    {
+      "name": "Assets",
+      "value": "assets",
+      "url": "https://coai-jrc.de/virtual-building/"
+    }
+  ]
+}

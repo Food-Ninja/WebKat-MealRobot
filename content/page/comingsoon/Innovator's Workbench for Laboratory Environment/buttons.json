@@ -1,0 +1,46 @@
+{
+  "options": {
+    "environments": [
+      {
+        "name": "Laboratory Table",
+        "value": "lab_table",
+        "img": "https://iris.informatik.uni-bremen.de/textbook/content/medical_lab.png"
+      }
+    ],
+    "robots": [
+      {
+        "name": "Tracebot",
+        "value": "tracebot",
+        "img": "https://intel4coro.github.io/coai-vib/img/tracebot_urdf_white1.png"
+      }
+    ]
+  },
+  "actions": [
+    {
+      "name": "Run Code",
+      "value": "run",
+      "primary": true,
+      "url": "",
+      "options": [
+        "environments",
+        "robots"
+      ],
+      "available": null
+    },
+    {
+      "name": "Experimental Data",
+      "value": "openease",
+      "url": ""
+    },
+    {
+      "name": "Source Code",
+      "value": "source",
+      "url": ""
+    },
+    {
+      "name": "Assets",
+      "value": "assets",
+      "url": ""
+    }
+  ]
+}

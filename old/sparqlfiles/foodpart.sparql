@@ -1,0 +1,19 @@
+#+ endpoint: https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FoodCuttingKG/sparql
+
+#+ summary: Query for assessing whether a specific food object has a specific part
+#+ tags: 
+#+ - food part
+
+# Query for assessing whether a specific food object has a specific part
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX cut: <http://www.ease-crc.org/ont/food_cutting#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX foodon: <http://purl.obolibrary.org/obo/>
+SELECT ?part WHERE {
+	?_food rdfs:subClassOf* ?partsnode.
+	?partsnode owl:onProperty cut:hasPart.
+	?partsnode owl:someValuesFrom ?valnode.
+	?valnode owl:intersectionOf ?internode.
+	?internode rdf:first ?part.
+}

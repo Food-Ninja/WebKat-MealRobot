@@ -1,0 +1,320 @@
+html {
+  font-size: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6a737b;
+  border-radius: 20px;
+  border: 3px solid #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #495057;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+details summary {
+  cursor: pointer;
+}
+
+.sc-image {
+  display: inline;
+  margin: 0;
+  max-width: 100%;
+}
+
+
+/* hiddes elements in blog post preview */
+param.hidde-after-preview + *, div.hidde-after-preview {
+  display: none;
+}
+div.post-entry param.hidde-after-preview + *, div.post-entry div.hidde-after-preview {
+  display: block;
+}
+
+
+/* right side image*/
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+.flex-item-left {
+  /*flex-basis: 10%;*/
+  min-width: 200px;
+  min-height: 100px;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 2;
+  aspect-ratio: 1;
+  flex-basis: 10vw;
+}
+.flex-item-center {
+  overflow-y: hidden;
+  /*flex-basis: 100%; */
+  flex-grow: 2;
+  flex-shrink: 1;
+  /*width: fit-content;*/
+  /*min-width: fit-content; */
+  min-width: fit-content;
+  flex-basis: 70vw;
+}
+.flex-item-right {
+  /*flex-basis: 25%; */
+  max-width: 200px;
+  flex-grow: 1;
+  flex-shrink: 2;
+  overflow-y: hidden;
+  min-width: 200px;
+  /*width: 200px;*/
+  flex-basis: 10vw;
+}
+/* item with the logos */
+/* @media only screen and (max-width: 1280px) and (max-height: 900px) { /* remove left side image when screen to small */
+/*  .flex-item-right {
+    flex-basis: 200px;
+    max-width: 200px;
+    flex-grow: 2;
+    flex-shrink: 2;
+    overflow-y: hidden;
+  }
+} 
+
+/* homepage main content about block */
+div.main-well-flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /*background-color: #3b3b3b; */
+}
+div.left-main-well-flex {
+  flex: 50%;
+  text-align: left;
+  height: 350px;	/* needed because images have different sizes */
+}
+div.right-main-well-flex {
+  flex: 50%;
+}
+
+
+/* fix big image margin for allways small navbar */
+.intro-header.big-img {
+  background: no-repeat center top;
+  background-size: 975px auto;
+  margin-top: 0px; /* The small navbar is 50px tall + 1px border */
+  margin-bottom: 35px;
+  opacity: 0.5;
+  height: 400px;
+}
+.intro-header.big-img  .big-img-transition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  background: no-repeat center top;
+  -webkit-background-size: 975px auto;
+  -moz-background-size: 975px auto;
+  background-size: 975px auto;
+  -o-background-size: 975px auto;
+  -webkit-transition: opacity 1s linear;
+  -moz-transition: opacity 1s linear;
+  transition: opacity 1s linear;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header {
+    margin-top: 90px;
+  }
+  .intro-header.big-img {
+    margin-top: 51px;  /* Full navbar is small navbar + 20px padding on each side when expanded */
+  }
+}
+
+
+/* fixed padding for on top header image/text */
+.intro-header.big-img .page-heading .page-subheading,
+.intro-header.big-img .post-heading .post-subheading {
+  font-weight: 800;
+  font-size: 40px;
+}
+.intro-header.big-img .page-heading,
+.intro-header.big-img .post-heading {
+  padding: 60px 0;
+  color: #FFF;
+  text-shadow: 1px 1px 3px #000;
+}
+@media only screen and (min-width: 768px) {
+  .intro-header.big-img .page-heading,
+  .intro-header.big-img .post-heading  {
+    padding: 60px 0;
+  }
+  .intro-header .page-heading h1 {
+    font-size: 60px;
+  }
+}
+
+
+/* make its border and backgound transparent/invisible */
+.well {
+  min-height: 20px;
+  padding: 19px;
+  margin-bottom: 20px;
+  /*background-color: #3b3b3b; */
+  border: none;
+  box-shadow: none;
+}
+
+
+/* different styles for the right pseudo sidebar image */
+.sidebar-image {
+  margin-top: 51px;
+}
+.sidebar-image-relative {
+  position: relative;
+  top: 51px;
+}
+.sidebar-image-fixed {
+  position: fixed;
+  top: 51px;
+  left: 0%;
+  height: 100%;
+  width: auto;
+}
+.sidebar-image-sticky {
+  position: sticky;
+  top: 51px;
+}
+.sidebar-image-container {
+  height: 100%;
+  width: 100%;
+}
+
+/* remove the bottum gap on homepage because of empty meta */
+div.page-meta {
+  display: none;
+}
+
+
+/* change font to sharp sans for Uni Bremen Corpo Design */
+body {
+  font-family: 'Sharp Sans', 'Lora', 'Times New Roman', serif;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.main-explain-area {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+div.panel-body a.list-group-item {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.navbar-custom {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+footer .copyright {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+footer div.disclaimer {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.post-preview .post-entry {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.blog-tags {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.intro-header .page-heading .page-subheading,
+.intro-header .post-heading .post-subheading {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.intro-header.big-img .img-desc {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.pager li a {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.disqus-comments button {
+  font-family: 'Sharp Sans', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+
+/* horizontal image flex conatiner */
+.imgrow {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.imgcolumn {
+  flex: auto;
+}
+@media screen and (max-width: 500px) { /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  .imgcolumn {
+    flex: 100%;
+  }
+}
+
+
+/* change action button color to Uni Bremen Corpo Design */
+a.btn-success {
+  color: #fff;
+  background-color: #0068b4;
+  border-color: #89b4e1;
+}
+a.btn-success:hover,
+a.btn-success:focus {
+  color: #fff;
+  background-color: #00326d;
+  border-color: #0068b4;
+}
+a.btn-success[disabled]:hover,
+a.btn-success[disabled]:focus {
+  color: #fff;
+  background-color: #0068b4;
+  border-color: #89b4e1;
+}
+
+
+a.btn-primary {
+  color: #fff;
+  background-color: #d50c2f;
+  border-color: #f39ca9;
+}
+a.btn-primary:hover,
+a.btn-primary:focus {
+  color: #fff;
+  background-color: #9d2246;
+  border-color: #d50c2f;
+}
+a.btn-primary[disabled]:hover,
+a.btn-primary[disabled]:focus {
+  color: #fff;
+  background-color: #d50c2f;
+  border-color: #f39ca9;
+}
+
+
+/* change normal in page, navbar, post view and link colors */
+p a {
+ color: #0068b4;
+}
+p a:hover,
+p a:focus {
+  color: #00326d;
+}
+div.navbar-header a.navbar-brand:hover,
+div.navbar-header a.navbar-brand:focus {
+  color: #0068b4;
+}
+.navbar-custom .nav li a:hover,
+.navbar-custom .nav li a:focus {
+  color:#0068b4;
+}
+.post-preview > a:hover,
+.post-preview > a:focus {
+  color: #0068b4;
+}
