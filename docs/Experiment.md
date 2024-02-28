@@ -63,8 +63,8 @@ Since this environment does not support actions like peeling or core removal fro
 
 <font size=3>In this figure, you can see three different parameterisations for the same generalised plan:
 The left picture shows the default implementation for <i>cutting</i>, where a single slice at the end of the cucumber is cut off.
-In the middle, the task variation *slicing* is executed. Here, multiple cuts beginning at the end of the cucumber are performed to create multiple slices with similar length.
-On the right, the task variation *halving* is shown. For this task, a single cut in the middle of the cucumber is done.</font>
+In the middle, the task variation <i>slicing</i> is executed. Here, multiple cuts beginning at the end of the cucumber are performed to create multiple slices with similar length.
+On the right, the task variation <i>halving</i> is shown. For this task, a single cut in the middle of the cucumber is done.</font>
 
 
 
