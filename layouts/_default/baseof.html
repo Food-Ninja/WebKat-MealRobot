@@ -17,15 +17,15 @@
 
       <div class="flex-item-center">
         <div style="margin: 0; flex-base: 80vw;">
-            {{ end }}          
+            {{ end }}
             {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
             {{ block "main" . }}{{ end }}
-          
-        
+
+
             {{ if isset .Site.Params "rightsideimg" }}
-        </div>  
+        </div>
       </div>
-        
+
       <!-- item on the right side with all the logos-->
       <div class="flex-item-right">
         <!-- <div style="position: relative; left: 85%; top: 20%; overflow: hidden; margin-right: 2%;"></div> -->
@@ -54,7 +54,7 @@
     </div> -->
 
     {{ end }}
-    
+
     {{ partial "footer.html" . }}
     {{ block "footer" . }}{{ end }}
 

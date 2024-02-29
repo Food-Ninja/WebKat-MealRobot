@@ -179,6 +179,19 @@ figure:not(.dark) img, img.white {
   color: #404040;
 }
 
+.navbar-center-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-center-title span {
+  line-height: 50px; /* Adjust based on your navbar's height */
+}
+
+
 @media (prefers-color-scheme: dark) {
   .navbar-custom .navbar-brand,
   .navbar-custom .nav li a {
@@ -308,6 +321,17 @@ figure:not(.dark) img, img.white {
   border-width: 0 1px 1px 1px;
   font-weight: normal;
 }
+  .navbar-center-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-center-title span {
+  line-height: 50px; /* Adjust based on your navbar's height */
+}
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav .navlinks-container.show-children {
     background: #eee;
@@ -315,6 +339,17 @@ figure:not(.dark) img, img.white {
   .navbar-custom .nav .navlinks-container.show-children .navlinks-children {
     display: block;
   }
+    .navbar-center-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-center-title span {
+  line-height: 50px; /* Adjust based on your navbar's height */
+}
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom .nav .navlinks-container {
@@ -334,6 +369,18 @@ figure:not(.dark) img, img.white {
     border: 1px solid #eaeaea;
     border-width: 0 1px 1px;
   }
+  .navbar-center-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-center-title span {
+  line-height: 50px; /* Adjust based on your navbar's height */
+}
+
 }
 @media (prefers-color-scheme: dark) {
   .navbar-custom .nav .navlinks-container:hover {
@@ -460,6 +507,7 @@ footer div.disclaimer {
   font-size: 18px;
   font-style: italic;
   margin: 0 0 10px;
+  text-align: center;
 }
 .page-meta {
   align-self: center;
@@ -469,6 +517,7 @@ footer div.disclaimer {
 .page-meta a {
   color: #404040;
   text-decoration: none;
+  text-align: center;
 }
 .post-preview .post-entry {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -599,16 +648,19 @@ footer div.disclaimer {
   padding: 100px 0;
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
+  text-align: center;
 }
 .intro-header .page-heading h1,
 .intro-header .tags-heading h1,
 .intro-header .categories-heading h1 {
   margin-top: 0;
   font-size: 50px;
+  text-align: center;
 }
 .intro-header .post-heading h1 {
   margin-top: 0;
   font-size: 35px;
+  text-align: center;
 }
 .intro-header .page-heading .page-subheading,
 .intro-header .post-heading .post-subheading {
@@ -618,21 +670,26 @@ footer div.disclaimer {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   margin: 10px 0 0;
+  text-align: center;
 }
 .intro-header .post-heading .post-subheading {
   margin-bottom: 20px;
+  text-align: center;
 }
 .intro-header.big-img .page-heading .page-subheading,
 .intro-header.big-img .post-heading .post-subheading {
   font-weight: 400;
+  text-align: center;
 }
 .intro-header.big-img .page-heading hr {
   box-shadow: 1px 1px 3px #000;
   -webkit-box-shadow: 1px 1px 3px #000;
   -moz-box-shadow: 1px 1px 3px #000;
+  text-align: center;
 }
 .intro-header.big-img .post-heading .post-meta {
   color: #EEE;
+  text-align: center;
 }
 .intro-header.big-img .img-desc {
   background: rgba(30, 30, 30, 0.6);
@@ -663,6 +720,7 @@ footer div.disclaimer {
   }
   .intro-header .post-heading h1 {
     font-size: 50px;
+    text-align: center;
   }
   .intro-header.big-img .img-desc {
     font-size: 14px;
@@ -675,14 +733,20 @@ footer div.disclaimer {
   margin: 0 0 40px;
   padding: 20px 0;
   box-shadow: 0 0 5px #AAA;
+  text-align: center;
+  align-items: center;
 }
 /* Many phones are 320 or 360px, so make sure images are a proper aspect ratio in those cases */
 .header-section.has-img .intro-header.no-img {
   display: none;
+  text-align: center;
+  align-items: center;
 }
 @media only screen and (max-width: 365px) {
   .header-section.has-img .intro-header.no-img {
     display: block;
+    align-items: center;
+    text-align: center;
   }
   .intro-header.big-img {
     width: 100%;
@@ -691,9 +755,12 @@ footer div.disclaimer {
   .intro-header.big-img .page-heading,
   .intro-header.big-img .post-heading {
     display: none;
+    text-align: center;
   }
   .header-section.has-img .big-img {
     margin-bottom: 0;
+    align-items: center;
+    text-align: center;
   }
 }
 @media only screen and (max-width: 325px) {

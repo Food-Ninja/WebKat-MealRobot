@@ -1,6 +1,6 @@
-baseurl = "https://intel4coro.github.io/ViB-public/"
+baseurl = "https://food-ninja.github.io/FoodCutting/"
 DefaultContentLanguage = "en"
-title = "WebKat MealRobot"
+title = "WebKat MealRobot - Using Web Knowledge For Flexible Meal Preperation"
 theme = "beautifulhugo"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true

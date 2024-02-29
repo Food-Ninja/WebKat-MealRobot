@@ -38,6 +38,23 @@ param.hidde-after-preview + *, div.hidde-after-preview {
 div.post-entry param.hidde-after-preview + *, div.post-entry div.hidde-after-preview {
   display: block;
 }
+.navbar-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-center-title {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.navbar-center-title span {
+  display: inline-block;
+  padding: 0 50px; /* Prevents the title from overlapping with navbar-brand and toggle button */
+}
+
 
 
 /* right side image*/
