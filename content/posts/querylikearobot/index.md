@@ -1,5 +1,5 @@
 ---
-title: Query Like a Robot
+title: Query like a Robot
 comments: false
 ---
 
