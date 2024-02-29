@@ -64,6 +64,6 @@ pygmentsCodefencesGuessSyntax = true
     weight = 15
 
 [[menu.main]]
-    name = "Virtual Labs"
-    url = "page/labs/"
+    name = "Knowledge Acquisition"
+    url = "posts/knowledgeacquisition/"
     weight = 5
