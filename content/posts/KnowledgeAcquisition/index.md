@@ -112,7 +112,7 @@ The exemplary result for the *Cutting* verb group can be seen below:
 
 In the table, the three verbs with the most occurrences per column (apart from *cut*) were marked in **bold**.
 In our ontology, we currently cover *slice*, *dice*, *halve*, *quarter* and *cube*.
-With this knowledge, the relevance of different hyponyms for the application domain can be assessed and a better focus can be set in the following steps of our [methodology](./Methodology.html).
+With this knowledge, the relevance of different hyponyms for the application domain can be assessed.
 
 
 ## References
