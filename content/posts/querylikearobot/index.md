@@ -20,7 +20,7 @@ resources:
 
 # Querying Food Cutting Knowledge Using a REST API
 
-If you want to access the contained knowledge using predefined standard queries, please use our <a href="http://grlc.io/api/Food-Ninja/FoodCutting/sparqlfiles/">grlc interface</a>[^1] for predefined queries.
+If you want to access the contained knowledge using predefined standard queries, please use our <a href="http://grlc.io/api/Food-Ninja/WebKat-MealRobot/sparqlfiles/">grlc interface</a>[^1] for predefined queries.
 
 
 # Querying Food Cutting Knowledge Using SPARQL

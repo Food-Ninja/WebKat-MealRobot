@@ -2,7 +2,7 @@ title: Food Cutting Knowledge Graph API
 description: Accessing information from the food cutting knowledge graph
 contact:
   name: Michaela Kümpel
-  url: https://github.com/Food-Ninja/FoodCutting
+  url: https://github.com/Food-Ninja/WebKat-MealRobot
 licence: https://opendatacommons.org/licenses/by/1-0/
 queries:
-  - https://github.com/Food-Ninja/FoodCutting/master/sparqlfiles/
+  - https://github.com/Food-Ninja/WebKat-MealRobot/master/sparqlfiles/

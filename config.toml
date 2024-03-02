@@ -1,4 +1,4 @@
-baseurl = "https://food-ninja.github.io/FoodCutting/"
+baseurl = "https://food-ninja.github.io/WebKat-MealRobot/"
 DefaultContentLanguage = "en"
 title = "WebKat MealRobot"
 theme = "beautifulhugo"

@@ -1,5 +1,4 @@
 #+ endpoint: https://api.krr.triply.cc/datasets/mkumpel/FruitCuttingKG/services/FoodCuttingKG/sparql
-
 #+ summary: Query for extracting the cutting position for the specific cutting verb
 #+ tags: 
 #+ - position
