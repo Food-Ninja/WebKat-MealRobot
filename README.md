@@ -1,4 +1,4 @@
-# Food Cutting Robots
+# Web knowledge acquired task for Meal preparation Robots - WebKat MealRobot
 
 This project deals with the problem of teaching robots how to execute unknown tasks in the household domain. The focus of this repository lies on the task of *Cutting Food*, especially fruits and vegetables.
 An extensive documentation of the approach and its different aspects can be found on [our website](https://food-ninja.github.io/FoodCutting/).
