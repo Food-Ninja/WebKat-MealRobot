@@ -1,0 +1,76 @@
+.card-buttons .btn {
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .card-buttons .btn {
+    margin-right: 0;
+    margin-top: 0.5rem;
+    width: 100%;
+  }
+}
+
+.error-msg pre {
+  text-align: left;
+  margin-bottom: 0;
+  color: #F59E0B;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.noImg {
+  min-height: 2rem;
+}
+
+.noImg .option-img,
+.noImg .selected-img,
+.noImg .image-missing {
+  display: none;
+}
+
+.p-float-label {
+  margin-top: 1.5rem;
+}
+
+.p-float-label>label {
+  left: 1.5rem;
+  top: 42%;
+}
+
+.p-dropdown {
+  width: 100%;
+}
+
+.selected-img,
+.option-img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.option-name {
+  flex-grow: 1;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.image-missing {
+  width: 2rem;
+  height: 2rem;
+  background-color: #ebebeb;
+}
+
+/* allows disabled buttons to have not-allowed curser */
+.action-button-wrapper {
+  display: inline-block;
+}
+.disabled-action-button-wrapper {
+  cursor: not-allowed;
+}
+
+
+/* make all vue action button alert messages invisible */
+div pre.alert.alert-warning {
+  display: none;
+}

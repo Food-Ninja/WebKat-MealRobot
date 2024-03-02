@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+  <body>
+    {{ partial "nav.html" . }}
+    
+    {{ if isset .Site.Params "rightsideimg" }}
+    <div class="flex-container">
+
+      <div class="flex-item-left">
+        <div class="sidebar-image-container">
+          <img class="sidebar-image-sticky" src="{{ .Site.Params.rightsideimg | absURL }}" width="1000px" height="1000px">
+        </div>
+      </div>
+
+      <div class="flex-item-center">
+        <div style="margin: 0; flex-base: 80vw;">
+            {{ end }}
+            {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+            {{ block "main" . }}{{ end }}
+
+
+            {{ if isset .Site.Params "rightsideimg" }}
+        </div>
+      </div>
+
+      <!-- item on the right side with all the logos-->
+      <div class="flex-item-right">
+        <!-- <div style="position: relative; left: 85%; top: 20%; overflow: hidden; margin-right: 2%;"></div> -->
+        <div style="position: relative;">
+            <div style="top: 45px; overflow-y: scroll;">
+              <a href="https://www.uni-bremen.de/">
+                <img src='{{"img/UHB_Logo_Web_RGB.png" | absURL }}' style="padding: 20%; margin-top: 45px">
+              </a>
+              <a href="https://ai.uni-bremen.de/">
+                <img src='{{"img/Logo - IAI Schrift.png" | absURL }}' style="padding: 10%;">
+              </a>
+              <a id="myImageURL" href="">
+                <img id="myImage" src='{{"img/bmbf.png" | absURL }}' style="padding: 10%;">
+              </a>
+            </div>
+        </div>
+
+      </div>
+
+        <!-- </div> -->
+    </div>
+
+    <!-- <div class="centered-container" style="position: fixed;width: 30%;">
+      <img id="centered-image" src='{{"img/Logo - IAI Schrift.png" | absURL }}'>
+      <img id="centered-image" src='{{"img/UHB_Logo_Web_RGB.png" | absURL }}'>
+    </div> -->
+
+    {{ end }}
+
+    {{ partial "footer.html" . }}
+    {{ block "footer" . }}{{ end }}
+
+    <script>
+      const images = ['{{"img/bmbf.png" | absURL }}', '{{"img/zmml.png" | absURL }}', '{{"img/van.png" | absURL }}'];
+      const urls = ["https://www.bmbf.de/bmbf/de/home/home_node.html","https://www.uni-bremen.de/zmml", "https://oncourse.uni-bremen.de/?redirect=0&theme=ocboosterchild2"]
+      let currentImageIndex = 0;
+
+      setInterval(changeImage, 2000); // change image every second
+
+      function changeImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        document.getElementById("myImage").src = images[currentImageIndex];
+        document.getElementById("myImageURL").href = urls[currentImageIndex];
+      }
+
+    </script>
+  </body>
+</html>
+

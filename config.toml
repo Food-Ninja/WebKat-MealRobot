@@ -1,0 +1,79 @@
+baseurl = "https://food-ninja.github.io/FoodCutting/"
+DefaultContentLanguage = "en"
+title = "WebKat MealRobot"
+theme = "beautifulhugo"
+pygmentsStyle = "trac"
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+paginate = 20
+pygmentsCodefencesGuessSyntax = true
+
+[markup.goldmark.renderer]
+  unsafe = true # Allow HTML in md files
+
+[Params]
+ homeTitle = "Using Web Knowledge For Flexible Meal Preperation" # Set a different text for the header on the home page
+  subtitle = ""
+  mainSections = ["posts"]
+  logo = "img/logo.png" # Expecting square dimensions
+  favicon = "favicon.ico"
+  dateFormat = "2 January 2006"
+  commit = false
+  rss = false
+  comments = false
+  readingTime = false
+  wordCount = false
+  useHLJS = true
+  socialShare = false
+  delayDisqus = true
+  showRelatedPosts = true
+#  hideAuthor = true
+#  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
+#  disclaimerText = "The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way."
+  rightSideImg = "img/CuttingComic.jpg"
+  showHomeBigImg = true
+
+
+
+[[Params.bigimg]]
+ src = "img/cut.png"
+ 
+
+
+
+[Author]
+  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
+  website = "https://ai.uni-bremen.de/"
+  email = "ai-office@cs.uni-bremen.de "
+  github = "IntEL4CoRo"
+  youtube = "agkiunibremen"
+
+[[menu.main]]
+    name = "Contact"
+    url = "pages/contact/"
+    weight = 20
+
+[[menu.main]]
+    name = "Robot Agent"
+    url = "posts/robotagent/"
+    weight = 10
+
+[[menu.main]]
+    name = "Query Like A Robot"
+    url = "posts/querylikearobot/"
+    weight = 6
+
+[[menu.main]]
+    name = "Knowledge Acquisition"
+    url = "posts/knowledgeacquisition/"
+    weight = 5
+
+[[menu.main]]
+    name = "Architecture"
+    url = "posts/architektur/"
+    weight = 5
+
+[[menu.main]]
+    name = "Calls"
+    url = "posts/calls/"
+    weight = 19

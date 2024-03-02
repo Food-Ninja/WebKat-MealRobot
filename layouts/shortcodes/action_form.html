@@ -1,0 +1,116 @@
+{{ $data := $.Page.Resources.GetMatch (.Get "data") }}
+{{ $idSuffix := now.UnixNano }}
+
+<div class="vue-app" id="vueapp{{ $idSuffix }}">
+  <!-- selectboxs -->
+  <div class="row">
+    <div class="p-float-label col-md-6" v-for="item in selectOptions">
+      <p-dropdown v-model="item.selected" :options="item.options" :optionLabel="item.name" :placeholder="item.name"
+        :inputId="item.name" class="col-md-12 mb-3">
+        <template #value="slotProps">
+          <div v-if="slotProps.value" :title="slotProps.value.value" class="flex h-100 align-items-center"
+            :class="{ noImg: item.noImg }">
+            <img v-if="slotProps.value.img" class="selected-img" :alt="slotProps.value.name"
+              :src="slotProps.value.img" />
+            <div class="image-missing" v-else></div>
+            <div class="text-capitalize option-name" v-text="slotProps.value.name"></div>
+            <a class="text-xs" target="_blank" title="Knowledge Bases in OpenEASE"
+              v-if="slotProps.value.knowledge_bases" :href="slotProps.value.knowledge_bases"
+              onclick="event.stopPropagation()">Knowledge Bases</a>
+          </div>
+          <span v-else>
+            <span v-text="slotProps.placeholder"></span>
+          </span>
+        </template>
+        <template #option="slotProps">
+          <div class="flex align-items-center" :title="slotProps.option.value" :class="{ noImg: item.noImg }">
+            <img v-if="slotProps.option.img" class="option-img" :alt="slotProps.option.name"
+              :src="slotProps.option.img" />
+            <div class="image-missing" v-else></div>
+            <div class="text-capitalize option-name" v-text="slotProps.option.name"></div>
+            <a class="text-xs" target="_blank" title="Knowledge Bases in OpenEASE"
+              v-if="slotProps.option.knowledge_bases" :href="slotProps.option.knowledge_bases"
+              onclick="event.stopPropagation()">Knowledge Bases</a>
+          </div>
+        </template>
+      </p-dropdown>
+      <label :for="item.name" v-text="item.name"></label>
+    </div>
+  </div>
+  <!-- error message -->
+  <div v-show="errorMsgs.length !== 0">
+    <pre class="alert alert-warning" v-text="errorMsgs"></pre>
+  </div>
+
+  <!-- Buttons -->
+  <div class="action-buttons">
+    <div class="action-button-wrapper" v-for="action in actions" :class="{ 'disabled-action-button-wrapper': !getActionUrl(action) }">
+      <a class="btn mr-2 mb-2" target="_blank" v-text="action.name" :title="action.description"
+        :href="getActionUrl(action)"
+        :class="{ 'btn-primary': action.primary,'btn-success': !action.primary, 'disabled': !getActionUrl(action) }"></a>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+
+  function isAbsoluteUrl(url) {
+    return /^([a-z][a-z\d+\-.]*:)?\/\//i.test(url) || /^data:/i.test(url);
+  }
+  const { createApp, ref } = Vue;
+  const data = JSON.parse({{ $data.Content }})
+  const App = {
+    data() {
+      return {
+        actions: data.actions,
+        selectOptions: Object.keys(data.options).map(v => {
+          return {
+            name: v,
+            noImg: data.options[v].map(v => !!v.img).filter(v => v).length === 0,
+            selected: data.options[v][0],
+            options: data.options[v]
+          }
+        })
+      };
+    },
+    computed: {
+      selectedNotebookId() {
+        const newValue = this.selectOptions
+          ? this.selectOptions.map(v => v.name + '=' + v.selected.value).join('|')
+          : ''
+        return newValue
+      },
+      errorMsgs() {
+        let _arr = this.actions
+          .filter(act => !this.getActionUrl(act))
+          .map(act => `"${act.name}"`)
+        let selectionStr = this.selectedNotebookId
+          ? ` for options: \n\n${this.selectedNotebookId.replace(/\|/g, '\n')}`
+          : '!'
+        return _arr.length === 0 ? '' : `${_arr.join(',')} is currently unavailable${selectionStr}`
+      }
+    },
+    methods: {
+      getActionUrl(action) {
+        if (!action.url) return ''
+        let _url = action.url
+        if (action.options && action.available) {
+          let _notebookUrl = action.available[this.selectedNotebookId]
+          if (!_notebookUrl) return ''
+          if (isAbsoluteUrl(_notebookUrl)) return _notebookUrl
+          _url += _notebookUrl
+        }
+        return _url
+      }
+    },
+    components: {
+      "p-button": primevue.button,
+      "p-overlaypanel": primevue.overlaypanel,
+      "p-dropdown": primevue.dropdown
+    }
+  };
+
+  const app = createApp(App);
+  app.use(primevue.config.default);
+  app.mount('#vueapp{{ $idSuffix }}');
+</script>
