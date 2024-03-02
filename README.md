@@ -4,7 +4,7 @@ This project deals with the problem of teaching robots how to execute unknown ta
 An extensive documentation of the approach and its different aspects can be found on [our website](https://food-ninja.github.io/FoodCutting/).
 
 <p align="center">
-  <img src="docs/img/Motivation3.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
+  <img src="static/img/Motivation3.jpg" width="600" alt="Enabling cognitive robots to cut food objects through an ontology"/><br>
 </p>
 
 This repository contains the created knowledge graph, the CRAM action designator and additional resources created by following [our methodology](https://food-ninja.github.io/FoodCutting/Methodology.html).
@@ -18,7 +18,7 @@ The knowledge graph is made available under the [Open Data Commons Attribution L
 This work has been created by the [Institute for Artificial Intelligence](https://ai.uni-bremen.de/) at the University of Bremen as well as the [Semantic Computing Group](https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/semantic-computing/) at the Cluster of Excellence Cognitive Interaction Technology at Bielefeld University. Please contact [Michaela Kümpel](https://ai.uni-bremen.de/team/michaela_k%C3%BCmpel) (michaela(dot)kuempel(at)uni-bremen(dot)de) or [Jan-Philipp Töberg](https://www.uni-bielefeld.de/fakultaeten/technische-fakultaet/arbeitsgruppen/semantic-computing/team/jan-philipp-toeberg/) (jtoeberg(at)techfak(dot)uni-bielefeld(dot)de) for further information or collaboration.
 
 <p align="center" width="90%">
-      <img width="30%" src="docs/img/ai_logo.png"/>
-      <img width="30%" src="docs/img/university_new.png"/>
-      <img width="30%" src="docs/img/logo_citec_EN.png"/>
+      <img width="30%" src="static/img/ai_logo.png"/>
+      <img width="30%" src="static/img/university_new.png"/>
+      <img width="30%" src="static/img/logo_citec_EN.png"/>
 </p>
