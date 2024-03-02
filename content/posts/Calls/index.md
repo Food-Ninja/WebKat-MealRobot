@@ -2,7 +2,7 @@
 title: "Calls"
 date: 2023-11-30T14:33:42-04:00
 subtitle: ""
-tags: ["Research"]
+tags: ["Active Calls, Open, Paper, Workshop"]
 dropCap: false
 displayInMenu: false
 displayInList: true

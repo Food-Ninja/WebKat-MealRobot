@@ -1,6 +1,15 @@
 ---
-title: Query like a Robot
-comments: false
+title: "Querying Like a Robot"
+date: 2023-11-30T14:33:42-04:00
+subtitle: ""
+tags: ["Query, Robot, Live Demo"]
+dropCap: false
+displayInMenu: false
+displayInList: true
+draft: false
+resources:
+- name: ActionButtons
+  src: "buttons.json"
 ---
 
 {{<Webinterface>}}

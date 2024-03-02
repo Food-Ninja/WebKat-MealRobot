@@ -1,13 +1,22 @@
 ---
-title: Knowledge Acquisition
-comments: false
+title: "Knowledge Acquisition"
+date: 2023-11-30T14:33:42-04:00
+subtitle: ""
+tags: ["Research, Knowledge Acquisition, Web Knowledge, Knowledge Graph, Action Knowledge, Object Knowledge, Knowledge Linking, WikiHow Analysis Tool"]
+dropCap: false
+displayInMenu: false
+displayInList: true
+draft: false
+resources:
+- name: ActionButtons
+  src: "buttons.json"
 ---
 
 <hr>
 <h2>Gathering and Linking Web Knowledge</h2>
 
 <font size="3">To support robotic agents in executing variations of <i>Cutting</i> on different <i>fruits and vegetables</i>, we collect two types of knowledge in our knowledge graph: <b>action</b> and <b>object knowledge</b>.
-Both kinds of knowledge need to be linked to enable task execution as explained <a href="https://food-ninja.github.io/FoodCutting/Architecture.html">here</a>.</font> 
+Both kinds of knowledge need to be linked to enable task execution as explained <a href="https://food-ninja.github.io/FoodCutting/posts/architektur/">here</a>.</font> 
 
 ## Action Knowledge
 
@@ -15,7 +24,7 @@ Both kinds of knowledge need to be linked to enable task execution as explained 
 In general we rely on SOMA[^1] and its upper ontology DUL[^2] to model agent participation in events as well as roles objects play during events and how events effect objects.
 
 For executing <i>Cutting</i> actions and its variants, we first collect synonyms and hyponyms for <i>Cutting</i> using WordNet[^3], VerbNet[^4] and FrameNet[^5].
-After filtering these verbs regarding their relevance for the cooking domain using our <a href="https://food-ninja.github.io/FoodCutting/WikiHowAnalysis.html">WikiHow Analysis Tool</a>, we propose to divide them into <b>action groups</b> with similar motion patterns.
+After filtering these verbs regarding their relevance for the cooking domain using our WikiHow Analysis Tool, we propose to divide them into <b>action groups</b> with similar motion patterns.
 Based on our observations in <a href="https://www.wikihow.com/">WikiHow</a> data and <a href="https://youtu.be/VjINuQX4hbM">cooking videos</a>, we differentiate between these tasks in three parameters:
 - position: Where should the robot place its cutting tool?
 - repetitions: How many cuts should the robot perform?

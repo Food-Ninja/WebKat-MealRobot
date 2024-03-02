@@ -2,7 +2,7 @@
 title: "Robot Agent"
 date: 2023-11-30T14:33:42-04:00
 subtitle: ""
-tags: ["Research, Robot"]
+tags: ["Research, Robot, Simulation"]
 dropCap: false
 displayInMenu: false
 displayInList: true
