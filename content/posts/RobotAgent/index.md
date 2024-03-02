@@ -41,7 +41,7 @@ Here the robot, with the help of our ontology, should be able to successfully co
 Being presented with the aforementioned scene and the goal to "*Quarter an apple*", the simulated robot will first query for all subclasses of the given action in the ontology in order to figure out what motions need to be performed for action execution.
 For each resulting motion it then infers if the given object affords it.
 Hence, the class Peeling would be excluded from the result list since an apple in our definition does not afford peeling, for example. 
-Following the task hierarchy for an apple found [here](img/AppleHierarchy.png), the robot realises it first needs to perform the task Halving. 
+Following the task hierarchy for an apple found, the robot realises it first needs to perform the task Halving. 
 Following the halving action, the robot needs to re-orientate (*rotate*) the halves of the apple in order to halve them again, as represented by the OrientingRight task.
 Equipped with this knowledge, the robot can start to execute the task
 The resulting manipulation process is visualized below:

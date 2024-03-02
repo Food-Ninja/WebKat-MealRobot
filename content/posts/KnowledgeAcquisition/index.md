@@ -72,7 +72,7 @@ We set both kinds of knowledge in relation through <i>dispositions</i> and <i>af
 Both concepts are set in relation by stating that dispositions allow objects to participate in events, realising affordances that are more abstract descriptions of dispositions[^1].
 In our concrete knowledge graph, this is done by using the <i>affordsTask, affordsTrigger</i> and <i>hasDisposition</i> relations introduced in the SOMA ontology[^1].</font>
 
-# [WikiHow Analysis Tool](https://github.com/Food-Ninja/WikiHow-Instruction-Extraction)
+## WikiHow Analysis Tool
 
 To gather additional knowledge about manipulation actions and their associated verbs, we developed a tool analysing a [WikiHow](https://www.wikihow.com) corpus[^11].
 The goal is to better the understanding of manipulation verbs and their parameterization for different objects, goals and environments.
