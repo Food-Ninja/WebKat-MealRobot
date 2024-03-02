@@ -47,10 +47,8 @@ Equipped with this knowledge, the robot can start to execute the task
 The resulting manipulation process is visualized below:
 
 <p align="center">
-	<img src="img/AppleQuarteringComic.png" width="800" alt="Simulation of the “Quarter an apple” task"/><br>
+	<img src="AppleQuarteringComic.png" width="800" alt="Simulation of the “Quarter an apple” task"/><br>
 </p>
-
-[Back](./index.html)
 
 ## References
 

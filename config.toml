@@ -59,7 +59,7 @@ pygmentsCodefencesGuessSyntax = true
     weight = 10
 
 [[menu.main]]
-    name = "Live Demo"
+    name = "Query Like A Robot"
     url = "posts/querylikearobot/"
     weight = 6
 
@@ -67,11 +67,6 @@ pygmentsCodefencesGuessSyntax = true
     name = "Knowledge Acquisition"
     url = "posts/knowledgeacquisition/"
     weight = 5
-
-[[menu.main]]
-    name = "Ontology Query"
-    url = "posts/queries/"
-    weight = 7
 
 [[menu.main]]
     name = "Architecture"
