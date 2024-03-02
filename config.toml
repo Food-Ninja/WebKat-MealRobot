@@ -50,7 +50,7 @@ pygmentsCodefencesGuessSyntax = true
 
 [[menu.main]]
     name = "Contact"
-    url = "page/contact/contact/"
+    url = "pages/contact/"
     weight = 20
 
 [[menu.main]]
