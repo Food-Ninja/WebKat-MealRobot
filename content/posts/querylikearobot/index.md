@@ -24,9 +24,6 @@ If you want to access the contained knowledge using predefined standard queries,
 
 
 # Querying Food Cutting Knowledge Using SPARQL
-
-To try the querying using SPARQL yourself, please use our **[webinterface](https://food-ninja.github.io/FoodCutting/index.html)**.
-
 The robot knows that for all cutting actions like slicing, dicing, halving or quartering it needs to perform the following body movements:
 
 pick up (tool) -> approach (object, position) -> lower (tool) -> lift (tool) -> place (tool)
