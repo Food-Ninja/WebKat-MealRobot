@@ -8,7 +8,7 @@
         For a robot to successfully perform such a breadth of maniulation actions, it needs to <b>understand</b> given tasks. We start tackling this challenge by focusing on selected task domains, starting with cutting.
   </div>
   <div class="right-main-well-flex">
-    <img class="timer-change-image" data-wait="5000" data-imgs='[{"src":"img/picking_up_actions.jpg"},{"src":"img/popcorn_making.jpg"}]'>
+    <img class="timer-change-image" data-wait="5000" data-imgs='[{"src":"picking_up_actions.jpg"},{"src":"popcorn_making.jpg"}]'>
   </div>
 </div>
 
