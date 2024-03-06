@@ -27,7 +27,7 @@ For executing <i>Cutting</i> actions and its variants, we first collect synonyms
 After filtering these verbs regarding their relevance for the cooking domain using our WikiHow Analysis Tool, we propose to divide them into <b>action groups</b> with similar motion patterns.
 Based on our observations in <a href="https://www.wikihow.com/">WikiHow</a> data and <a href="https://youtu.be/VjINuQX4hbM">cooking videos</a>, we differentiate between these tasks in three parameters:
 - <b>position</b>: Where should the robot place its cutting tool? 
-- <b>:repetitions</b>: How many cuts should the robot perform?
+- <b>repetitions</b>: How many cuts should the robot perform?
 - <b>input</b>: What shape or part of the food is provided for the action?
 - <b>output</b>: What shape or part is the result of the action executtion?
 - <b>prior task</b>: Does the robot need to execute a specific action group beforehand?
