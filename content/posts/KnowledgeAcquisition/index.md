@@ -26,9 +26,11 @@ In general we rely on SOMA[^1] and its upper ontology DUL[^2] to model agent par
 For executing <i>Cutting</i> actions and its variants, we first collect synonyms and hyponyms for <i>Cutting</i> using WordNet[^3], VerbNet[^4] and FrameNet[^5].
 After filtering these verbs regarding their relevance for the cooking domain using our WikiHow Analysis Tool, we propose to divide them into <b>action groups</b> with similar motion patterns.
 Based on our observations in <a href="https://www.wikihow.com/">WikiHow</a> data and <a href="https://youtu.be/VjINuQX4hbM">cooking videos</a>, we differentiate between these tasks in three parameters:
-- position: Where should the robot place its cutting tool?
-- repetitions: How many cuts should the robot perform?
-- prior task: Does the robot need to execute a specific action group beforehand?
+- <b>position</b>: Where should the robot place its cutting tool? 
+- <b>:repetitions</b>: How many cuts should the robot perform?
+- <b>input</b>: What shape or part of the food is provided for the action?
+- <b>output</b>: What shape or part is the result of the action executtion?
+- <b>prior task</b>: Does the robot need to execute a specific action group beforehand?
 <br>
 Based on the remaining 14 words, we created the following 6 <b>action groups</b>:</font>
 <p align="center">
@@ -65,7 +67,7 @@ In total, the knowledge graph contains:
 We set both kinds of knowledge in relation through <i>dispositions</i> and <i>affordances</i>, as visualised below for an apple:</font>
 
 <p align="center">
-  <img src="Apple Example Affordances.png" width="800" alt="Connecting affordances and dispositions for an apple"/><br>
+  <img src="Apple Example Affordances.jpg" width="800" alt="Connecting affordances and dispositions for an apple"/><br>
 </p>
 
 <font size=3>In general, a disposition describes the property of an object, thereby enabling an agent to perform a certain task[^9] as in a knife can be used for cutting, whereas an affordance describes what an object or the environment offers an agent[^10] as in an apple affords to be cut.
