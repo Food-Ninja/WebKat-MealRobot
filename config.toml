@@ -86,6 +86,6 @@ pygmentsCodefencesGuessSyntax = true
 [[menu.main]]
     name = "2ndTest"
     url = "posts/SecondTest/"
-    weight = 21
+    weight = 20
 
 
