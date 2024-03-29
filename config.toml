@@ -79,8 +79,8 @@ pygmentsCodefencesGuessSyntax = true
     weight = 18
 
 [[menu.main]]
-    name = "Test"
-    url = "posts/test/"
+    name = "Recipe Action Identification"
+    url = "posts/recipeactionidentification/"
     weight = 19
 
 #[[menu.main]]
