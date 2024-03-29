@@ -83,10 +83,10 @@ pygmentsCodefencesGuessSyntax = true
     url = "posts/test/"
     weight = 19
 
-[[menu.main]]
-    name = "2ndTest"
-    url = "posts/SecondTest/"
-    weight = 20
+#[[menu.main]]
+#    name = "2ndTest"
+#    url = "posts/SecondTest/"
+#    weight = 20
 
 
 # Ok vllt mit nen Kommentar am Ende funkt der zweite Test
