@@ -76,7 +76,7 @@ pygmentsCodefencesGuessSyntax = true
 [[menu.main]]
     name = "Calls"
     url = "posts/calls/"
-    weight = 19
+    weight = 18
 
 [[menu.main]]
     name = "Test"
