@@ -14,7 +14,7 @@ resources:
 
 (Hier die HTML von der Recipe Query für die Rezeptschritte einfügen)
 
-
+{{<recipe_showcase>}}
 
 
 ## Recipe Acquisition
