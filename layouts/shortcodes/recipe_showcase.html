@@ -40,7 +40,7 @@
 		try {
                 const response = await fetch(endPoint1, requestOptions)
                 const data = await response.json()
-				console.log(data.boolean);
+				console.log(data.boolean)
                 return data.boolean
             } catch (error) {
                 console.error('Error:', error)
