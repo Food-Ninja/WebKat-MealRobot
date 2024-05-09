@@ -17,7 +17,29 @@
 		//Also: Es benötigt einen Knopf für die Query. Das lässt sich übernehmen von dem Webinterface
 		//Die Query die durch den Knopf ausgelöst wird muss selbst erstellt werden. 
 
+		async function testConnect(){
+		 const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
+		 const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
+		 
+		 const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/sparql-query',
+                    },
+                    body: sparqlQuery,
+                }
 
+		
+		 try{
+                    const response = await fetch(endpoint1, requestOptions)
+                    const data = await response.json()
+                    return data.boolean
+                } catch (error) {
+                    console.error('Error:', error)
+                    return false
+                }
+		}
+		
 		// </p> ist ein Absatzskip
 		</script>
 		<hr>
@@ -33,7 +55,7 @@
 		<font size=9> Test </font>
 		<font size=10> Test </font>
 		Mal gucken wie man das hier integriert in den Post.
-		
+		<button type="button" onclick="testConnect()">Test!</button> </font>
 	</body>			
 			
 </html>
