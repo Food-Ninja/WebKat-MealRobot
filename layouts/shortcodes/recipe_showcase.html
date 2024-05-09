@@ -25,6 +25,7 @@
 		   `;
 		  
 		const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
+		
 		const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
 		 
 		const requestOptions = {
@@ -36,11 +37,11 @@
                 }
 
 		
-		try{
-                const response = await fetch(endpoint1, requestOptions)
+		try {
+                const response = await fetch(endPoint1, requestOptions)
                 const data = await response.json()
                 return data.boolean
-           } catch (error) {
+            } catch (error) {
                 console.error('Error:', error)
                 return false
                 }
