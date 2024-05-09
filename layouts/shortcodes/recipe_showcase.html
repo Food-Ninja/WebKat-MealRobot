@@ -18,6 +18,9 @@
 		//Die Query die durch den Knopf ausgelöst wird muss selbst erstellt werden. 
 
 		async function testConnect(){
+		 const sparqlQuery = '
+		  SELECT *
+		  WHERE { ?s ?o ?p }
 		 const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
 		 const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
 		 
