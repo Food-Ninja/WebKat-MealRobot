@@ -107,7 +107,7 @@
 			// Hole die Liste von angegebenen Rezepten hervor
 			const usedListRecipes = document.getElementById("recipe-list")
 			// Hole die relevante Rezeptliste aus dem Netz
-			const getData = testConnect()
+			const getData = filterRecipe()
 			
 			// Bestimme die Liste der Rezepte und deren Label heraus
 			const recipeList = getData[0].recipe
