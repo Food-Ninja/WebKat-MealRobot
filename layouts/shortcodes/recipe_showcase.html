@@ -64,18 +64,13 @@
 			const relevantRecipes = `
 			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 			PREFIX recipe: <http://purl.org/ProductKG/RecipeOn#>
-			// SOMA.owl#includes_task
-			// OK game plan: 
-			// ?S ?O ?P 
-			//  ?O = includes_task f+r eine Sache
-			//
-		
-			SELECT ?recipe ?recipeInstructions ?recipeLabel
-			WHERE {
-				SELECT ?recipe ?recipeInstructions 
-				WHERE{ ?recipe rdfs:subClassOf recipe:Recipe .
+
+			SELECT ?recipe ?recipeInstructions ?recipeLabel	
+			WHERE{
+				?recipe rdfs:subClassOf recipe:Recipe.
 				?recipe recipe:Instructions ?recipeInstructions.
-				?recipe rdfs:label ?recipeLabel	}
+				?recipe rdfs:label ?recipeLabel.
+				}
 			}
 			`;
 			
