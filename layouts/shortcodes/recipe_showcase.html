@@ -19,16 +19,16 @@
 
 		async function testConnect(){
 		
-		const sparqlQuery = `
-		SELECT *
-		WHERE { ?s ?o ?p. }
-		   `;
+			const sparqlQuery = `
+			SELECT *
+			WHERE { ?s ?o ?p. }
+			`;
 		  
-		const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
+			const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
 		
-		const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
+			const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
 		 
-		const requestOptions = {
+			const requestOptions = {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/sparql-query',
@@ -37,33 +37,162 @@
                 }
 
 		
-		try {
-                const response = await fetch(endPoint1, requestOptions)
-                const data = await response.json()
-				console.log(data.boolean)
-                return data.boolean
-            } catch (error) {
-                console.error('Error:', error)
-                return false
+			//try {
+            //const response = await fetch(endPoint1, requestOptions)
+            //const data = await response.json()
+			//	console.log(data.boolean)
+            //  return data.boolean
+			//} catch (error) {
+            //    console.error('Error:', error)
+            //    return false
+            //    }
+		}
+		// well we don't get a error, that sounds better then nothing!
+		// Ziele:  
+		// 1. Funktion zur bestimmung von allen Rezepten, welche mindestens eine Schneide-/Gießaktion haben
+		// -> Filterung mit existenz einer Relation zwischen ihm und der Object Property includes_task
+		//    http://www.ease-crc.org/ont/SOMA.owl#includes_task
+		// Dadurch 
+		// 
+		// </p> ist ein Absatzskip
+		
+		
+		
+		async function filterRecipe() {
+		
+		//
+			const relevantRecipes = `
+			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+			PREFIX recipe: <http://purl.org/ProductKG/RecipeOn#>
+			// SOMA.owl#includes_task
+			// OK game plan: 
+			// ?S ?O ?P 
+			//  ?O = includes_task f+r eine Sache
+			//
+		
+			SELECT ?recipe ?recipeInstructions ?recipeLabel
+			WHERE {
+				SELECT ?recipe ?recipeInstructions 
+				WHERE{ ?recipe rdfs:subClassOf recipe:Recipe .
+				?recipe recipe:Instructions ?recipeInstructions.
+				?recipe rdfs:label ?recipeLabel	}
+			}
+			`;
+			
+			const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
+		
+			const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
+		 
+			const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/sparql-query',
+                    },
+                    body: relevantRecipes,
                 }
+			
+			 try {
+                    const response = await fetch(endpoint1, requestOptions)
+                    const data = await response.json()
+                    return data
+                } catch (error) {
+                    console.error('Error:', error)
+					const failure = []
+                    return failure
+                }
+							
 		}
 		
-		// </p> ist ein Absatzskip
+		function randomize() {
+			// Hole die Liste von angegebenen Rezepten hervor
+			const usedListRecipes = document.getElementById("recipe-list")
+			// Hole die relevante Rezeptliste aus dem Netz
+			const getData = testConnect()
+			
+			// Bestimme die Liste der Rezepte und deren Label heraus
+			const recipeList = getData[0].recipe
+			//const instructionList = getData[0].recipeInstructions
+			const labelList = getData[0].recipeList
+			
+			// Bestimme die Größe der angegeben Liste
+			const sizeOfUsedList = usedListRecipe.size()
+			//Bestimme die Größe der Rezeptliste
+			const sizeOfRecipeList = recipeList.size()
+			
+			//Für alle angegebenen Rezepten...
+			for(let i = 0; i < sizeOfUsedList; i++)
+			{
+				//bestimme eine zufällige Zahl
+				var randomNumber = Math.floor(Math.random() * sizeOfRecipeList)
+				
+				// und mit dieser Zahl bestimme nun das neue Rezept und deren Label
+				var newRecipe = recipeList[randomNumber]
+				//var newInstructions = instructionList[randomNumber]
+				var newLabel = labelList[randomNumber]
+				
+				// sodass diese dann schließlich eingefügt werden kann in die genutzte Liste
+				document.getElementById("recipe-list").options[i].value = newRecipe
+				document.getElementById("recipe-list").options[i].text = newLabel
+				
+			}
+					
+		}
+		
+		// Nun ist die FilterFunktion fertig, somit braucht es eine Methode für den Button
+		
+		
+		// OK. Wir wollen erstmal eine Liste von Rezepte mitsamt deren Instruktionen haben, wovon der Leser 
+		// einen auswählen kann um die Instruktion zu bekommen. In der Instruktion soll der Verb hervorgeheben sein.
+		// 
+		// Randomize Knopf führt Funktion aus die folgendes Macht:
+		// 1. Bestimme Liste von interestanten Rezepten, haben wir bereits
+		// 2. Bestimme Auswahl-Größe - basierte Zufallsrezepte durch RNG-Nummer Loop über Array. 
+		// 3. Loop über Auswahl-Größe die Liste von Rezepte via Zufallszahl für Rezeptspot verändert.
+		// 
+		// Link wie man selects ändert.
+		// https://stackoverflow.com/questions/10911526/how-do-i-programatically-select-an-html-option-using-javascript
+		//
+		//
+		
 		</script>
 		<hr>
-		In the following you can test out our Action Identification on the Recipes yourself!  </p>
-		<font size=5> Test </font>
-		<font size=4> Test </font>
-		<font size=3> Test </font>
-		<font size=2> Test </font>
-		<font size=1> Test </font>
-		<font size=6> Test </font>
-		<font size=7> Test </font>
-		<font size=8> Test </font>
-		<font size=9> Test </font>
-		<font size=10> Test </font>
-		Mal gucken wie man das hier integriert in den Post.
-		<button type="button" onclick="testConnect()">Test!</button> </font>
+		In the following you can test out our Action Identification on the Recipes yourself!</p>
+		You're given a set of pre-selected recipes for you to select. Upon pressing the left button </p>
+		the instruction steps alongside the notable verbs that are executable by the robot are highlighted. </p>
+		The right button randomizes the set of recipe to a entirely new set for you to choose out of!
+		<select name="Recipes" id="recipe-list">
+			<option value="http://purl.org/ProductKG/RecipeOn#Sauerkraut">Sauerkraut</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Sushi%20Rolls">Sushi Rolls</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Spaghetti%20With%20Tomato%20Sauce">Spaghetti With Tomato Sauce</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Bagels">Bagels</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Chinese%20Broccoli%20With%20Ginger%20Sauce">Chinese Broccoli With Ginger Sauce</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#The%20Ultimate%20Hamburger">The Ultimate Hamburger</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Thai%20Curry%20Chicken">Thai Curry Chicken</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Spanish%20Mussels%20Vinaigrette%20(Mejillones%20a%20La%20Vinagreta)">Spanish Mussels Vinaigrette (Mejillones a La Vinagreta)</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Shrimp%20Pizza">Shrimp Pizza</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Dum%20Ki%20Gobi">Dum Ki Gobi</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Danish%20Smalls%20Klejner">Danish Smalls Klejner</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Cuban%20Potato%20Salad">Cuban Potato Salad</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Cinnamon%20French%20Toast">Cinnamon French Toast</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Brazilian%20Brigadeiro...for%20Chocoholics">Brazilian Brigadeiro...for Chocoholics</option>
+			<option value="http://purl.org/ProductKG/RecipeOn#Bouillabaisse">Bouillabaisse</option>
+		</select>
+		<button type="button" onclick="testConnect()">Instruction</button> </font>
+		<button type="button" onclick="randomize()">Randomize</button> </font>
+		
+		
+		<div id="results" style='display: none'>
+			<p id="header"></p>
+			<table id="recipeTable">
+            <tr>
+              <th>#</th>
+              <th>Recipe</th>
+              <th>Instruction</th>
+            </tr>
+          </table>
+		</div>
+		
+		
 	</body>			
 			
 </html>
