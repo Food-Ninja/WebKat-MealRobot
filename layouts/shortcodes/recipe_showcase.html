@@ -114,7 +114,7 @@
 			// Hole die Liste von angegebenen Rezepten hervor
 			const usedListRecipes = document.getElementById("recipe-list")
 			// Hole die relevante Rezeptliste aus dem Netz
-			const getData = filterRecipe() //Array mit Triple, zugriff per .recipe, .recipeInstructions, .recipeLabel
+			const getData = await filterRecipe() //Array mit Triple, zugriff per .recipe, .recipeInstructions, .recipeLabel
 			console.log(getData)
 			console.log(getData[0])
 			console.log(getData[1])
