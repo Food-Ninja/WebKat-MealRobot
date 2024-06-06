@@ -62,21 +62,25 @@
 		
 		//
 			const relevantRecipes = `
+			//Relevante Abkürzungen
 			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 			PREFIX recipe: <http://purl.org/ProductKG/RecipeOn#>
-
-			SELECT ?recipe ?recipeInstructions ?recipeLabel	
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
+			//Hole die Rezepte, Instruktionen und Labels der Rezepte aus der Ontologie
+			SELECT DISTINCT ?recipe ?recipeInstructions ?recipeLabel	
 			WHERE{
 				?recipe rdfs:subClassOf recipe:Recipe.
+				?recipe rdfs:subClassOf ?a
+				?a owl:onProperty soma:includes_task
 				?recipe recipe:instructions ?recipeInstructions.
 				?recipe rdfs:label ?recipeLabel.
 				}
 			`;
-			
-			const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
-		
+			// Beide endPoints zur Abfrage, grade endPoint2
+			const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'	
 			const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
-		 
+		 //Einstellung der Nachfrage, 
 			const requestOptions = {
                     method: 'POST',
                     headers: {
@@ -88,7 +92,13 @@
 			 try {
                     const response = await fetch(endPoint2, requestOptions)
                     const data = await response.json()
-                    return data
+					const test = data[0]
+                    const testArray = []
+					testArray.push(test.recipe)
+					testArray.push(test.recipeInstructions)
+					testArray.push(test.recipeLabel)	
+					return testArray
+					
                 } catch (error) {
                     console.error('Error:', error)
 					const failure = []
@@ -104,9 +114,9 @@
 			const getData = filterRecipe()
 			
 			// Bestimme die Liste der Rezepte und deren Label heraus
-			const recipeList = getData[0].recipe
+			const recipeList = getData[0]
 			//const instructionList = getData[0].recipeInstructions
-			const labelList = getData[0].recipeList
+			const labelList = getData[2]
 			
 			// Bestimme die Größe der angegeben Liste
 			const sizeOfUsedList = usedListRecipe.size()
