@@ -115,10 +115,6 @@
 			const usedListRecipes = document.getElementById("recipe-list")
 			// Hole die relevante Rezeptliste aus dem Netz
 			const getData = await filterRecipe() //Array mit Triple, zugriff per .recipe, .recipeInstructions, .recipeLabel
-			console.log(getData)
-			console.log(getData[0])
-			console.log(getData[1])
-			console.log(getData[2])
 			// Bestimme die Größe der angegeben Liste
 			const sizeOfUsedList = usedListRecipes.length
 
@@ -131,8 +127,6 @@
 			{
 				//bestimme eine zufällige Zahl und runde sie runter auf eine natürliche Zahl
 				var randomNumber = Math.floor(Math.random() * sizeOfRecipeList)
-				//console.log(randomNumber)
-				//console.log(getData[randomNumber])
 				// und mit dieser Zahl bestimme nun das neue Rezept und deren Label
 				var newRecipe = getData[randomNumber].recipe
 				//var newInstructions = instructionList[randomNumber]
@@ -141,11 +135,90 @@
 				// sodass diese dann schließlich eingefügt werden kann in die genutzte Liste
 				document.getElementById("recipe-list").options[i].value = newRecipe
 				document.getElementById("recipe-list").options[i].text = newLabel
-				
+				// ES FUNKT ENTLICH JAAAAAAAAAAAAAAAA
 			}
 					
 		}
 		
+		async function getInstructions(recipe){
+		//Hole die Instruktion von einen gegebenen Rezept-Link
+			const sparqlQuery = `
+			PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+			PREFIX recipe: <http://purl.org/ProductKG/RecipeOn#>
+			PREFIX owl: <http://www.w3.org/2002/07/owl#>
+			PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
+			SELECT ?recipeInstructions
+			WHERE { ${recipe} recipe:instructions ?recipeInstructions }
+			`;
+		  
+			const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
+		
+			const endPoint2 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/sparql'
+		 
+			const requestOptions = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/sparql-query',
+                    },
+                    body: sparqlQuery,
+                }
+				
+			try {
+					//Dies gibt ein Objekt aus, woraus man per Array-Zugriff ein Triple aus Rezept,Rezeptinstruktion und Label bekommt.
+                    const response = await fetch(endPoint2, requestOptions)
+                    const data = await response.json()
+					const instructions = data[0].recipeInstructions 
+					return instructions
+					
+                } catch (error) {
+                    console.error('Error:', error)
+					const failure = []
+                    return failure
+                }
+		
+		}
+		
+		async function showInstruction(){
+		//Zeige die Instruktion an von dem ausgewählten Rezept
+		
+			// Hole die Liste von angegebenen Rezepten hervor
+			const usedListRecipes = document.getElementById("recipe-list")
+			
+			//Hole die Tabelle hervor
+			var table = document.getElementById("recipeTable")
+		
+			//Entferne den letzten Eintrag falls vorhanden
+			clear_table()
+			
+			//Bestimme das ausgewählte Rezept
+			const chosenRecipe = usedListRecipes.options[usedListRecipes.selectedIndex].value
+			
+			//Bestimme den Namen des ausgewählten Rezeptes
+			const nameOfRecipe = const chosenRecipe = usedListRecipes.options[usedListRecipes.selectedIndex].text
+			
+			//Hole die Instruktion für das Rezept
+			const instructions = await getInstructions(chosenRecipe)
+			
+			//Addiere das Rezept und seine Instruktion zu der Tabelle
+			var newRow = table.insertRow(-1)
+			var recipe = table.insertCell(0)
+			var instructions = table.insertCell(1)
+			recipe.innerHTML = nameOfRecipe
+			instructions.innerHTML = instructions
+			
+			//Zeige die Tabelle
+			table.style.display = "block";
+		}
+		
+		//Genommen aus Webinterface.hmtl 
+		function clear_table() {
+            	var table = document.getElementById("recipeTable");
+            	var rowCount = table.rows.length;
+                for (var i = rowCount - 1; i >= 1; i--) {
+                    table.deleteRow(i);
+                }
+            }
+			
 		// Nun ist die FilterFunktion fertig, somit braucht es eine Methode für den Button
 		
 		
@@ -185,15 +258,14 @@
 			<option value="http://purl.org/ProductKG/RecipeOn#Brazilian%20Brigadeiro...for%20Chocoholics">Brazilian Brigadeiro...for Chocoholics</option>
 			<option value="http://purl.org/ProductKG/RecipeOn#Bouillabaisse">Bouillabaisse</option>
 		</select>
-		<button type="button" onclick="filterRecipe()">Instruction</button> </font>
-		<button type="button" onclick="randomize()">Randomize</button> </font>
+		<button type="button" onclick="showInstruction()">Instructions!</button> </font>
+		<button type="button" onclick="randomize()">Randomize!</button> </font>
 		
 		
 		<div id="results" style='display: none'>
 			<p id="header"></p>
 			<table id="recipeTable">
             <tr>
-              <th>#</th>
               <th>Recipe</th>
               <th>Instruction</th>
             </tr>
