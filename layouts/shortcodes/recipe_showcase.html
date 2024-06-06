@@ -91,15 +91,15 @@
 					//Dies gibt ein Objekt aus, woraus man per Array-Zugriff ein Triple aus Rezept,Rezeptinstruktion und Label bekommt.
                     const response = await fetch(endPoint2, requestOptions)
                     const data = await response.json()
-					const test = data[0]
-					console.log(test)
-                    const testArray = []
-					testArray.push(test.recipe)
-					console.log(testArray[0])
-					testArray.push(test.recipeInstructions)
-					console.log(testArray[1])
-					testArray.push(test.recipeLabel)	
-					console.log(testArray[2])
+					<!-- const test = data[0] -->
+					<!-- console.log(test) -->
+                    <!-- const testArray = [] -->
+					<!-- testArray.push(test.recipe) -->
+					<!-- console.log(testArray[0]) -->
+					<!-- testArray.push(test.recipeInstructions) -->
+					<!-- console.log(testArray[1]) -->
+					<!-- testArray.push(test.recipeLabel)	 -->
+					<!-- console.log(testArray[2]) -->
 					return data
 					
                 } catch (error) {
@@ -115,7 +115,9 @@
 			const usedListRecipes = document.getElementById("recipe-list")
 			// Hole die relevante Rezeptliste aus dem Netz
 			const getData = filterRecipe() //Array mit Triple, zugriff per .recipe, .recipeInstructions, .recipeLabel
-		
+			console.log(getData[0])
+			console.log(getData[1])
+			console.log(getData[2])
 			// Bestimme die Größe der angegeben Liste
 			const sizeOfUsedList = usedListRecipes.length
 
@@ -128,8 +130,8 @@
 			{
 				//bestimme eine zufällige Zahl und runde sie runter auf eine natürliche Zahl
 				var randomNumber = Math.floor(Math.random() * sizeOfRecipeList)
-				console.log(randomNumber)
-				console.log(getData[randomNumber])
+				//console.log(randomNumber)
+				//console.log(getData[randomNumber])
 				// und mit dieser Zahl bestimme nun das neue Rezept und deren Label
 				var newRecipe = getData[randomNumber].recipe
 				//var newInstructions = instructionList[randomNumber]
