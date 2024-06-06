@@ -118,9 +118,9 @@
 		
 			// Bestimme die Größe der angegeben Liste
 			const sizeOfUsedList = usedListRecipes.length
-			console.log(sizeOfUsedList)
+
 			//Bestimme die Größe der Rezeptliste
-			const sizeOfRecipeList = getData.length //vllt funkt das ja?
+			const sizeOfRecipeList = Object.keys(getData).length //vllt funkt das ja?
 			console.log(sizeOfRecipeList)
 			//Für alle angegebenen Rezepten...
 			for(let i = 0; i < sizeOfUsedList; i++)
