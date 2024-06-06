@@ -148,7 +148,8 @@
 			PREFIX owl: <http://www.w3.org/2002/07/owl#>
 			PREFIX soma: <http://www.ease-crc.org/ont/SOMA.owl#>
 			SELECT ?recipeInstructions
-			WHERE { ${recipe} recipe:instructions ?recipeInstructions }
+			WHERE { ${recipe} recipe:instructions ?recipeInstructions. 
+			}
 			`;
 		  
 			const endPoint1 = 'https://api.krr.triply.cc/datasets/mkumpel/ProductKG/services/ProductKG/sparql'
@@ -191,13 +192,16 @@
 			clear_table()
 			
 			//Bestimme das ausgewählte Rezept
-			const chosenRecipe = usedListRecipes.options[usedListRecipes.selectedIndex].value
+			const chosenRecipe = "<".concat(usedListRecipes.options[usedListRecipes.selectedIndex].value,">")
 			
 			//Bestimme den Namen des ausgewählten Rezeptes
 			const nameOfRecipe = usedListRecipes.options[usedListRecipes.selectedIndex].text
 			
 			//Hole die Instruktion für das Rezept
 			const instructions = await getInstructions(chosenRecipe)
+			
+			//Zeige die Tabelle
+			table.style.display = "block";
 			
 			//Addiere das Rezept und seine Instruktion zu der Tabelle
 			var newRow = table.insertRow(-1)
@@ -206,8 +210,7 @@
 			recipe.innerHTML = nameOfRecipe
 			recipeInstructions.innerHTML = instructions
 			
-			//Zeige die Tabelle
-			table.style.display = "block";
+			
 		}
 		
 		//Genommen aus Webinterface.hmtl 
