@@ -125,9 +125,10 @@
 			//Für alle angegebenen Rezepten...
 			for(let i = 0; i < sizeOfUsedList; i++)
 			{
-				//bestimme eine zufällige Zahl
+				//bestimme eine zufällige Zahl und runde sie runter auf eine natürliche Zahl
 				var randomNumber = Math.floor(Math.random() * sizeOfRecipeList)
-				
+				console.log(randomNumber)
+				console.log(getData[randomNumber])
 				// und mit dieser Zahl bestimme nun das neue Rezept und deren Label
 				var newRecipe = getData[randomNumber].recipe
 				//var newInstructions = instructionList[randomNumber]
