@@ -71,8 +71,8 @@
 			SELECT DISTINCT ?recipe ?recipeInstructions ?recipeLabel	
 			WHERE{
 				?recipe rdfs:subClassOf recipe:Recipe.
-				?recipe rdfs:subClassOf ?a
-				?a owl:onProperty soma:includes_task
+				?recipe rdfs:subClassOf ?a.
+				?a owl:onProperty soma:includes_task.
 				?recipe recipe:instructions ?recipeInstructions.
 				?recipe rdfs:label ?recipeLabel.
 				}
@@ -119,7 +119,7 @@
 			const labelList = getData[2]
 			
 			// Bestimme die Größe der angegeben Liste
-			const sizeOfUsedList = usedListRecipe.size()
+			const sizeOfUsedList = usedListRecipes.size()
 			//Bestimme die Größe der Rezeptliste
 			const sizeOfRecipeList = recipeList.size()
 			
