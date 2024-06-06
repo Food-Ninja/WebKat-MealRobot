@@ -88,18 +88,19 @@
                 }
 			
 			 try {
+					//Dies gibt ein Objekt aus, woraus man per Array-Zugriff ein Triple aus Rezept,Rezeptinstruktion und Label bekommt.
                     const response = await fetch(endPoint2, requestOptions)
                     const data = await response.json()
-					const test = data[0]
-					console.log(test)
-                    const testArray = []
-					testArray.push(test.recipe)
-					console.log(testArray[0])
-					testArray.push(test.recipeInstructions)
-					console.log(testArray[1])
-					testArray.push(test.recipeLabel)	
-					console.log(testArray[2])
-					return testArray
+					<!-- const test = data[0] -->
+					<!-- console.log(test) -->
+                    <!-- const testArray = [] -->
+					<!-- testArray.push(test.recipe) -->
+					<!-- console.log(testArray[0]) -->
+					<!-- testArray.push(test.recipeInstructions) -->
+					<!-- console.log(testArray[1]) -->
+					<!-- testArray.push(test.recipeLabel)	 -->
+					<!-- console.log(testArray[2]) -->
+					return data
 					
                 } catch (error) {
                     console.error('Error:', error)
@@ -113,17 +114,12 @@
 			// Hole die Liste von angegebenen Rezepten hervor
 			const usedListRecipes = document.getElementById("recipe-list")
 			// Hole die relevante Rezeptliste aus dem Netz
-			const getData = filterRecipe()
-			
-			// Bestimme die Liste der Rezepte und deren Label heraus
-			const recipeList = getData[0]
-			//const instructionList = getData[0].recipeInstructions
-			const labelList = getData[2]
-			
+			const getData = filterRecipe() //Array mit Triple, zugriff per .recipe, .recipeInstructions, .recipeLabel
+		
 			// Bestimme die Größe der angegeben Liste
 			const sizeOfUsedList = usedListRecipes.size
 			//Bestimme die Größe der Rezeptliste
-			const sizeOfRecipeList = recipeList.size
+			const sizeOfRecipeList = getData.size //vllt funkt das ja?
 			
 			//Für alle angegebenen Rezepten...
 			for(let i = 0; i < sizeOfUsedList; i++)
@@ -132,9 +128,9 @@
 				var randomNumber = Math.floor(Math.random() * sizeOfRecipeList)
 				
 				// und mit dieser Zahl bestimme nun das neue Rezept und deren Label
-				var newRecipe = recipeList[randomNumber]
+				var newRecipe = getData[randomNumber].recipe
 				//var newInstructions = instructionList[randomNumber]
-				var newLabel = labelList[randomNumber]
+				var newLabel = getData[randomNumber].recipeLabel
 				
 				// sodass diese dann schließlich eingefügt werden kann in die genutzte Liste
 				document.getElementById("recipe-list").options[i].value = newRecipe
