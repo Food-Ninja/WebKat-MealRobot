@@ -91,10 +91,14 @@
                     const response = await fetch(endPoint2, requestOptions)
                     const data = await response.json()
 					const test = data[0]
+					console.log(test)
                     const testArray = []
 					testArray.push(test.recipe)
+					console.log(testArray[0])
 					testArray.push(test.recipeInstructions)
+					console.log(testArray[1])
 					testArray.push(test.recipeLabel)	
+					console.log(testArray[2])
 					return testArray
 					
                 } catch (error) {
