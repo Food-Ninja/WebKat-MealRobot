@@ -169,7 +169,6 @@
                     const response = await fetch(endPoint2, requestOptions)
                     const data = await response.json()
 					const instructions = data[0].recipeInstructions 
-					console.log(instructions)
 					return instructions
 					
                 } catch (error) {
@@ -212,7 +211,7 @@
 			var recipe = newRow.insertCell(0)
 			var recipeListOfInstructions = newRow.insertCell(1)
 			recipe.innerHTML = nameOfRecipe
-			recipeListOfInstructions.innerHTML = instructions.recipeInstructions
+			recipeListOfInstructions.innerHTML = instructions
 			
 			//Zeige die Tabelle
 			container.style.display = "block";
