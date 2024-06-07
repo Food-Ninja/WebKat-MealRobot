@@ -169,6 +169,7 @@
                     const response = await fetch(endPoint2, requestOptions)
                     const data = await response.json()
 					const instructions = data[0].recipeInstructions 
+					console.log(instructions)
 					return instructions
 					
                 } catch (error) {
