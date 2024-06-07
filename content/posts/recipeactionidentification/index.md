@@ -12,10 +12,9 @@ resources:
   src: "buttons.json"
 ---
 
-(Hier die HTML von der Recipe Query für die Rezeptschritte einfügen)
-
 {{<recipe_showcase>}}
 
+<!--more-->
 
 ## Recipe Acquisition
 It is one thing to be able to construct a plan to cut a apple but it's another to be able to string these individual plans together to be able to to make a meal. For such tasks humans have made recipes to denote specific steps of instructions to produce a standardised meal. These recipes can be used by robots as well to produce meals out of the individual task executions that we outlined earlier. 
