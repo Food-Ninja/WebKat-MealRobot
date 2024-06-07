@@ -188,6 +188,12 @@
 			//Hole die Tabelle hervor
 			var table = document.getElementById("recipeTable")
 		
+			//Hole den Header von der Tabelle 
+			var header = document.getElementById("header")
+			
+			//Hole den Container 
+			var container = document.getElementById("results")
+			
 			//Entferne den letzten Eintrag falls vorhanden
 			clear_table()
 			
@@ -208,7 +214,7 @@
 			recipeListOfInstructions.innerHTML = instructions.recipeInstructions
 			
 			//Zeige die Tabelle
-			table.style.display = "block";
+			container.style.display = "block";
 			
 			//Gebe die Information des Inhalt der Tabelle an
 			header.textContent = "These are the instructions for your selected recipe!"
