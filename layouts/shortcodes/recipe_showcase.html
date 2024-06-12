@@ -310,14 +310,14 @@
 			}
 			
 			// Schließlich die Formatierung der Resultate
-			var formatedResult = ["Innerhalb der Instruktionschritten befanden sich folgende relevante Verben: \n "]
+			var formatedResult = ["Innerhalb der Instruktionschritten befanden sich folgende relevante Verben: <br> "]
 			console.log(result)
 			//Für alle interestante Verben in den Instruktionsschritten...
 			for (k = 0; k < result.length; k++)
 			{			
 			//...füge diese als Zeile mitsamt Zeilenumbruch in die neue Array ein
-			formatedResult = formatedResult + result[k] + " \n "
-			console.log(formatedResult)
+			formatedResult = formatedResult + result[k] + "<br> "
+
 			}
 			
 			//Gebe nun schließlich den String aus 
