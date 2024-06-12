@@ -205,14 +205,34 @@
 			
 			//Hole die Instruktion für das Rezept
 			const instructions = await getInstructions(chosenRecipe)
+			
+			//Bestimme die in den Instruktionen stehenen Verben
+			const verbInInstructions = findImportantVerbs(instructions)
 				
 			//Addiere das Rezept und seine Instruktion zu der Tabelle
-			var newRow = table.insertRow(-1)
-			var recipe = newRow.insertCell(0)
-			var recipeListOfInstructions = newRow.insertCell(1)
+			// Addiere eine neue untere Zeile ein
+			var recipeRow = table.insertRow(-1)
+			// Weise die linke Zelle dem Rezept zu
+			var recipe = recipeRow.insertCell(0)
+			// Weise die rechte Zelle den Instruktionen zu
+			var recipeListOfInstructions = recipeRow.insertCell(1)
+			// Füge den Namen des Rezepts in die Zelle für das Rezept ein
 			recipe.innerHTML = nameOfRecipe
+			// Füge die Instruktionen des Rezeptes in die Zeile für die Instruktionen ein
 			recipeListOfInstructions.innerHTML = instructions
 			
+			//Addiere die interesanten Verben als nächte Zeile in die Tabelle
+			// Addiere eine zweite Zeile unter der Rezeptzeile
+			var verbRow = table.insertRow(-1)
+			// Weise die linke Zelle der neuen Zeile einer Variabel zu, welche später "Verben" enthält
+			var annotation = verbRow.insertCell(0)
+			// Weise die rechte Zeile der neuen Zeile einer Variabel zu, welche die formatierten relevanten Verben in den Instruktionen zeigen wird
+			var shownVerbInInstructions = verbRow.insertCell(1)
+			// Füge die Annotation "Verben" ein 
+			annotation.innerHTML = "Verben"
+			//Füge die relevanten Verben ein
+			shownVerbInInstructions.innerHTML = verbInInstructions 
+					
 			//Zeige die Tabelle
 			container.style.display = "block";
 			
@@ -220,7 +240,7 @@
 			header.textContent = "These are the instructions for your selected recipe!"
 		}
 		
-		//Genommen aus Webinterface.hmtl 
+		//Genommen aus Webinterface.hmtl der Webseite 
 		function clear_table() {
             	var table = document.getElementById("recipeTable");
             	var rowCount = table.rows.length;
@@ -229,6 +249,78 @@
                 }
             }
 			
+		//Verbidentifizierungsmethode, welche die Instruktionen auf die für diese Arbeit relevanten Verben herausbestimmt und diese für die Tabelle formatiert ausgibt
+		function findImportantVerbs(text){
+			
+			//Bilde lowercase-text aus dem Parameter
+			const lowercaseText = text.toLowerCase()
+			
+			// Bilde 2D-Array aus den für die Arbeit relevanten Verben in lowercase
+			const interstingVerbs = [
+				["cut","cutting"],						//cut
+				["carve","carved","carving"],			//carve
+				["slash","slashed","slashing"],			//slash
+				["slice","sliced","slicing"],			//slice
+				["dice","diced","dicing"],				//dice
+				["hash","hashed","hashing"],			//hash
+				["mince","minced","mincing"],			//mince 
+				["quarter","quatered","quatering"],		//quarter
+				["saw","sawed","sawing"],				//saw	
+				["slit","slitting"],					//slit
+				["sliver","slivered","slivering"],		//sliver
+				["snip","snipped","snipping"],			//snip
+				["halve","halved","halving"],			//halve
+				["cube","cubed","cubing"],				//cube
+				["sever","severed","severing"],			//sever
+				["crosscut","crosscutting"],			//crosscut
+				["incise","incising"],					//incise
+				["jag","jag","jagging"],				//jag
+				["julienne","julienned","julienning"], 	//julienne
+				["trench","trenched","trenching"],		//trench
+				["trisect","trisected","trisecting"],	//trisect
+				["chop","choped","chopping"],			//chop
+				["fillet","filleted","filleting"],		//fillet
+				["pare","pared","paring"],				//pare
+				["pour","poured","pouring"],			//pour
+				["cascase","cascaded","cascading"],		//cascade
+				["flow","flowed","flowing"],			//flow
+				["drain","drained","draining"],			//drain
+			    ["sprinkle","sprinkled","sprinkling"],	//sprinke
+				["splash","splashed","splashing"],		//splash
+				["spill","spilled","spilling"],			//spill
+				["stream","streamed","streaming"],		//stream
+				]
+			
+			//Result-Array, welcher später formatiert wird.
+			var result = []
+			
+			// Für alle relevanten Verbengruppen...
+			for (let i = 0; i < interestingVerb.length; i++)
+			{
+				//für alle existierenden Zeitformen...
+				for (let j = 0; j < interestingVerb[i].length; j++)
+				{
+					//Falls der Verb in dem Lowercase-Text ist...
+					if (lowercaseText.includes(interestingVerb[i][j]) == true)
+					{
+						//dann füge ihn als Element in das Resultatsarray ein.
+						result.push(interestingVerb[i][j])
+					}
+				}
+			}
+			
+			// Schließlich die Formatierung der Resultate
+			var formatedResult = "Innerhalb der Instruktionschritten befanden sich folgende relevante Verben: \n "
+			
+			//Für alle interestante Verben in den Instruktionsschritten...
+			for(k = 0; k < result.length; k++){
+			//...füge diese als Zeile mitsamt Zeilenumbruch in die neue Array ein
+			formatedResult.concat(result[k]," \n ")
+			}
+			
+			//Gebe nun schließlich den String aus 
+			return formatedResult
+		}
 		// Nun ist die FilterFunktion fertig, somit braucht es eine Methode für den Button
 		
 		
