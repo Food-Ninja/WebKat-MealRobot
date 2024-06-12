@@ -253,6 +253,7 @@
 		function findImportantVerbs(text){
 			
 			//Bilde lowercase-text aus dem Parameter
+			const lowercaseText = text.toLowerCase()
 			console.log(lowercaseText)
 			// Bilde 2D-Array aus den für die Arbeit relevanten Verben in lowercase
 			const interestingVerbs = [
@@ -308,7 +309,6 @@
 				}
 			}
 			console.log(result)
-			
 			// Schließlich die Formatierung der Resultate
 			var formatedResult = "Innerhalb der Instruktionschritten befanden sich folgende relevante Verben: \n "
 			
