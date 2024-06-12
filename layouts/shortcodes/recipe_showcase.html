@@ -308,7 +308,7 @@
 					}
 				}
 			}
-			console.log(result)
+			
 			// Schließlich die Formatierung der Resultate
 			var formatedResult = "Innerhalb der Instruktionschritten befanden sich folgende relevante Verben: \n "
 			
@@ -316,6 +316,7 @@
 			for(k = 0; k < result.length; k++){
 			//...füge diese als Zeile mitsamt Zeilenumbruch in die neue Array ein
 			formatedResult.concat(result[k]," \n ")
+			console.log(formatedResult)
 			}
 			
 			//Gebe nun schließlich den String aus 
