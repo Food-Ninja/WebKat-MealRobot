@@ -256,7 +256,7 @@
 			const lowercaseText = text.toLowerCase()
 			
 			// Bilde 2D-Array aus den für die Arbeit relevanten Verben in lowercase
-			const interstingVerbs = [
+			const interestingVerbs = [
 				["cut","cutting"],						//cut
 				["carve","carved","carving"],			//carve
 				["slash","slashed","slashing"],			//slash
@@ -295,16 +295,16 @@
 			var result = []
 			
 			// Für alle relevanten Verbengruppen...
-			for (let i = 0; i < interestingVerb.length; i++)
+			for (let i = 0; i < interestingVerbs.length; i++)
 			{
 				//für alle existierenden Zeitformen...
-				for (let j = 0; j < interestingVerb[i].length; j++)
+				for (let j = 0; j < interestingVerbs[i].length; j++)
 				{
 					//Falls der Verb in dem Lowercase-Text ist...
-					if (lowercaseText.includes(interestingVerb[i][j]) == true)
+					if (lowercaseText.includes(interestingVerbs[i][j]) == true)
 					{
 						//dann füge ihn als Element in das Resultatsarray ein.
-						result.push(interestingVerb[i][j])
+						result.push(interestingVerbs[i][j])
 					}
 				}
 			}
