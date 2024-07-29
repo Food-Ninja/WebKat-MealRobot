@@ -36,4 +36,4 @@ In order to identify recipes that include verbs in the instructions that are ass
 
 [^1]: Daniel Schmidt. Standardisierung eines im Internet gescrapten Rezeptdatensatzes in
 eine Ontologie. Bachelorarbeit, October 2023. Universität Bremen.
-[^2]: Jan-Philipp Töberg. Wikihow Instruction Analysis for Robot Manipulation. GitHub-Projekt, August 2022. <a href="https://github.com/Food-Ninja/WikiHow-Instruction-Extraction">
+[^2]: Jan-Philipp Töberg. Wikihow Instruction Analysis for Robot Manipulation. GitHub-Projekt, August 2022. https://github.com/Food-Ninja/WikiHow-Instruction-Extraction
