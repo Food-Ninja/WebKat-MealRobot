@@ -412,7 +412,7 @@
                     result = await pouring_params(items[0]);
                 }
 
-                return result ? result[0] : null;
+                return result ? result[1] : null;
             } catch (error) {
                 console.error('Error fetching more info:', error);
             } finally {
@@ -477,13 +477,14 @@
                 }
                 }
             `;
+            console.log(sparqlQuery);
             try {
                 // Execute the query using the query_text_meals_owl function
                 const results = await query_text_meals_owl(sparqlQuery);
-                results[0].rep = results[0].rep.split('=')[1];
+                results[1].rep = results[1].rep.split('=')[1];
                 // results[0].object = results[0].object.split('#')[1];
                 // results[0].object2 = results[0].object2.split('#')[1];
-                results[0].position = results[0].position.split('#')[1];
+                results[1].position = results[1].position.split('#')[1];
                 return results;
 
             } catch (error) {
@@ -495,7 +496,7 @@
             const sparqlQuery = ` 
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
-            PREFIX dul : <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
+            PREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
             SELECT ?whattool WHERE {
                 ${iri} rdfs:subClassOf ?n.
                 ?n owl:onProperty dul:hasParticipant.
@@ -553,9 +554,9 @@
         // Function to query the meals ontology for text-based meals
         async function query_text_meals_owl(query) {
             // Define the SPARQL endpoint URL
-            const endpointUrl = 'https://knowledgedb.informatik.uni-bremen.de/mealprepDB/#/dataset/MealPreparation/sparql';
+            const endpointUrl = ' https://knowledgedb.informatik.uni-bremen.de/mealprepDB/MealPreparation/query';
 
-            // Define the request options
+            // 2) Define the request options
             const requestOptions = {
                 method: 'POST',
                 headers: {
@@ -577,7 +578,16 @@
                 const data = await response.json();
 
                 // Extract and return relevant results
-                return data;
+                return data.results.bindings.map(binding => {
+                    const result = {};
+                    for (const key in binding) {
+                        if (binding[key].value) {
+                            result[key] = binding[key].value;
+                        }
+                    }
+                    return result;
+                });
+
             } catch (error) {
                 console.error('Error executing SPARQL query:', error);
                 throw error;
