@@ -336,7 +336,7 @@
             const thead = document.createElement('thead');
             const headerRow = document.createElement('tr');
 
-            const headers = ["#", "Task Name", "Repetitions", "Affords_Position", "Objects", "Objects2"];
+            const headers =  ["#", "Task Name", "Priortask", "Repetitions", "Affords_Position", "Objects", "Objects2", "Tool"];
             headers.forEach(text => {
                 const th = document.createElement('th');
                 th.textContent = text;
@@ -357,10 +357,12 @@
                 const cells = [
                     index + 1,
                     name,
+                    more_info?.priortask || 'N/A',
                     more_info?.rep || 'N/A',
                     more_info?.position || 'N/A',
                     more_info?.object || 'N/A',
                     more_info?.object2 || 'N/A',
+                    more_info?.tool || 'N/A'
                 ];
 
                 cells.forEach(cellData => {
@@ -405,9 +407,9 @@
                 if (items[1] == cuttingIRI || items[2] == cuttingIRI) {
                     result = await cutting_params(items[0]);
                 }
-                // else if (items[1] == mixingIRI || items[2] == mixingIRI) {
-                //     result = await pouring_params(items[0]);
-                // }
+                else if (items[1] == mixingIRI || items[2] == mixingIRI) {
+                    result = await pouring_params(items[0]);
+                }
 
                 return result ? result[1] : null;
             } catch (error) {
@@ -422,14 +424,21 @@
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
             PREFIX meals: <http://www.ease-crc.org/ont/meals#>
             PREFIX cut: <http://www.ease-crc.org/ont/food_cutting#>
-            SELECT ?rep ?position ?object ?object2 WHERE {  
-                
+
+            SELECT ?priortask ?rep ?position ?object ?object2 WHERE {  
+                # Prior Task
+                OPTIONAL {
+                    "${iri}" rdfs:subClassOf ?sub.
+                    ?sub owl:onProperty meals:requiresPriorTask .
+                    ?sub owl:someValuesFrom ?priortask.
+                }
+
                 # Repetitions
                 OPTIONAL {
                     {
                     OPTIONAL { "${iri}" rdfs:subClassOf ?action }
                     ?action rdfs:subClassOf* ?rep_node.
-                    ?rep_node owl:onProperty cut:repetitions.
+                    ?rep_node owl:onProperty meals:repetitions.
                     FILTER EXISTS { ?rep_node owl:hasValue ?val. }
                     BIND("= 1" AS ?rep)
                     }
@@ -437,7 +446,7 @@
                     {
                     OPTIONAL { "${iri}" rdfs:subClassOf ?action }
                     ?action rdfs:subClassOf* ?rep_node.
-                    ?rep_node owl:onProperty cut:repetitions.
+                    ?rep_node owl:onProperty meals:repetitions.
                     FILTER EXISTS { ?rep_node owl:minQualifiedCardinality ?val. }
                     BIND("more than 1" AS ?rep)
                     }
@@ -447,7 +456,7 @@
                 OPTIONAL {
                     OPTIONAL { "${iri}" rdfs:subClassOf ?sub. }
                     ?sub rdfs:subClassOf* ?node.
-                    ?node owl:onProperty cut:affordsPosition.
+                    ?node owl:onProperty meals:affordsPosition.
                     ?node owl:someValuesFrom ?position.
                 }
 
@@ -456,7 +465,7 @@
                     OPTIONAL { "${iri}" rdfs:subClassOf ?a. }
                     ?a owl:intersectionOf ?obj.
                     ?obj rdf:first*/rdf:rest* ?in.
-                    ?in owl:onProperty cut:hasInputObject .
+                    ?in owl:onProperty meals:hasInputObject .
                     ?in owl:someValuesFrom ?object.
                     
                     OPTIONAL {
@@ -487,8 +496,10 @@
             PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
             PREFIX owl: <http://www.w3.org/2002/07/owl#>
             PREFIX dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#>
+            PREFIX meals: <http://www.ease-crc.org/ont/meals#>
+
             SELECT ?whattool WHERE {
-                ${iri} rdfs:subClassOf ?n.
+                "${iri}" rdfs:subClassOf ?n.
                 ?n owl:onProperty dul:hasParticipant.
                 ?n owl:someValuesFrom ?whattool.
                 } 
