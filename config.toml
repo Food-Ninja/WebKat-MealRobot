@@ -5,7 +5,7 @@ theme = "beautifulhugo"
 pygmentsStyle = "trac"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
-paginate = 20
+pagination.pagerSize = 20
 pygmentsCodefencesGuessSyntax = true
 
 [markup.goldmark.renderer]
@@ -27,6 +27,13 @@ pygmentsCodefencesGuessSyntax = true
   socialShare = false
   delayDisqus = true
   showRelatedPosts = true
+  Author = "kasim1"
+  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
+  website = "https://ai.uni-bremen.de/"
+  email = "ai-office@cs.uni-bremen.de "
+  github = "Food-Ninja/WebKat-MealRobot"
+  youtube = "agkiunibremen"
+  disqusShortname = "your-disqus-shortname"
 #  hideAuthor = true
 #  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 #  disclaimerText = "The opinions expressed herein are my own personal opinions and do not represent my employer’s view in any way."
@@ -38,15 +45,6 @@ pygmentsCodefencesGuessSyntax = true
 [[Params.bigimg]]
  src = "img/cut.png"
  
-
-
-
-[Author]
-  # Set only your "username" for default hosts and full URLs otherwise (e.g., "https://MyGitLab.org/username")
-  website = "https://ai.uni-bremen.de/"
-  email = "ai-office@cs.uni-bremen.de "
-  github = "Food-Ninja/WebKat-MealRobot"
-  youtube = "agkiunibremen"
 
 [[menu.main]]
     name = "Contact"
@@ -77,3 +75,8 @@ pygmentsCodefencesGuessSyntax = true
     name = "Calls"
     url = "posts/calls/"
     weight = 19
+
+[[menu.main]]
+    name = "Recipe To Action"
+    url = "posts/OrderedActions/"
+    weight = 10
